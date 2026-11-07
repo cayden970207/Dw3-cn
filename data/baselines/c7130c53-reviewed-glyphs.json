@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "source_file_id": 647,
+  "source_glyph_array_sha256": "d3fc6b6bb9cb6d0750e2375984b90df949f7102ad7cb632491c80ded0e23efe5",
+  "review": {
+    "reviewer": "user",
+    "date": "2026-11-07",
+    "method": "User confirmed five isolated glyphs in one local preview and four card-album glyphs in a second preview, in their presented order.",
+    "scope": "Visual glyph identity only; no runtime rendering, full character map, or translation approval."
+  },
+  "glyphs": [
+    {"unicode": "亚", "glyph_index": 81, "canonical_code_hex": "f055"},
+    {"unicode": "古", "glyph_index": 121, "canonical_code_hex": "f07d"},
+    {"unicode": "兽", "glyph_index": 1, "canonical_code_hex": "f005"},
+    {"unicode": "数", "glyph_index": 26, "canonical_code_hex": "f01e"},
+    {"unicode": "码", "glyph_index": 28, "canonical_code_hex": "f020"},
+    {"unicode": "卡", "glyph_index": 48, "canonical_code_hex": "f034"},
+    {"unicode": "片", "glyph_index": 71, "canonical_code_hex": "f04b"},
+    {"unicode": "图", "glyph_index": 1082, "canonical_code_hex": "f44e"},
+    {"unicode": "鉴", "glyph_index": 1913, "canonical_code_hex": "f799"}
+  ],
+  "mapping_complete": false,
+  "runtime_verified": false,
+  "contains_original_text_or_bitmap": false
+}

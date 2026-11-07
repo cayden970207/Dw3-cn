@@ -19,7 +19,11 @@ from pathlib import Path
 import re
 import sys
 
-CODE_LENGTHS = (2, 2, 3, 2, 5, 3, 3, 2, 3, 2)
+try:
+    from tools.text_codec import CN_C713, REFERENCE, CodecError, tokenize, variant_for_image
+except ModuleNotFoundError:
+    from text_codec import CN_C713, REFERENCE, CodecError, tokenize, variant_for_image
+
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 HEX = re.compile(r"(?:[0-9a-f]{2})+\Z")
 MAX_REVIEWED_ENTRIES = 128
@@ -62,50 +66,45 @@ def glyph_profile(profile: dict, source_sha: str) -> dict[str, bytes]:
     for i, code in enumerate(all_codes):
         if any(other.startswith(code) for other in all_codes[i + 1:]):
             raise PreparationError("Glyph byte sequences overlap by prefix; ambiguous decoder")
+    if variant_for_image(source_sha) == CN_C713:
+        used_indices = set()
+        for code in all_codes:
+            try:
+                parts = tokenize(code + b"\x00", variant=CN_C713)
+            except CodecError as exc:
+                raise PreparationError(f"Invalid Chinese glyph boundary: {exc}") from exc
+            if len(parts) != 2 or parts[0].kind not in ("cn_glyph", "base_glyph", "extended_glyph"):
+                raise PreparationError("Glyph code does not represent one supported glyph")
+            if parts[0].kind == "cn_glyph":
+                if parts[0].glyph_index in used_indices:
+                    raise PreparationError("Two glyph codes address the same Chinese glyph")
+                used_indices.add(parts[0].glyph_index)
     return codes
 
 
-def text_regions(source: bytes, glyph_codes: dict[str, bytes]) -> tuple[list[bytes], list[bytes]]:
+def text_regions(source: bytes, glyph_codes: dict[str, bytes], *, variant: str = REFERENCE) -> tuple[list[bytes], list[bytes]]:
     """Split original entry into glyph runs and preserved binary control tags.
 
     The returned lists obey len(regions) = len(controls) + 1. We use explicit
-    glyph codes to avoid splitting a custom multi-byte Chinese glyph across a
-    control-like byte. Unknown single bytes remain in their original region.
+    image-bound codec to avoid splitting custom glyphs across a control-like
+    byte. Unknown glyphs remain in their original region.
     """
     if not isinstance(source, bytes) or len(source) < 2 or source[-1] != 0 or 0 in source[:-1]:
         raise PreparationError("Source text must have exactly one terminating NUL")
-    values = sorted(glyph_codes.values(), key=len, reverse=True)
     controls: list[bytes] = []
     regions: list[bytes] = []
     run = bytearray()
-    i = 0
-    while i < len(source) - 1:
-        b = source[i]
-        # Existing mapped glyphs take precedence, except reserved 0x02.
-        match = next((c for c in values if source.startswith(c, i)), None)
-        if match is not None:
-            run.extend(match)
-            i += len(match)
-            continue
-        if b == 2:
-            if i + 1 >= len(source) - 1 or source[i + 1] >= len(CODE_LENGTHS):
-                raise PreparationError("Invalid source control code")
-            n = CODE_LENGTHS[source[i + 1]]
-            if i + n > len(source) - 1:
-                raise PreparationError("Truncated source control arguments")
+    try:
+        tokens = tokenize(source, variant=variant)
+    except CodecError as exc:
+        raise PreparationError(str(exc)) from exc
+    for token in tokens:
+        if token.kind == "control":
             regions.append(bytes(run))
             run.clear()
-            controls.append(source[i:i + n])
-            i += n
-            continue
-        if b in (1, 3):
-            if i + 1 >= len(source) - 1:
-                raise PreparationError("Truncated original extended glyph")
-            run.extend(source[i:i + 2])
-            i += 2
-            continue
-        run.append(b)
-        i += 1
+            controls.append(token.raw)
+        elif token.kind != "terminator":
+            run.extend(token.raw)
     regions.append(bytes(run))
     if len(regions) != len(controls) + 1:
         raise PreparationError("Incorrect region boundaries")
@@ -125,8 +124,8 @@ def encode_segment(text: str, glyph_codes: dict[str, bytes]) -> bytes:
         raise PreparationError(f"Glyph not in verified mapping: {exc.args[0]!r}") from exc
 
 
-def prepared_bytes(original: bytes, segments: list, glyph_codes: dict[str, bytes]) -> bytes:
-    regions, controls = text_regions(original, glyph_codes)
+def prepared_bytes(original: bytes, segments: list, glyph_codes: dict[str, bytes], *, variant: str = REFERENCE) -> bytes:
+    regions, controls = text_regions(original, glyph_codes, variant=variant)
     if not isinstance(segments, list) or len(segments) != len(regions):
         raise PreparationError(f"Text has {len(regions)} segments separated by control codes; supply exactly that many")
     out = bytearray()
@@ -139,7 +138,7 @@ def prepared_bytes(original: bytes, segments: list, glyph_codes: dict[str, bytes
         raise PreparationError("Replacement is longer than the original encoded byte capacity")
     if out == original:
         raise PreparationError("Replacement is identical to original")
-    new_regions, new_controls = text_regions(bytes(out), glyph_codes)
+    new_regions, new_controls = text_regions(bytes(out), glyph_codes, variant=variant)
     if new_controls != controls:
         raise PreparationError("Replacement changed or removed source control codes")
     return bytes(out)
@@ -194,7 +193,7 @@ def prepare(scan: dict, profile: dict, review: dict) -> dict:
             raise PreparationError("Scanner raw text hash/length mismatch")
         if entry.get("original_sha256") != old_sha:
             raise PreparationError("Translation source is stale")
-        changed = prepared_bytes(old, entry.get("segments"), codes)
+        changed = prepared_bytes(old, entry.get("segments"), codes, variant=variant_for_image(image_sha))
         manifest["changes"].append({
             "file_id": fid, "table": sub, "index": idx,
             "original_sha256": old_sha, "replacement_hex": changed.hex()

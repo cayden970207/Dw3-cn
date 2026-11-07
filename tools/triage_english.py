@@ -19,9 +19,11 @@ from pathlib import Path
 import re
 import sys
 
-# Total control-byte length including the 02 prefix and code.
-# DW2003 base game message_code_lengths, with invalid 1 clamped to 2.
-CTRL_LEN = (2, 2, 3, 2, 5, 3, 3, 2, 3, 2)
+try:
+    from tools.text_codec import REFERENCE, CodecError, tokenize, variant_for_image
+except ModuleNotFoundError:
+    from text_codec import REFERENCE, CodecError, tokenize, variant_for_image
+
 HEX_SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 
 
@@ -29,7 +31,7 @@ class TriageError(ValueError):
     pass
 
 
-def roman_runs(raw: bytes, min_letters=7) -> list[str]:
+def roman_runs(raw: bytes, min_letters=7, *, variant=REFERENCE) -> list[str]:
     """Extract *candidates*, ignoring encoded controls and extended glyphs.
 
     It intentionally stops at unexpected bytes, so unknown Chinese encodings
@@ -48,39 +50,27 @@ def roman_runs(raw: bytes, min_letters=7) -> list[str]:
                 result.append(value)
             run.clear()
 
-    i = 0
-    while i < len(raw) - 1:
-        c = raw[i]
-        if c == 0:
-            raise TriageError("Unexpected interior NUL")
-        if c == 1:
-            if i + 1 >= len(raw) - 1:
-                raise TriageError("Truncated extended glyph")
-            if raw[i + 1] == 1 and run:
+    try:
+        tokens = tokenize(raw, variant=variant)
+    except CodecError as exc:
+        raise TriageError(str(exc)) from exc
+    for token in tokens:
+        if token.kind == "extended_glyph":
+            if token.glyph_index == 1 and run:
                 run.append(" ")
             else:
                 flush()
-            i += 2
-        elif c == 2:
-            if i + 1 >= len(raw) - 1 or raw[i + 1] >= len(CTRL_LEN):
-                raise TriageError("Unknown or truncated control code")
-            length = CTRL_LEN[raw[i + 1]]
-            if i + length > len(raw) - 1:
-                raise TriageError("Truncated control arguments")
-            flush()
-            i += length
-        elif 4 <= c <= 13:
+        elif token.kind == "base_glyph" and 4 <= token.glyph_index <= 13:
+            c = token.glyph_index
             run.append(chr(ord("0") + c - 4))
-            i += 1
-        elif 14 <= c <= 39:
+        elif token.kind == "base_glyph" and 14 <= token.glyph_index <= 39:
+            c = token.glyph_index
             run.append(chr(ord("A") + c - 14))
-            i += 1
-        elif 40 <= c <= 65:
+        elif token.kind == "base_glyph" and 40 <= token.glyph_index <= 65:
+            c = token.glyph_index
             run.append(chr(ord("a") + c - 40))
-            i += 1
         else:
             flush()
-            i += 1
     flush()
     return result
 
@@ -123,7 +113,7 @@ def triage(data: dict, min_letters=7, previews=False) -> dict:
             if row.get("raw_sha256") != hashlib.sha256(raw).hexdigest():
                 raise TriageError(f"Raw entry hash mismatch for entry {key}")
             try:
-                runs = roman_runs(raw, min_letters=min_letters)
+                runs = roman_runs(raw, min_letters=min_letters, variant=variant_for_image(image_hash))
             except TriageError as exc:
                 error_entries.append({"file_id": fid, "table": row.get("table"),
                                       "index": row["index"], "reason": str(exc)})
@@ -146,7 +136,7 @@ def triage(data: dict, min_letters=7, previews=False) -> dict:
     return {
         "schema_version": 1,
         "image_sha256": image_hash,
-        "heuristic": "vanilla-EU-roman-glyph-streak; not validated for Chinese font",
+        "heuristic": "EU-roman glyph streak with image-bound token boundaries; still requires human review",
         "min_letters": min_letters,
         "entries_scanned": total,
         "candidate_count": len(candidates),

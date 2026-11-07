@@ -1,0 +1,1061 @@
+{
+  "schema_version": 1,
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "status": "token_lossless_glyph_and_runtime_unresolved",
+  "scope": "Prior English-slot private index, validated against the current exact image",
+  "resource_count": 50,
+  "indexed_entries": 13084,
+  "token_lossless_entries": 13084,
+  "failed_entries": 0,
+  "empty_entries": 432,
+  "token_counts": {
+    "terminator": 13084,
+    "cn_glyph": 112621,
+    "control": 33629,
+    "base_glyph": 30420,
+    "extended_glyph": 12164,
+    "unknown_extended_glyph": 5,
+    "unknown_fallback": 1
+  },
+  "distinct_chinese_glyph_indices_observed": 1997,
+  "unicode_mapping": {
+    "reviewed_chinese_characters": 9,
+    "reviewed_chinese_glyph_tokens": 5176,
+    "unresolved_chinese_glyph_tokens": 107445,
+    "out_of_range_chinese_glyph_tokens": 0,
+    "out_of_range_extended_glyph_tokens": 5,
+    "fallback_tokens": 1,
+    "status": "partial_user_review_other_glyphs_unresolved",
+    "note": "Glyph indices and lossless bytes are not Unicode recognition. The extended-token bound uses the inspected font-1 table; the rendering context of every indexed entry is not established."
+  },
+  "file_reconstruction": {
+    "matching_resources": 50,
+    "total_resources": 50,
+    "method": "Copy each complete original file as a template, then replace indexed strings with their token bytes; preserve all other bytes.",
+    "independent_format_rebuild": false,
+    "entries_with_nonzero_slot_tail": 0,
+    "nonzero_slot_tail_bytes": 0
+  },
+  "actual_gameplay_verified": false,
+  "runtime_status": "not_tested_by_roundtrip_operation",
+  "limitations": [
+    "Other language and non-indexed game text are outside this roundtrip.",
+    "Unknown glyphs are retained verbatim; this does not prove their Unicode meanings.",
+    "This read-only roundtrip does not make or exercise a test copy."
+  ],
+  "files": [
+    {
+      "file_id": 3,
+      "entry_count": 47,
+      "counts": {
+        "terminator": 47,
+        "entries_passed": 47,
+        "empty_entries": 1,
+        "cn_glyph": 186,
+        "control": 2
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "e0db8512a80341b9f12199e793bddadaa614bd45c470ae702f2184678ed12ec2",
+      "reconstructed_file_sha256": "e0db8512a80341b9f12199e793bddadaa614bd45c470ae702f2184678ed12ec2",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 10,
+      "entry_count": 47,
+      "counts": {
+        "terminator": 47,
+        "entries_passed": 47,
+        "empty_entries": 1,
+        "cn_glyph": 186,
+        "control": 2
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "b4ff037b72eb547239c9e1e12f0463b296ff1cb01797a59b45b6d889d29152d7",
+      "reconstructed_file_sha256": "b4ff037b72eb547239c9e1e12f0463b296ff1cb01797a59b45b6d889d29152d7",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 17,
+      "entry_count": 71,
+      "counts": {
+        "terminator": 71,
+        "entries_passed": 71,
+        "empty_entries": 1,
+        "base_glyph": 1031,
+        "extended_glyph": 207,
+        "control": 11
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "7e1a519b75c8301f7ab6085f2f312a45639ab5aaa82fc993674d803c4266bbd1",
+      "reconstructed_file_sha256": "7e1a519b75c8301f7ab6085f2f312a45639ab5aaa82fc993674d803c4266bbd1",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 24,
+      "entry_count": 317,
+      "counts": {
+        "terminator": 317,
+        "entries_passed": 317,
+        "empty_entries": 1,
+        "base_glyph": 3086,
+        "extended_glyph": 75
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "abb2320cb89bcb7b889bdadc48112cbcfe1690cc5af5c9ee4500c571e8e5e25a",
+      "reconstructed_file_sha256": "abb2320cb89bcb7b889bdadc48112cbcfe1690cc5af5c9ee4500c571e8e5e25a",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 31,
+      "entry_count": 242,
+      "counts": {
+        "terminator": 242,
+        "entries_passed": 242,
+        "empty_entries": 1,
+        "base_glyph": 2290,
+        "extended_glyph": 534,
+        "control": 62
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "f527670ba0a36990ad903dd8646adfa33da0c9c0b53b3dfb29cc82222fa51081",
+      "reconstructed_file_sha256": "f527670ba0a36990ad903dd8646adfa33da0c9c0b53b3dfb29cc82222fa51081",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 38,
+      "entry_count": 9,
+      "counts": {
+        "terminator": 9,
+        "entries_passed": 9,
+        "empty_entries": 1,
+        "base_glyph": 28,
+        "extended_glyph": 6
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "31fae89a1956bd41b7d56b1eaf06dde58e2663a5b271ecb96797b8668e49b7e5",
+      "reconstructed_file_sha256": "31fae89a1956bd41b7d56b1eaf06dde58e2663a5b271ecb96797b8668e49b7e5",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 45,
+      "entry_count": 86,
+      "counts": {
+        "terminator": 86,
+        "entries_passed": 86,
+        "empty_entries": 1,
+        "base_glyph": 1313,
+        "extended_glyph": 143
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "ba29166466c22cbc3117b2b640e72ab6661f5dcb7a21492f1920355ba08e66b5",
+      "reconstructed_file_sha256": "ba29166466c22cbc3117b2b640e72ab6661f5dcb7a21492f1920355ba08e66b5",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 52,
+      "entry_count": 32,
+      "counts": {
+        "terminator": 32,
+        "entries_passed": 32,
+        "empty_entries": 1,
+        "base_glyph": 253,
+        "extended_glyph": 46,
+        "control": 2
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "dd0d21c4b1514232bff4e9bf6e44e720909c32a57ba906750b5cddfac0be969d",
+      "reconstructed_file_sha256": "dd0d21c4b1514232bff4e9bf6e44e720909c32a57ba906750b5cddfac0be969d",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 59,
+      "entry_count": 45,
+      "counts": {
+        "terminator": 45,
+        "entries_passed": 45,
+        "empty_entries": 1,
+        "cn_glyph": 163,
+        "extended_glyph": 19,
+        "base_glyph": 41,
+        "control": 2
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "8b6537b6ed61415ede4b64cd68e175df86807f96266eab5dba7f7a5dcf1af878",
+      "reconstructed_file_sha256": "8b6537b6ed61415ede4b64cd68e175df86807f96266eab5dba7f7a5dcf1af878",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 66,
+      "entry_count": 4,
+      "counts": {
+        "terminator": 4,
+        "entries_passed": 4,
+        "empty_entries": 1,
+        "cn_glyph": 14,
+        "extended_glyph": 4
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "21bace9d2df44085a723af288577cd4475af3c1ed632899dbca4b44629977173",
+      "reconstructed_file_sha256": "21bace9d2df44085a723af288577cd4475af3c1ed632899dbca4b44629977173",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 73,
+      "entry_count": 53,
+      "counts": {
+        "terminator": 53,
+        "entries_passed": 53,
+        "empty_entries": 1,
+        "cn_glyph": 565,
+        "extended_glyph": 6,
+        "base_glyph": 9
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "ce9fcd1ddcb7a5390f0854a03495c58d42c93c81e186ea60fbf401f9a31fd117",
+      "reconstructed_file_sha256": "ce9fcd1ddcb7a5390f0854a03495c58d42c93c81e186ea60fbf401f9a31fd117",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 80,
+      "entry_count": 251,
+      "counts": {
+        "terminator": 251,
+        "entries_passed": 251,
+        "empty_entries": 1,
+        "cn_glyph": 922,
+        "base_glyph": 4
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "3f036568e79ca8b4a5b78a33d55dde711ec295cb67ba3148163c3bc3427e1c0f",
+      "reconstructed_file_sha256": "3f036568e79ca8b4a5b78a33d55dde711ec295cb67ba3148163c3bc3427e1c0f",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 87,
+      "entry_count": 12,
+      "counts": {
+        "terminator": 12,
+        "entries_passed": 12,
+        "empty_entries": 1,
+        "base_glyph": 16,
+        "cn_glyph": 48,
+        "extended_glyph": 10,
+        "control": 25
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "ae933443534ecbf226ae4c2dffde59d5da52374da2530ad75928a08e878fdd1b",
+      "reconstructed_file_sha256": "ae933443534ecbf226ae4c2dffde59d5da52374da2530ad75928a08e878fdd1b",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 94,
+      "entry_count": 22,
+      "counts": {
+        "terminator": 22,
+        "entries_passed": 22,
+        "empty_entries": 1,
+        "cn_glyph": 76,
+        "base_glyph": 9,
+        "control": 2,
+        "extended_glyph": 2
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "c692f07e7bdc47fb4030e4b698f7c2b2413c88cafbc176e9869b9e0c66892b17",
+      "reconstructed_file_sha256": "c692f07e7bdc47fb4030e4b698f7c2b2413c88cafbc176e9869b9e0c66892b17",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 101,
+      "entry_count": 403,
+      "counts": {
+        "terminator": 403,
+        "entries_passed": 403,
+        "empty_entries": 1,
+        "cn_glyph": 3002,
+        "extended_glyph": 203,
+        "base_glyph": 165
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "5503f75b66ea717273672c694f8c11d076fa9b38022bdd8dc8d051956792e38b",
+      "reconstructed_file_sha256": "5503f75b66ea717273672c694f8c11d076fa9b38022bdd8dc8d051956792e38b",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 108,
+      "entry_count": 403,
+      "counts": {
+        "terminator": 403,
+        "entries_passed": 403,
+        "empty_entries": 1,
+        "cn_glyph": 1422,
+        "base_glyph": 239,
+        "extended_glyph": 57
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "7f75139cebc465cf2e58b1d43787d783a7c36404f7cc0f4221761ac4ceba865f",
+      "reconstructed_file_sha256": "7f75139cebc465cf2e58b1d43787d783a7c36404f7cc0f4221761ac4ceba865f",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 115,
+      "entry_count": 43,
+      "counts": {
+        "terminator": 43,
+        "entries_passed": 43,
+        "empty_entries": 1,
+        "cn_glyph": 96,
+        "extended_glyph": 15,
+        "control": 2,
+        "base_glyph": 18
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "25c49914c6cf8389a8932436e602400dcfcb47d60a1b2e0d3f8964be18152213",
+      "reconstructed_file_sha256": "25c49914c6cf8389a8932436e602400dcfcb47d60a1b2e0d3f8964be18152213",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 122,
+      "entry_count": 41,
+      "counts": {
+        "terminator": 41,
+        "entries_passed": 41,
+        "empty_entries": 1,
+        "cn_glyph": 248,
+        "control": 14,
+        "base_glyph": 15,
+        "extended_glyph": 61
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "0a82d4be6f64436e9035985233a32e9da5827a9a0fe0981a455f7fc01ea77944",
+      "reconstructed_file_sha256": "0a82d4be6f64436e9035985233a32e9da5827a9a0fe0981a455f7fc01ea77944",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 129,
+      "entry_count": 145,
+      "counts": {
+        "terminator": 145,
+        "entries_passed": 145,
+        "empty_entries": 1,
+        "cn_glyph": 503,
+        "control": 17,
+        "base_glyph": 45,
+        "extended_glyph": 42
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "3f45a5ab6a53bb54ae8a81a4e1f4ed7a4d7cb1c7f4a1d788f74f9968dc06f4a7",
+      "reconstructed_file_sha256": "3f45a5ab6a53bb54ae8a81a4e1f4ed7a4d7cb1c7f4a1d788f74f9968dc06f4a7",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 136,
+      "entry_count": 19,
+      "counts": {
+        "terminator": 19,
+        "entries_passed": 19,
+        "empty_entries": 1,
+        "cn_glyph": 14,
+        "base_glyph": 242,
+        "control": 40,
+        "extended_glyph": 3
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "7ee9a399c282801441550d60db29d2d36ed4732e80633b321635ca5ad7057e54",
+      "reconstructed_file_sha256": "7ee9a399c282801441550d60db29d2d36ed4732e80633b321635ca5ad7057e54",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 143,
+      "entry_count": 31,
+      "counts": {
+        "terminator": 31,
+        "entries_passed": 31,
+        "empty_entries": 1,
+        "cn_glyph": 260,
+        "control": 31,
+        "extended_glyph": 2,
+        "base_glyph": 8
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "70ebde553380bf5df35be96def7ab1934c39fe885d6aa1ec480216d5a875147e",
+      "reconstructed_file_sha256": "70ebde553380bf5df35be96def7ab1934c39fe885d6aa1ec480216d5a875147e",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 150,
+      "entry_count": 68,
+      "counts": {
+        "terminator": 68,
+        "entries_passed": 68,
+        "empty_entries": 1,
+        "cn_glyph": 345
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "492c631d2901c583c6f1af10fea2f342d666b9ca8cd63206a67d45198343decd",
+      "reconstructed_file_sha256": "492c631d2901c583c6f1af10fea2f342d666b9ca8cd63206a67d45198343decd",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 157,
+      "entry_count": 220,
+      "counts": {
+        "terminator": 220,
+        "entries_passed": 220,
+        "empty_entries": 1,
+        "base_glyph": 79,
+        "cn_glyph": 1445
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "956e247b4081254e133db9b89e1fd1f543ed2b739f6fc311ea2b276bc6126efa",
+      "reconstructed_file_sha256": "956e247b4081254e133db9b89e1fd1f543ed2b739f6fc311ea2b276bc6126efa",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 164,
+      "entry_count": 444,
+      "counts": {
+        "terminator": 444,
+        "entries_passed": 444,
+        "empty_entries": 1,
+        "base_glyph": 253,
+        "cn_glyph": 764
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "f0286239905aceeb471428c6e4c9da4db32efaa3b0df0242d3cd05db0d9b316b",
+      "reconstructed_file_sha256": "f0286239905aceeb471428c6e4c9da4db32efaa3b0df0242d3cd05db0d9b316b",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 171,
+      "entry_count": 22,
+      "counts": {
+        "terminator": 22,
+        "entries_passed": 22,
+        "empty_entries": 1,
+        "cn_glyph": 65
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "384aeaf2ea91d0931814a579e065c80616031d3cbd71c76a513834d5b12b5e11",
+      "reconstructed_file_sha256": "384aeaf2ea91d0931814a579e065c80616031d3cbd71c76a513834d5b12b5e11",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 178,
+      "entry_count": 108,
+      "counts": {
+        "terminator": 108,
+        "entries_passed": 108,
+        "empty_entries": 1,
+        "base_glyph": 65,
+        "extended_glyph": 62,
+        "cn_glyph": 414,
+        "control": 19
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "ac78e4f08ccabfb5c0844ce632a8a5c2a3a7173c6843516f4565d58b2b8f9ebe",
+      "reconstructed_file_sha256": "ac78e4f08ccabfb5c0844ce632a8a5c2a3a7173c6843516f4565d58b2b8f9ebe",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 185,
+      "entry_count": 136,
+      "counts": {
+        "terminator": 136,
+        "entries_passed": 136,
+        "empty_entries": 1,
+        "cn_glyph": 548,
+        "extended_glyph": 32,
+        "base_glyph": 23
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "3c91506f5fcd7519bcf49e1647ba57ba90186745d3cb767f2bb50dc4791c41a1",
+      "reconstructed_file_sha256": "3c91506f5fcd7519bcf49e1647ba57ba90186745d3cb767f2bb50dc4791c41a1",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 192,
+      "entry_count": 11,
+      "counts": {
+        "terminator": 11,
+        "entries_passed": 11,
+        "empty_entries": 1,
+        "extended_glyph": 13,
+        "base_glyph": 24,
+        "control": 1
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "bd97f3b66c4d03e489d251c6f8c26553149cf97e52737a0b69096a2588ed021c",
+      "reconstructed_file_sha256": "bd97f3b66c4d03e489d251c6f8c26553149cf97e52737a0b69096a2588ed021c",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 199,
+      "entry_count": 1193,
+      "counts": {
+        "terminator": 1193,
+        "entries_passed": 1193,
+        "empty_entries": 1,
+        "base_glyph": 1206,
+        "control": 1966,
+        "cn_glyph": 6626,
+        "extended_glyph": 127,
+        "unknown_extended_glyph": 2
+      },
+      "errors": [],
+      "unknown_instances": [
+        {
+          "table": null,
+          "index": 77,
+          "token_offset": 18,
+          "kind": "unknown_extended_glyph"
+        },
+        {
+          "table": null,
+          "index": 78,
+          "token_offset": 18,
+          "kind": "unknown_extended_glyph"
+        }
+      ],
+      "source_file_sha256": "d915fcf0bb598939f78d4e43bfe497b6032bc24721e6d707e178251c3282019c",
+      "reconstructed_file_sha256": "d915fcf0bb598939f78d4e43bfe497b6032bc24721e6d707e178251c3282019c",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 206,
+      "entry_count": 375,
+      "counts": {
+        "terminator": 375,
+        "entries_passed": 375,
+        "empty_entries": 1,
+        "control": 2264,
+        "cn_glyph": 7494,
+        "base_glyph": 473,
+        "extended_glyph": 176,
+        "unknown_extended_glyph": 1
+      },
+      "errors": [],
+      "unknown_instances": [
+        {
+          "table": null,
+          "index": 368,
+          "token_offset": 18,
+          "kind": "unknown_extended_glyph"
+        }
+      ],
+      "source_file_sha256": "35aa1061ec55fc6208e5ee27926bc7deeb783504e7e1f288c029053209b62001",
+      "reconstructed_file_sha256": "35aa1061ec55fc6208e5ee27926bc7deeb783504e7e1f288c029053209b62001",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 213,
+      "entry_count": 862,
+      "counts": {
+        "terminator": 862,
+        "entries_passed": 862,
+        "empty_entries": 1,
+        "control": 2438,
+        "cn_glyph": 8152,
+        "base_glyph": 1122,
+        "extended_glyph": 188,
+        "unknown_extended_glyph": 1
+      },
+      "errors": [],
+      "unknown_instances": [
+        {
+          "table": null,
+          "index": 765,
+          "token_offset": 81,
+          "kind": "unknown_extended_glyph"
+        }
+      ],
+      "source_file_sha256": "9cc55ff3882571c722b31479ff3aa61a9ed3047b84bff6c854628af4b03b59cd",
+      "reconstructed_file_sha256": "9cc55ff3882571c722b31479ff3aa61a9ed3047b84bff6c854628af4b03b59cd",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 220,
+      "entry_count": 526,
+      "counts": {
+        "terminator": 526,
+        "entries_passed": 526,
+        "empty_entries": 1,
+        "base_glyph": 548,
+        "control": 2327,
+        "cn_glyph": 7335,
+        "extended_glyph": 166,
+        "unknown_fallback": 1,
+        "unknown_extended_glyph": 1
+      },
+      "errors": [],
+      "unknown_instances": [
+        {
+          "table": null,
+          "index": 513,
+          "token_offset": 33,
+          "kind": "unknown_fallback"
+        },
+        {
+          "table": null,
+          "index": 520,
+          "token_offset": 14,
+          "kind": "unknown_extended_glyph"
+        }
+      ],
+      "source_file_sha256": "aa16270513a644169e80ef2279137e649db7d8222cc5673a29bc133878e2732f",
+      "reconstructed_file_sha256": "aa16270513a644169e80ef2279137e649db7d8222cc5673a29bc133878e2732f",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 227,
+      "entry_count": 969,
+      "counts": {
+        "terminator": 969,
+        "entries_passed": 969,
+        "empty_entries": 1,
+        "base_glyph": 871,
+        "control": 1659,
+        "cn_glyph": 5379,
+        "extended_glyph": 46
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "7b89b1c7230665d550ff6ad52f8773b9c51184c4e345e712fe9ca0b21b07d69e",
+      "reconstructed_file_sha256": "7b89b1c7230665d550ff6ad52f8773b9c51184c4e345e712fe9ca0b21b07d69e",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 234,
+      "entry_count": 1194,
+      "counts": {
+        "terminator": 1194,
+        "entries_passed": 1194,
+        "empty_entries": 1,
+        "control": 2302,
+        "cn_glyph": 6666,
+        "extended_glyph": 972,
+        "base_glyph": 1262
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "dead8dee3286c7fe16547947b71ca790a8f8758330b46634519200797d2f192e",
+      "reconstructed_file_sha256": "dead8dee3286c7fe16547947b71ca790a8f8758330b46634519200797d2f192e",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 241,
+      "entry_count": 863,
+      "counts": {
+        "terminator": 863,
+        "entries_passed": 863,
+        "empty_entries": 1,
+        "control": 2923,
+        "cn_glyph": 8933,
+        "extended_glyph": 764,
+        "base_glyph": 802
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "fa79ac0240428e903d900d0932f708e422a495a5dedc7e06a553bce886f843d8",
+      "reconstructed_file_sha256": "fa79ac0240428e903d900d0932f708e422a495a5dedc7e06a553bce886f843d8",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 248,
+      "entry_count": 971,
+      "counts": {
+        "terminator": 971,
+        "entries_passed": 971,
+        "empty_entries": 1,
+        "control": 2841,
+        "cn_glyph": 8885,
+        "extended_glyph": 1081,
+        "base_glyph": 949
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "29fa1906465eb6efb71bbd3933543ae57e4ee167294577af1d1a4069c9c26bb3",
+      "reconstructed_file_sha256": "29fa1906465eb6efb71bbd3933543ae57e4ee167294577af1d1a4069c9c26bb3",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 255,
+      "entry_count": 138,
+      "counts": {
+        "terminator": 138,
+        "entries_passed": 138,
+        "empty_entries": 1,
+        "control": 1071,
+        "cn_glyph": 3438,
+        "extended_glyph": 172,
+        "base_glyph": 124
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "c6736e5e739f47d8108661008baad8f0b903b29ac3cdf2520388435ad69c9fca",
+      "reconstructed_file_sha256": "c6736e5e739f47d8108661008baad8f0b903b29ac3cdf2520388435ad69c9fca",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 262,
+      "entry_count": 292,
+      "counts": {
+        "terminator": 292,
+        "entries_passed": 292,
+        "empty_entries": 1,
+        "control": 2582,
+        "cn_glyph": 8782,
+        "base_glyph": 852,
+        "extended_glyph": 694
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "6e2862085c08560d9493825d25f5223232f632d18fb971d390c65d245d5c07e8",
+      "reconstructed_file_sha256": "6e2862085c08560d9493825d25f5223232f632d18fb971d390c65d245d5c07e8",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 269,
+      "entry_count": 118,
+      "counts": {
+        "terminator": 118,
+        "entries_passed": 118,
+        "empty_entries": 1,
+        "base_glyph": 77,
+        "extended_glyph": 72,
+        "cn_glyph": 647,
+        "control": 84
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "7de7ed9cdcdaf1cf3b482e238b1859431b705148c59a719b179ff96405a3cbec",
+      "reconstructed_file_sha256": "7de7ed9cdcdaf1cf3b482e238b1859431b705148c59a719b179ff96405a3cbec",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 276,
+      "entry_count": 373,
+      "counts": {
+        "terminator": 373,
+        "entries_passed": 373,
+        "empty_entries": 58,
+        "control": 1813,
+        "cn_glyph": 5214,
+        "extended_glyph": 1064,
+        "base_glyph": 2428
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "9daf9ebea0e37587409932812a8a209149a09922d957f2f061940e687c3ff856",
+      "reconstructed_file_sha256": "9daf9ebea0e37587409932812a8a209149a09922d957f2f061940e687c3ff856",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 283,
+      "entry_count": 292,
+      "counts": {
+        "terminator": 292,
+        "entries_passed": 292,
+        "empty_entries": 66,
+        "control": 1175,
+        "cn_glyph": 2674,
+        "base_glyph": 1596,
+        "extended_glyph": 683
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "448895bab044b020eb883a39072f165b91697839b8b8a6caaa89f14f714879a8",
+      "reconstructed_file_sha256": "448895bab044b020eb883a39072f165b91697839b8b8a6caaa89f14f714879a8",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 290,
+      "entry_count": 54,
+      "counts": {
+        "terminator": 54,
+        "entries_passed": 54,
+        "empty_entries": 7,
+        "control": 387,
+        "cn_glyph": 1598,
+        "extended_glyph": 243,
+        "base_glyph": 215
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "e567624c9ff002f5e5e608f08962bbf41fc8b3035f93503abe7e692959f2b46e",
+      "reconstructed_file_sha256": "e567624c9ff002f5e5e608f08962bbf41fc8b3035f93503abe7e692959f2b46e",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 297,
+      "entry_count": 337,
+      "counts": {
+        "terminator": 337,
+        "entries_passed": 337,
+        "empty_entries": 52,
+        "control": 1812,
+        "cn_glyph": 4839,
+        "extended_glyph": 726,
+        "base_glyph": 614
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "b8aab166fc97ba48acb57afeb45c9a7f5dc2facb923ddb9938e2c4d85de0f09d",
+      "reconstructed_file_sha256": "b8aab166fc97ba48acb57afeb45c9a7f5dc2facb923ddb9938e2c4d85de0f09d",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 304,
+      "entry_count": 137,
+      "counts": {
+        "terminator": 137,
+        "entries_passed": 137,
+        "empty_entries": 11,
+        "control": 658,
+        "cn_glyph": 1618,
+        "base_glyph": 218,
+        "extended_glyph": 273
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "ca26fd57cae2aca4e28656f5fb5f1b468c696ea0b9bc3a180111eb86a420fa18",
+      "reconstructed_file_sha256": "ca26fd57cae2aca4e28656f5fb5f1b468c696ea0b9bc3a180111eb86a420fa18",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 311,
+      "entry_count": 209,
+      "counts": {
+        "terminator": 209,
+        "entries_passed": 209,
+        "empty_entries": 51,
+        "control": 936,
+        "cn_glyph": 2362,
+        "base_glyph": 299,
+        "extended_glyph": 422
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "251e2e645195d1c04d4914444d5816ca090b5b8c4a2981f7ca11fb7f48db650c",
+      "reconstructed_file_sha256": "251e2e645195d1c04d4914444d5816ca090b5b8c4a2981f7ca11fb7f48db650c",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 318,
+      "entry_count": 194,
+      "counts": {
+        "terminator": 194,
+        "entries_passed": 194,
+        "empty_entries": 40,
+        "control": 931,
+        "cn_glyph": 2373,
+        "extended_glyph": 314,
+        "base_glyph": 259
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "2dd3ae4eba21e8e45af60d66e7a0fd63db4923fa61d12e59506d9b8b9ec4eb08",
+      "reconstructed_file_sha256": "2dd3ae4eba21e8e45af60d66e7a0fd63db4923fa61d12e59506d9b8b9ec4eb08",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 325,
+      "entry_count": 259,
+      "counts": {
+        "terminator": 259,
+        "entries_passed": 259,
+        "empty_entries": 32,
+        "control": 1282,
+        "cn_glyph": 3389,
+        "extended_glyph": 453,
+        "base_glyph": 400
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "b7fcabf0d7d41d892a8a0a5eb12f093e1a6ded20dcfeeeb79157639333de95db",
+      "reconstructed_file_sha256": "b7fcabf0d7d41d892a8a0a5eb12f093e1a6ded20dcfeeeb79157639333de95db",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 332,
+      "entry_count": 189,
+      "counts": {
+        "terminator": 189,
+        "entries_passed": 189,
+        "empty_entries": 40,
+        "control": 947,
+        "cn_glyph": 2922,
+        "base_glyph": 287,
+        "extended_glyph": 461
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "31505fd0cf2b592a6409480c3c9eb4fe54953f066d1724ffc1e932331c353536",
+      "reconstructed_file_sha256": "31505fd0cf2b592a6409480c3c9eb4fe54953f066d1724ffc1e932331c353536",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 339,
+      "entry_count": 100,
+      "counts": {
+        "terminator": 100,
+        "entries_passed": 100,
+        "empty_entries": 19,
+        "control": 482,
+        "cn_glyph": 1366,
+        "base_glyph": 194,
+        "extended_glyph": 196
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "ded17ef2a661a4d6e600b2601d956be012719463d6f8b28b1069d5b8638674d3",
+      "reconstructed_file_sha256": "ded17ef2a661a4d6e600b2601d956be012719463d6f8b28b1069d5b8638674d3",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    },
+    {
+      "file_id": 346,
+      "entry_count": 107,
+      "counts": {
+        "terminator": 107,
+        "entries_passed": 107,
+        "empty_entries": 17,
+        "control": 517,
+        "cn_glyph": 643,
+        "base_glyph": 6368,
+        "extended_glyph": 1329
+      },
+      "errors": [],
+      "unknown_instances": [],
+      "source_file_sha256": "03240aa0f27ceb781e2b8d154eaea243cd22922cb8d72406a327215763ce73ed",
+      "reconstructed_file_sha256": "03240aa0f27ceb781e2b8d154eaea243cd22922cb8d72406a327215763ce73ed",
+      "file_template_equal": true,
+      "entries_with_nonzero_slot_tail": 0,
+      "nonzero_slot_tail_bytes": 0
+    }
+  ]
+}

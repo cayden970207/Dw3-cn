@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "status": "single_sample_runtime_verified",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "sample_image_sha256": "afdb58042d8060a9523305f18a3e35e6841089d903248ba8ebd2408302b7e433",
+  "emulator": {
+    "name": "pcsx-redux",
+    "version": "a74a0587",
+    "build_id": 433,
+    "changeset": "a74a0587faab458749e59ca2321dcf78f32f4d4c"
+  },
+  "bios": {
+    "name": "openbios",
+    "sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801"
+  },
+  "language_selection": {
+    "choice": "中文",
+    "choice_index": 0,
+    "state_after_confirmation": 2,
+    "evidence": "Local language artwork/screenshot visual inspection and independent memory log."
+  },
+  "original_replay": {
+    "emulator": {
+      "name": "pcsx-redux",
+      "version": "a74a0587",
+      "build_id": 433,
+      "changeset": "a74a0587faab458749e59ca2321dcf78f32f4d4c"
+    },
+    "bios": {
+      "name": "openbios",
+      "sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801"
+    },
+    "frames": 42629,
+    "checkpoints": {
+      "saved": {
+        "frame": 26978,
+        "stage": 12
+      },
+      "loaded": {
+        "frame": 31261,
+        "stage": 2
+      },
+      "album_open": {
+        "frame": 40230,
+        "stage": 18
+      }
+    }
+  },
+  "sample_replay": {
+    "emulator": {
+      "name": "pcsx-redux",
+      "version": "a74a0587",
+      "build_id": 433,
+      "changeset": "a74a0587faab458749e59ca2321dcf78f32f4d4c"
+    },
+    "bios": {
+      "name": "openbios",
+      "sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801"
+    },
+    "frames": 41469,
+    "checkpoints": {
+      "saved": {
+        "frame": 26978,
+        "stage": 12
+      },
+      "loaded": {
+        "frame": 31261,
+        "stage": 2
+      },
+      "album_open": {
+        "frame": 40230,
+        "stage": 18
+      },
+      "album_return": {
+        "frame": 40847,
+        "stage": 16
+      },
+      "deck_edit_open": {
+        "frame": 40938,
+        "stage": 4
+      },
+      "field_return": {
+        "frame": 41469,
+        "stage": 2
+      }
+    }
+  },
+  "screenshots": {
+    "before_ppm_sha256": "59ad673d725cc599fd79f2da036e2e627769a6215761449fda234538af3d5b9f",
+    "after_ppm_sha256": "9344fc48e904499111ef352b5f4940694fc3c5e00c4ea7e392228f95981e7b8d",
+    "comparison": {
+      "changed_pixels": 287,
+      "bbox_exclusive": [
+        16,
+        25,
+        77,
+        36
+      ],
+      "changes_outside_title_window": 0
+    },
+    "visual_observation": "Analyst inspected both local screenshots: the original English title and the sample 卡片图鉴 are legible without visible overlap.",
+    "automatic_ocr_used": false,
+    "images_published": false
+  },
+  "limits": [
+    "Only this menu and the recorded replay path were checked; the full game was not tested.",
+    "Fresh memory cards were saved and reloaded before visiting the album; post-translation saving was not exercised.",
+    "The pinned replay logs nonfatal Lua listener resets and pad-command warnings; it nevertheless reached all listed checkpoints."
+  ]
+}

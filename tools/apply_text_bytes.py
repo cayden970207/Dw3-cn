@@ -20,13 +20,14 @@ import tempfile
 try:
     from tools.scan_text_tables import scan, local_image, DiscError
     from tools.psx_sector import validate_layout, check_form1, regenerate_form1, SectorError
+    from tools.text_codec import CN_IMAGE_SHA256, REFERENCE, CodecError, tokenize, variant_for_image
 except ModuleNotFoundError:
     from scan_text_tables import scan, local_image, DiscError
     from psx_sector import validate_layout, check_form1, regenerate_form1, SectorError
+    from text_codec import CN_IMAGE_SHA256, REFERENCE, CodecError, tokenize, variant_for_image
 
 HASH64 = re.compile(r"[a-f0-9]{64}\Z")
 HEXBYTES = re.compile(r"(?:[a-f0-9]{2})+\Z")
-CTRL_LEN = (2, 2, 3, 2, 5, 3, 3, 2, 3, 2)
 MAX_CHANGES = 128
 MAX_TOTAL_BYTES = 32768
 MAX_SECTORS = 128
@@ -40,30 +41,14 @@ def hash_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def controls(raw: bytes) -> tuple[bytes, ...]:
-    """Conservatively parse original EU control markers and their arguments."""
+def controls(raw: bytes, *, variant: str = REFERENCE) -> tuple[bytes, ...]:
+    """Use the same image-bound token boundaries as the preparation tool."""
     if type(raw) is not bytes or len(raw) < 2 or raw[-1] != 0:
         raise PatchError("Nonempty NUL-terminated byte string required")
-    i, tokens = 0, []
-    while i < len(raw) - 1:
-        byte = raw[i]
-        if byte == 0:
-            raise PatchError("Interior NUL byte")
-        if byte in (1, 3):
-            if i + 1 >= len(raw) - 1:
-                raise PatchError("Truncated extended glyph")
-            i += 2
-        elif byte == 2:
-            if i + 1 >= len(raw) - 1 or raw[i + 1] >= len(CTRL_LEN):
-                raise PatchError("Unknown or truncated control")
-            size = CTRL_LEN[raw[i + 1]]
-            if i + size > len(raw) - 1:
-                raise PatchError("Truncated control arguments")
-            tokens.append(raw[i:i + size])
-            i += size
-        else:
-            i += 1
-    return tuple(tokens)
+    try:
+        return tuple(token.raw for token in tokenize(raw, variant=variant) if token.kind == "control")
+    except CodecError as exc:
+        raise PatchError(str(exc)) from exc
 
 
 def plan_changes(report: dict, manifest: dict) -> list[dict]:
@@ -78,6 +63,8 @@ def plan_changes(report: dict, manifest: dict) -> list[dict]:
         raise PatchError("Manifest needs exact lowercase source_image_sha256")
     if expected != report.get("image_sha256"):
         raise PatchError("Source image hash does not match")
+    if expected == CN_IMAGE_SHA256:
+        raise PatchError("Writing this Chinese image is blocked: the general glyph mapping is incomplete and variable-width measurement conflicts with drawing")
     changes = manifest.get("changes")
     if not isinstance(changes, list) or not 1 <= len(changes) <= MAX_CHANGES:
         raise PatchError("Invalid change count")
@@ -123,7 +110,8 @@ def plan_changes(report: dict, manifest: dict) -> list[dict]:
             raise PatchError("Translation exceeds original byte capacity")
         if not new or new[-1] != 0 or 0 in new[:-1]:
             raise PatchError("Replacement must have exactly one final NUL")
-        if controls(old) != controls(new):
+        variant = variant_for_image(expected)
+        if controls(old, variant=variant) != controls(new, variant=variant):
             raise PatchError("Control sequence changed; manual engineering required")
         padded = new + b"\x00" * (len(old) - len(new))
         if padded == old:

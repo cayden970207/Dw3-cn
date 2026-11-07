@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "source_archive_sha256": "aaf88ce1aa7492e22ec83722f8cf2b8985c08fac9cc193881dabbbafc4bec94f",
+  "executable_sha256": "c902e59f9dc8f35a6fe2792604c485adf09a71d59c4f0769fb9654803bc9713e",
+  "status": "partial_user_review_one_menu_runtime_verified",
+  "language_selection": {
+    "menu_label": "中文",
+    "label_evidence": "Local menu artwork and emulator screenshot visually inspected; state 2 observed after confirmation.",
+    "choice_index": 0,
+    "language_state": 2,
+    "state_address": "0x8005CCA8",
+    "actual_country_overlay_sha256": "caed486e714f1bd9477c6a261fe2856933fafc7c6c019186df0cccd0f87cf7bd",
+    "actual_menu_asset_sha256": "ef0924122e801eedf024d8065514e3cc95652dda34c9116b1fe78b7c95c9601a",
+    "card_album_file_ids": [
+      24,
+      31,
+      38
+    ],
+    "runtime_verified": true
+  },
+  "font_resource": {
+    "file_id": 647,
+    "lba": 294280,
+    "sector_count": 91,
+    "raw_sector_sha256": "4a3462be607f559ac7cac81de03f2036f0df51c0ab999ddfaaaef387348db15a",
+    "user_data_sha256": "3583f16b76882114e369fb07fb686271fa62c12cd107aca05281d257f08fa5f0",
+    "sector_checks": {
+      "layout_passed": 91,
+      "edc_passed": 91,
+      "edc_and_ecc_passed": 91
+    },
+    "sector_failures": [],
+    "directory_copy_lba": 2268,
+    "directory_copy_sha256": "9db2bc926b0d5227dd253f7b6b2488198cf52a95bc45894ff6cfa09c8170651a",
+    "decoded_tim_hashes_equal_to_directory_copy": true,
+    "tail_tim_images": [
+      {
+        "flags": 2,
+        "bytes": 32788,
+        "sha256": "0eb025dc4764b319775d1571fe682fc6fa4aadca9a1b7c419f10eff8132f8950",
+        "blocks": [
+          {
+            "kind": "image",
+            "x": 0,
+            "y": 0,
+            "width_words": 64,
+            "height": 256,
+            "data_offset": 20
+          }
+        ],
+        "resource_offset": 16,
+        "compressed_bytes": 22397
+      },
+      {
+        "flags": 2,
+        "bytes": 32788,
+        "sha256": "7806f87420ddcc257eb0590675fc64648d9ec8755831517da217e84ded56fd8f",
+        "blocks": [
+          {
+            "kind": "image",
+            "x": 0,
+            "y": 0,
+            "width_words": 64,
+            "height": 256,
+            "data_offset": 20
+          }
+        ],
+        "resource_offset": 22413,
+        "compressed_bytes": 19190
+      }
+    ],
+    "directory_tim_images": [
+      {
+        "flags": 2,
+        "bytes": 32788,
+        "sha256": "0eb025dc4764b319775d1571fe682fc6fa4aadca9a1b7c419f10eff8132f8950",
+        "blocks": [
+          {
+            "kind": "image",
+            "x": 0,
+            "y": 0,
+            "width_words": 64,
+            "height": 256,
+            "data_offset": 20
+          }
+        ],
+        "resource_offset": 16,
+        "compressed_bytes": 23436
+      },
+      {
+        "flags": 2,
+        "bytes": 32788,
+        "sha256": "7806f87420ddcc257eb0590675fc64648d9ec8755831517da217e84ded56fd8f",
+        "blocks": [
+          {
+            "kind": "image",
+            "x": 0,
+            "y": 0,
+            "width_words": 64,
+            "height": 256,
+            "data_offset": 20
+          }
+        ],
+        "resource_offset": 23452,
+        "compressed_bytes": 20205
+      }
+    ],
+    "glyph_offset_in_user_data": 41604,
+    "glyph_count": 1997,
+    "glyph_stride_bytes": 72,
+    "glyph_array_sha256": "d3fc6b6bb9cb6d0750e2375984b90df949f7102ad7cb632491c80ded0e23efe5",
+    "glyph_cell_pixels": [
+      12,
+      12
+    ],
+    "pixel_encoding": "4-bit packed, low nibble first",
+    "font1_palette2_zero_transparent_and_2_15_visible": true,
+    "note": "Use the executable filetable's tail extent; it is not free space."
+  },
+  "actual_exe_paths": {
+    "font_load": {
+      "hook_address": "0x8001d234",
+      "target": "0x80010860"
+    },
+    "decode": {
+      "hook_address": "0x8001d370",
+      "target": "0x800109f4"
+    },
+    "draw": {
+      "hook_address": "0x8001a610",
+      "target": "0x80010a20"
+    }
+  },
+  "text_rules": {
+    "control_lengths_including_marker": [
+      1,
+      2,
+      3,
+      2,
+      5,
+      3,
+      3,
+      2,
+      3,
+      2
+    ],
+    "terminator": 0,
+    "chinese_lead_range": [
+      240,
+      255
+    ],
+    "glyph_index_formula": "(lead - 0xF0) * 252 + trail - 4",
+    "canonical_trail_range": [
+      4,
+      255
+    ],
+    "nul_handling": "The inspected text-copy path uses strlen; embedded NUL is unsafe.",
+    "type_03_in_file_text": "one-byte fallback; not a two-byte glyph"
+  },
+  "candidate_glyphs": [
+    {
+      "unicode_candidate": "亚",
+      "glyph_index": 81,
+      "canonical_code_hex": "f055",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        10,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "古",
+      "glyph_index": 121,
+      "canonical_code_hex": "f07d",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        11
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "兽",
+      "glyph_index": 1,
+      "canonical_code_hex": "f005",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "数",
+      "glyph_index": 26,
+      "canonical_code_hex": "f01e",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "码",
+      "glyph_index": 28,
+      "canonical_code_hex": "f020",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "卡",
+      "glyph_index": 48,
+      "canonical_code_hex": "f034",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "片",
+      "glyph_index": 71,
+      "canonical_code_hex": "f04b",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        9,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "图",
+      "glyph_index": 1082,
+      "canonical_code_hex": "f44e",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        10,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "鉴",
+      "glyph_index": 1913,
+      "canonical_code_hex": "f799",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        1,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    }
+  ],
+  "reviewed_chinese_mapping_count": 9,
+  "dialogue_static_chain": {
+    "stage_file_id": 471,
+    "stage_overlay_sha256": "ae4a57a1f03024d856cde3f7b26b9a8d67922ff6ffadaf9cb374b8ca000cb1d9",
+    "language_state": 2,
+    "base_file_id": 232,
+    "resolved_file_id": 234,
+    "file_lba": 2538,
+    "entry_index": 461,
+    "entry_sha256": "5c7bb895454fdec1314733a38a00b4f6512549420367df3c98645e0c1f0d268b",
+    "entry_contains_candidate_glyphs": true,
+    "actor_talk_pointer": "0x800A6208",
+    "actor_record": "0x800A66D0",
+    "field_overlay_sha256": "1578efdcfaea58dd52de8c39e61b520f37a7cf7d51e756bd2984283ba54cfc48",
+    "runtime_trigger_verified": false
+  },
+  "first_untranslated_candidate": {
+    "resource_id": 38,
+    "entry_index": 1,
+    "source_entry_sha256": "870746459242413a79eb73d41ba6f1e73b30c25dc6b073622f6c2f6a1d681fa3",
+    "source_bytes_including_terminator": 12,
+    "prior_draft_matched": true,
+    "status": "one_sample_runtime_rendered",
+    "overlay_sha1": "0e58e7aef70165be0bb6b95d59236941ab648b28",
+    "window_font": 1,
+    "window_origin_pixels": [
+      16,
+      25
+    ],
+    "source_draw_advance_pixels": 61,
+    "proposed_draw_advance_pixels": 48,
+    "source_control_count": 0,
+    "all_proposed_characters_user_reviewed": true,
+    "window_measurement": "This matched overlay does not measure window zero; the zero-initialized title is left aligned."
+  },
+  "width_safety": {
+    "drawn_cn_cell_width_pixels": 12,
+    "drawn_cn_advance_pixels": 12,
+    "font1_variable_measure_example_trail_04_pixels": 7,
+    "font1_variable_measure_example_trail_7d_pixels": 0,
+    "reason": "The actual variable-width routine applies the old extended-glyph table/limit to the decoder result; it does not account for the Chinese draw hook.",
+    "runtime_verified": false,
+    "safe_to_write": false,
+    "sample_title_runtime_verified": true
+  },
+  "gameplay_verified": false,
+  "test_copy_created": true,
+  "blockers": [
+    "Only nine glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
+    "The general variable-width measurement routine disagrees with Chinese drawing; the generic writer remains blocked.",
+    "Other menus, dialogue paths, and whole-game regression remain unverified."
+  ],
+  "privacy": "No original text, glyph bitmaps, game image or resource bytes are included.",
+  "single_menu_gameplay_verified": true,
+  "sample_image_sha256": "afdb58042d8060a9523305f18a3e35e6841089d903248ba8ebd2408302b7e433",
+  "runtime_evidence": {
+    "report": "SHARE_THIS_runtime_evidence_report.json",
+    "scope": "One card-album title and the recorded navigation path"
+  }
+}
