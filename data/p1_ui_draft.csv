@@ -1,0 +1,5 @@
+source_en,proposed_zh_cn,context,possible_resource,status,verification
+Card Album,卡片图鉴,card album menu,CRDABM,draft_not_applied,Source location and window width not yet verified on user image
+Buy One Card,购买一张卡片,card shop menu,CRDSHP,draft_not_applied,Source location and window width not yet verified on user image
+Press Start Button,按开始键,title screen,title overlay,draft_not_applied,May be embedded graphics rather than a text table
+SELECT LANGUAGE,选择语言,language selector,title overlay,draft_not_applied,May be embedded graphics rather than a text table

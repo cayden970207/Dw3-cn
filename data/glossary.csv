@@ -1,0 +1,6 @@
+term_zh_cn,context,source_status,rule
+数码宝贝,common,prior_patch_audit_not_revalidated,Prefer this over inconsistent aliases unless UI clearly requires Digimon
+飞鸟市,place_name,prior_patch_audit_not_revalidated,Keep consistent with existing Chinese patch
+数码宝贝研究所,location_name,prior_patch_audit_not_revalidated,Keep consistent with existing Chinese patch
+卡片,card_system,prior_patch_audit_not_revalidated,Prefer throughout card menus
+牌组,deck_system,prior_patch_audit_not_revalidated,Prefer throughout deck menus
