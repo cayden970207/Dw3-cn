@@ -75,10 +75,12 @@ def public_summary(fingerprint: dict, actual_scan: dict) -> dict:
             "identified_text_files": actual_scan.get("total_text_files"),
             "indexed_entries": actual_scan.get("total_entries"),
             "issues": actual_scan.get("issues", []),
+            "warnings": actual_scan.get("warnings", []),
             "files": groups,
         },
         "limitations": [
             "This is a reference-format structural scan, not a gameplay test.",
+            "The completeness flag covers the 50 expected text resources, not every filetable entry or all possible game text.",
             "No Chinese glyph mapping, translation accuracy or visible text was verified.",
             "No original game text or raw byte sequences are included in this report.",
             "Do NOT upload the PRIVATE_DO_NOT_UPLOAD.json file or the ISO to a public GitHub repository.",

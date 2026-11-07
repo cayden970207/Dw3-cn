@@ -20,11 +20,15 @@ SCAN = {
     "image_sha256": "b" * 64,
     "sector_bytes": 2352,
     "user_data_offset": 24,
-    "boot": {"reference_offsets_supported": False},
+    "boot": {"reference_offsets_supported": False, "filetable_unmatched": [{
+        "file_id": 2, "lba": 200, "filetable_sectors": 3, "iso_sectors": None,
+        "reason": "lba_absent_from_iso_directory", "extent_within_image": True,
+    }]},
     "inventory_complete": False,
     "total_text_files": 1,
     "total_entries": 1,
     "issues": ["Synthetic incomplete file count"],
+    "warnings": ["1 executable filetable entry does not match ISO directory extents"],
     "text_files": [{
         "file_id": 17,
         "path": "AAA/DAT/COUNTRY/ENG/ESCARDGM.BIN",
@@ -49,6 +53,8 @@ class ProbeTests(unittest.TestCase):
         self.assertNotIn("raw_hex", json.dumps(result))
         self.assertNotIn("0e0f00", json.dumps(result))
         self.assertEqual(result["source"]["image_sha256"], "b" * 64)
+        self.assertEqual(result["structure"]["reference_exe"]["filetable_unmatched"][0]["file_id"], 2)
+        self.assertEqual(result["structure"]["warnings"], SCAN["warnings"])
 
     def test_mismatched_hash_refused(self):
         altered = dict(SCAN, image_sha256="f" * 64)
@@ -79,6 +85,7 @@ class ProbeTests(unittest.TestCase):
             obj = json.loads(report.read_text(encoding="utf-8"))
             self.assertEqual(obj["status"], "structure_passed_not_gameplay_verified")
             self.assertFalse(obj["gameplay_verified"])
+            self.assertEqual(obj["structure"]["warnings"], SCAN["warnings"])
 
     @patch("tools.local_probe._fingerprint", side_effect=ValueError("bad archive"))
     def test_fingerprint_failure_still_gives_safe_report(self, fingerprint):

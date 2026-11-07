@@ -229,8 +229,26 @@ def get_filetable(disc: Disc, iso_files: dict[int, dict]) -> dict:
     lbas = struct.unpack_from(f"<{FILE_COUNT}I", data, FILETABLE_LBA_OFFSET)
     sectors = struct.unpack_from(f"<{FILE_COUNT}H", data, FILETABLE_SECTORS_OFFSET)
     valid = [(i, x, sectors[i]) for i, x in enumerate(lbas) if x and sectors[i]]
-    matches = sum(1 for _, x, count in valid if x in iso_files and
-                  (iso_files[x]["size_bytes"] + 2047) // 2048 == count)
+    unmatched = []
+    out_of_bounds = []
+    for file_id, file_lba, count in valid:
+        if file_lba + count > disc.sector_count:
+            out_of_bounds.append({"file_id": file_id, "lba": file_lba,
+                                  "filetable_sectors": count})
+        iso_info = iso_files.get(file_lba)
+        iso_sectors = ((iso_info["size_bytes"] + 2047) // 2048
+                       if iso_info is not None else None)
+        if iso_sectors != count:
+            unmatched.append({
+                "file_id": file_id,
+                "lba": file_lba,
+                "filetable_sectors": count,
+                "iso_sectors": iso_sectors,
+                "reason": ("lba_absent_from_iso_directory" if iso_info is None
+                           else "sector_count_mismatch"),
+                "extent_within_image": file_lba + count <= disc.sector_count,
+            })
+    matches = len(valid) - len(unmatched)
     ratio = matches / len(valid) if valid else 0
     return {
         "exe_sha256": hashlib.sha256(data).hexdigest(),
@@ -238,6 +256,8 @@ def get_filetable(disc: Disc, iso_files: dict[int, dict]) -> dict:
         "filetable_candidates": len(valid),
         "filetable_matches": matches,
         "filetable_match_ratio": round(ratio, 6),
+        "filetable_unmatched": unmatched,
+        "filetable_out_of_bounds": out_of_bounds,
         "reference_offsets_supported": len(valid) > 2000 and ratio >= 0.97,
         "lbas": lbas,
         "sectors": sectors,
@@ -319,14 +339,27 @@ def scan(path: Path, member: str | None = None, private: bool = False) -> dict:
                 "filetable_candidates": exe["filetable_candidates"],
                 "filetable_matches": exe["filetable_matches"],
                 "filetable_match_ratio": exe["filetable_match_ratio"],
+                "filetable_unmatched": exe["filetable_unmatched"],
+                "filetable_out_of_bounds": exe["filetable_out_of_bounds"],
                 "reference_offsets_supported": exe["reference_offsets_supported"],
             },
             "issues": [],
+            "warnings": [],
             "text_files": [],
             "note": "EU ID/offset heuristic. Does NOT decode CN glyphs, apply patches, prove translation or run the game.",
         }
         if not exe["reference_offsets_supported"]:
             report["issues"].append("Reference executable filetable did not reach 97% match; verify ID map manually")
+        if exe["filetable_unmatched"]:
+            report["warnings"].append(
+                "Executable filetable entries unmatched against ISO directory extents: "
+                f"{len(exe['filetable_unmatched'])}; their purpose is unverified"
+            )
+        outside_image = len(exe["filetable_out_of_bounds"])
+        if outside_image:
+            report["issues"].append(
+                f"{outside_image} executable filetable extents exceed the image bounds"
+            )
         for fid in TEXT_IDS:
             lba = exe["lbas"][fid]
             sectors = exe["sectors"][fid]

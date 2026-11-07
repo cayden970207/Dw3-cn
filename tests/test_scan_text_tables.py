@@ -120,7 +120,61 @@ class DiscScanTests(unittest.TestCase):
         self.assertEqual(files[30]["path"], "SLES_039.36")
         info = get_filetable(disc, files)
         self.assertEqual(info["filetable_matches"], 1)
+        self.assertEqual(info["filetable_unmatched"], [])
         self.assertFalse(info["reference_offsets_supported"])
+
+    def test_filetable_mismatches_are_reported_within_and_beyond_disc(self):
+        def put_exe_field(handle, offset, value):
+            sector, within = divmod(offset, 2048)
+            handle.seek((30 + sector) * 2352 + 24 + within)
+            handle.write(value)
+
+        with self.image.open("r+b") as fp:
+            put_exe_field(fp, FILETABLE_LBA_OFFSET + 3 * 4, struct.pack("<I", 268))
+            put_exe_field(fp, FILETABLE_SECTORS_OFFSET + 3 * 2, struct.pack("<H", 3))
+            put_exe_field(fp, FILETABLE_LBA_OFFSET + 4 * 4, struct.pack("<I", 200))
+            put_exe_field(fp, FILETABLE_SECTORS_OFFSET + 4 * 2, struct.pack("<H", 2))
+        result = scan(self.image)
+        self.assertEqual(result["boot"]["filetable_candidates"], 3)
+        self.assertEqual(result["boot"]["filetable_matches"], 1)
+        self.assertEqual(result["boot"]["filetable_unmatched"], [
+            {"file_id": 3, "lba": 268, "filetable_sectors": 3,
+             "iso_sectors": None, "reason": "lba_absent_from_iso_directory",
+             "extent_within_image": False},
+            {"file_id": 4, "lba": 200, "filetable_sectors": 2,
+             "iso_sectors": 1, "reason": "sector_count_mismatch",
+             "extent_within_image": True},
+        ])
+        self.assertEqual(result["boot"]["filetable_out_of_bounds"], [
+            {"file_id": 3, "lba": 268, "filetable_sectors": 3},
+        ])
+        self.assertTrue(any("extents: 2" in warning
+                            for warning in result["warnings"]))
+        self.assertTrue(any("1 executable filetable extents exceed" in issue
+                            for issue in result["issues"]))
+        self.assertFalse(result["inventory_complete"])
+
+    def test_matching_iso_extent_outside_image_is_still_an_issue(self):
+        with self.image.open("r+b") as fp:
+            directory = dir_record(b"\x00", 25, 2048, directory=True)
+            directory += dir_record(b"ESCARDGM.BIN;1", 200, len(counted_table()))
+            directory += dir_record(b"FAKE.BIN;1", 268, 3 * 2048)
+            fp.seek(25 * 2352 + 24)
+            fp.write(directory)
+            for offset, value in [
+                (FILETABLE_LBA_OFFSET + 4 * 4, struct.pack("<I", 268)),
+                (FILETABLE_SECTORS_OFFSET + 4 * 2, struct.pack("<H", 3)),
+            ]:
+                sector, within = divmod(offset, 2048)
+                fp.seek((30 + sector) * 2352 + 24 + within)
+                fp.write(value)
+        result = scan(self.image)
+        self.assertEqual(result["boot"]["filetable_matches"], 2)
+        self.assertEqual(result["boot"]["filetable_unmatched"], [])
+        self.assertEqual(result["boot"]["filetable_out_of_bounds"], [
+            {"file_id": 4, "lba": 268, "filetable_sectors": 3},
+        ])
+        self.assertTrue(any("exceed the image bounds" in issue for issue in result["issues"]))
 
     def test_fingerprinted_partial_catalog(self):
         result = scan(self.image)
