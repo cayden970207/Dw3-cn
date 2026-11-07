@@ -14,6 +14,8 @@
 | `tools/triage_english.py` | 使用本地私有扫描结果建立**疑似英文残留**人工审核队列，不自动判定漏译 |
 | `tools/qa_text.py` | 检查经过人工录入的译文、控制码、字形、宽度、行数与字节容量 |
 | `tools/byte_patch.py` | 生成/应用哈希绑定的**等长二进制差异补丁**，不修改输入镜像；非 PS1 回写引擎 |
+| `tools/psx_sector.py` | 验证并重算 2352 字节 Mode 2 Form 1 的 EDC/ECC（本地镜像必需） |
+| `tools/apply_text_bytes.py` | 在精确 SHA-256 与私有字形字节映射验证后，安全写回等长/缩短条目，再校验全部文本 |
 
 ## 工作流程
 
@@ -36,17 +38,17 @@ python tools/qa_text.py data/catalog.example.json --profile data/profile.example
 python -m unittest discover -s tests -v
 ```
 
-扫描器在 ZIP 中只选择 ISO/BIN/IMG 镜像，暂存到临时目录进行结构分析，完成后清理，所需临时磁盘空间可能超过 ZIP 大小。详情见 [SCAN](docs/SCAN.md) 和 [TRIAGE](docs/TRIAGE.md)。
+扫描器在 ZIP 中只选择 ISO/BIN/IMG 镜像，暂存到临时目录进行结构分析，完成后清理，所需临时磁盘空间可能超过 ZIP 大小。详情见 [SCAN](docs/SCAN.md)、[TRIAGE](docs/TRIAGE.md) 和 [WRITE](docs/WRITE.md)。
 
 **不要将示例配置用于真实游戏写回。** 自定义中文编码、中文字库和动态窗口尺寸必须从原汉化版本验证。扫描器不能改变游戏镜像，英文候选报告也不能直接证明某条文本漏译。
 
 ## 测试证据
 
-2026-11-07 GitHub Actions 对提交 `a92d673` 的合成测试运行成功：
+2026-11-07 GitHub Actions 对提交 `5da8423` 的合成测试运行成功：
 
-- Python 3.11：78 tests / OK
+- Python 3.11：101 tests / OK
 - Python 3.12：78 tests / OK
-- [查看工作流](https://github.com/cayden970207/Dw3-cn/actions/runs/42353759168)
+- [查看工作流](https://github.com/cayden970207/Dw3-cn/actions/runs/42356159689)
 
 全部属于**合成数据单元测试**，未包含用户原镜像、真实翻译或模拟器运行。详见 [STATUS](docs/STATUS.md)。
 
