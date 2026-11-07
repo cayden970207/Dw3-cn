@@ -23,7 +23,10 @@
       "window_context": "booster_screen",
       "trigger": "持有卡包时选择商店第二行",
       "source_runtime_status": "runtime_pending",
-      "translation_status": "not_assessed_by_source_audit"
+      "translation_status": "not_assessed_by_source_audit",
+      "trigger_preconditions": [
+        "At least one owned item with booster icon 0x62."
+      ]
     },
     {
       "file_id": 52,
@@ -67,7 +70,11 @@
       "window_context": "buy_message",
       "trigger": "尝试购买已持有九张的卡片",
       "source_runtime_status": "runtime_pending",
-      "translation_status": "not_assessed_by_source_audit"
+      "translation_status": "not_assessed_by_source_audit",
+      "trigger_preconditions": [
+        "The chosen card has nine copies.",
+        "Money is at least the card price; insufficient money is checked first."
+      ]
     },
     {
       "file_id": 52,

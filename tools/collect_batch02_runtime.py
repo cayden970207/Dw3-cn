@@ -26,7 +26,8 @@ except ModuleNotFoundError:
 
 def run(image: Path, original: Path, audit: Path, glyphs: Path, creation_path: Path, seed: Path,
         before_deck: Path, before_buy: Path, after_deck: Path, after_buy: Path,
-        after_album: Path, visual_checked: bool, save_regression_path: Path | None = None):
+        after_album: Path, visual_checked: bool, save_regression_path: Path | None = None,
+        previous_batch02_path: Path | None = None, incremental_report_path: Path | None = None):
     if not visual_checked:
         raise ValueError('Inspect each translated screen before marking runtime visual review')
     creation = json.loads(creation_path.read_text())
@@ -40,6 +41,41 @@ def run(image: Path, original: Path, audit: Path, glyphs: Path, creation_path: P
     selected = {e['entry_index'] for e in new_entries}
     if not selected or len(selected) != len(new_entries) or not selected <= set(TARGETS):
         raise ValueError('Unexpected batch-02 entries')
+    previous_info = None
+    if previous_batch02_path is not None:
+        previous = json.loads(previous_batch02_path.read_text())
+        old_entries = previous.get('new_entries', [])
+        if (previous.get('status') != 'batch02_new_entries_runtime_verified' or
+            previous.get('source_image_sha256') != CN_IMAGE_SHA256 or
+            previous.get('previous_batch_image_sha256') != P1_SHA or
+            previous.get('new_entries_verified') != len(old_entries) or not old_entries or
+            any(e.get('file_id') != 52 or e.get('status') != 'runtime_visual_and_pixel_bounds_verified'
+                for e in old_entries)):
+            raise ValueError('Previous second-batch evidence is not verified against this baseline')
+        old = {e['entry_index']: e for e in old_entries}
+        if len(old) != len(old_entries) or not set(old) < selected:
+            raise ValueError('Expanded batch must retain and add to the previous second batch')
+        for e in new_entries:
+            if e['entry_index'] in old and (e['translation'] != old[e['entry_index']]['translation'] or
+                                            e['original_sha256'] != old[e['entry_index']]['original_sha256']):
+                raise ValueError('Previously verified second-batch translation changed')
+            e['progress_role'] = ('previous_second_batch_reverified' if e['entry_index'] in old else
+                                  'new_since_previous_second_batch')
+        previous_info = {'report': previous_batch02_path.name, 'test_image_sha256': previous['test_image_sha256'],
+                         'reverified_entries': len(old), 'new_entries': len(selected - set(old))}
+        if incremental_report_path is not None:
+            delta = json.loads(incremental_report_path.read_text())
+            if (delta.get('status') != 'previous_batch02_preserved_new_entries_only' or
+                delta.get('source_image_sha256') != CN_IMAGE_SHA256 or
+                delta.get('previous_test_image_sha256') != previous['test_image_sha256'] or
+                delta.get('expanded_test_image_sha256') != creation['test_image_sha256'] or
+                set(delta.get('new_entries', [])) != selected - set(old) or
+                not all(delta.get(k) is True for k in ('all_other_bytes_identical',
+                    'changed_sector_edc_ecc_valid_before_and_after', 'font_id_647_unchanged'))):
+                raise ValueError('Incremental comparison does not prove preservation of the earlier sample')
+            previous_info['incremental_comparison_report'] = incremental_report_path.name
+    elif incremental_report_path is not None:
+        raise ValueError('An incremental comparison requires the earlier second-batch report')
     review = load_reviewed_glyphs(glyphs)
     codes = {ch: cn_canonical_code(i) for i, ch in review.items()}
     font = actual_assets(original, json.loads(audit.read_text()))
@@ -119,6 +155,7 @@ def run(image: Path, original: Path, audit: Path, glyphs: Path, creation_path: P
         'source_image_sha256': CN_IMAGE_SHA256, 'previous_batch_image_sha256': P1_SHA,
         'test_image_sha256': creation['test_image_sha256'], 'new_entries_verified': len(new_entries),
         'new_entries': new_entries, 'previous_batch_entries_preserved': 6, 'prior_album_screen_reverified': True,
+        'previous_second_batch': previous_info,
         'disc_integrity': integrity, 'postvisit_save_cold_load': save_evidence,
         'runtime': {'emulator': 'PCSX-Redux a74a0587 build 433', 'emulator_sha256': EMULATOR_SHA256,
             'bios': 'OpenBIOS', 'bios_sha1': BIOS_SHA1, 'mode': 'headless, independent private card copies',
@@ -140,11 +177,13 @@ def main():
         p.add_argument(name, type=Path)
     p.add_argument('--visual-checked', action='store_true')
     p.add_argument('--save-regression-report', type=Path)
+    p.add_argument('--previous-batch02-report', type=Path)
+    p.add_argument('--incremental-report', type=Path)
     a = p.parse_args()
     try:
         result = run(a.image, a.original_zip, a.prior_audit, a.glyph_review, a.creation_report, a.seed,
                      a.before_deck, a.before_buy, a.after_deck, a.after_buy, a.after_album, a.visual_checked,
-                     a.save_regression_report)
+                     a.save_regression_report, a.previous_batch02_report, a.incremental_report)
     except (OSError, ValueError, KeyError, StopIteration) as exc:
         result = {'schema_version': 1, 'status': 'blocked', 'error_type': type(exc).__name__, 'error': str(exc)[:500]}
     a.report.parent.mkdir(parents=True, exist_ok=True)

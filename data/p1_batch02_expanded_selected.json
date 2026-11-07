@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "translation_review": "The analyst checked each target against the actual game window; every required glyph was confirmed by the user.",
+  "entries": [
+    {"file_id": 52, "table": null, "entry_index": 19, "original_sha256": "2a81ed939dbcdf7f2b3de39f07239c28e50f282e499f30ec1fe84e3bfe25c793", "target": "金钱不足", "translation_reviewed": true},
+    {"file_id": 52, "table": null, "entry_index": 25, "original_sha256": "796cf96018087f19cfdffd3da937f6a39e90a779e024f5871d8da56cf6fadc6c", "target": "选择卡组", "translation_reviewed": true},
+    {"file_id": 52, "table": null, "entry_index": 27, "original_sha256": "f980d46324d23b3a0939f54269e794a498524ce25a0a7cb9c7fdef4873fab7b9", "target": "改名", "translation_reviewed": true}
+  ],
+  "runtime_verified": true,
+  "runtime_scope": "52/19, 52/25 and 52/27 on the expanded batch-02 test image; see reports/SHARE_THIS_p1_batch02_expanded_report.json.",
+  "contains_original_text_or_bitmap": false
+}

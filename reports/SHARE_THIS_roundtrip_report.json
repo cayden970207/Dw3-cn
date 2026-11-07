@@ -19,9 +19,9 @@
   },
   "distinct_chinese_glyph_indices_observed": 1997,
   "unicode_mapping": {
-    "reviewed_chinese_characters": 26,
-    "reviewed_chinese_glyph_tokens": 9728,
-    "unresolved_chinese_glyph_tokens": 102893,
+    "reviewed_chinese_characters": 30,
+    "reviewed_chinese_glyph_tokens": 9877,
+    "unresolved_chinese_glyph_tokens": 102744,
     "out_of_range_chinese_glyph_tokens": 0,
     "out_of_range_extended_glyph_tokens": 5,
     "fallback_tokens": 1,

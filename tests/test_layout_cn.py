@@ -16,6 +16,7 @@ SCREEN_AFTER = LOCAL / 'runtime-album-after/run/PRIVATE_card_album_after.ppm'
 LAB = ROOT / 'local/font-recovery/round2-lab-dynamic-runtime-v2'
 SELECTION = ROOT / 'local/font-recovery/batch02-deck-before-v1/PRIVATE_deck_selection.ppm'
 MONEY = ROOT / 'local/font-recovery/p1-batch02-money-buy-runtime-v1/PRIVATE_insufficient_funds.ppm'
+EXPANDED_DECK = ROOT / 'local/font-recovery/p1-batch02-expanded-deck-runtime-v1'
 
 
 class MappingSafetyTests(unittest.TestCase):
@@ -96,6 +97,21 @@ class LocalRealImageLayoutTests(unittest.TestCase):
         box = result['ink_bbox_relative_exclusive']
         self.assertEqual([box[0]+154, box[1]+57, box[2]+154, box[3]+57],
                          neutral_ink_bbox(MONEY, (153, 57, 297, 70)))
+
+    @unittest.skipUnless(all((EXPANDED_DECK / name).is_file() for name in
+                         ('PRIVATE_deck_selection.ppm', 'PRIVATE_deck_menu.ppm')),
+                         'Owner-only expanded batch screenshots are unavailable')
+    def test_reviewed_selection_and_rename_match_actual_screen_ink(self):
+        reviewed = load_reviewed_glyphs(ROOT / 'data/baselines/c7130c53-reviewed-glyphs.json')
+        codes = {v: cn_canonical_code(k) for k, v in reviewed.items()}
+        for text, x, y, filename, rect, advance in (
+                ('选择卡组', 151, 34, 'PRIVATE_deck_selection.ppm', (150, 34, 294, 47), 48),
+                ('改名', 167, 49, 'PRIVATE_deck_menu.ppm', (166, 49, 310, 62), 24)):
+            measured = measure(self.font, b''.join(codes[ch] for ch in text) + b'\0')
+            box = measured['ink_bbox_relative_exclusive']
+            self.assertEqual(measured['draw_max_advance_px'], advance)
+            self.assertEqual([box[0]+x, box[1]+y, box[2]+x, box[3]+y],
+                             neutral_ink_bbox(EXPANDED_DECK / filename, rect))
 
 
 if __name__ == '__main__':

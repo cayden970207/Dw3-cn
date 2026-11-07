@@ -40,7 +40,8 @@ def light_mask(path: Path, rect):
     return pixels
 
 
-def run(directory: Path, image: Path, seed: Path, prior: dict, visual_checked: bool, batch02: dict | None = None):
+def run(directory: Path, image: Path, seed: Path, prior: dict, visual_checked: bool, batch02: dict | None = None,
+        batch02_buy_screen: Path | None = None, batch02_deck_dir: Path | None = None):
     if not visual_checked:
         raise ValueError('Inspect the saved screen and the reloaded menu captures first')
     expected_image = BATCH_SHA
@@ -110,12 +111,31 @@ def run(directory: Path, image: Path, seed: Path, prior: dict, visual_checked: b
             if 'batch02_buy state=1 step=12 substep=19' not in log:
                 raise ValueError('The new insufficient-funds window was not actually reached')
             screenshot = folder / 'PRIVATE_insufficient_funds.ppm'
-            verified_screen = root / 'local/font-recovery/p1-batch02-money-buy-runtime-v1/PRIVATE_insufficient_funds.ppm'
+            verified_screen = (batch02_buy_screen or root / 'local/font-recovery/p1-batch02-money-buy-runtime-v1/PRIVATE_insufficient_funds.ppm').resolve()
+            if not verified_screen.is_relative_to((root / 'local').resolve()):
+                raise ValueError('Private screenshot must remain under local/')
             entry = next(e for e in batch02['new_entries'] if e['entry_index'] == 19)
             if (hash_file(verified_screen) != entry['runtime_screenshot_sha256'] or
                 light_mask(screenshot, (153, 57, 297, 70)) != light_mask(verified_screen, (153, 57, 297, 70))):
                 raise ValueError('Post-visit insufficient-funds text differs from the reviewed screen')
             captures['insufficient_funds'] = {'sha256': hash_file(screenshot), 'light_pixel_mask_matches_prior': True}
+            for number, label, rect, step in ((25, 'deck_selection', (150, 34, 294, 47), 4),
+                                               (27, 'deck_menu', (166, 49, 310, 62), 13)):
+                rows = [e for e in batch02['new_entries'] if e['entry_index'] == number]
+                if not rows:
+                    continue
+                if len(rows) != 1 or rows[0].get('status') != 'runtime_visual_and_pixel_bounds_verified':
+                    raise ValueError('Expanded deck entry lacks its verified runtime evidence')
+                if batch02_deck_dir is None:
+                    raise ValueError('Expanded deck entries require their reviewed runtime screenshots')
+                reference = (batch02_deck_dir / f'PRIVATE_{label}.ppm').resolve()
+                actual = folder / f'PRIVATE_{label}.ppm'
+                if (not reference.is_relative_to((root / 'local').resolve()) or
+                    hash_file(reference) != rows[0]['runtime_screenshot_sha256'] or
+                    f'batch02_deck state=1 step={step}' not in log or
+                    light_mask(actual, rect) != light_mask(reference, rect)):
+                    raise ValueError(f'Expanded {label} was not revisited with the reviewed pixels')
+                captures[label] = {'sha256': hash_file(actual), 'light_pixel_mask_matches_prior': True}
         phases[name] = {'checkpoints': {k: {'frame': cp[k]['frame'], 'stage': v} for k, v in required.items()},
                         'captures': captures, 'pad_warning_count': log.count('Unknown command for pad: 43'),
                         'listener_stack_reset_count': log.count('replay: Lua stack reset at frame 8192')}
@@ -172,10 +192,13 @@ def main():
         p.add_argument(name, type=Path)
     p.add_argument('--visual-checked', action='store_true')
     p.add_argument('--batch02-report', type=Path)
+    p.add_argument('--batch02-buy-screen', type=Path)
+    p.add_argument('--batch02-deck-dir', type=Path)
     a = p.parse_args()
     try:
         result = run(a.directory, a.image, a.seed, json.loads(a.prior_report.read_text()), a.visual_checked,
-                     json.loads(a.batch02_report.read_text()) if a.batch02_report else None)
+                     json.loads(a.batch02_report.read_text()) if a.batch02_report else None,
+                     a.batch02_buy_screen, a.batch02_deck_dir)
     except (OSError, ValueError, KeyError) as exc:
         result = {'schema_version': 1, 'status': 'blocked', 'error_type': type(exc).__name__,
                   'error': str(exc)[:500], 'cold_process_loaded_post_menu_save': False}

@@ -104,6 +104,11 @@ def run(image: Path, index_path: Path, audit_path: Path, draft_path: Path, batch
              'source_draw_advance_px': metric['draw_max_advance_px'], 'window_origin_px': entry['window_origin_px'],
              'window_context': entry['window_context'], 'trigger': entry['trigger'],
              'source_runtime_status': 'runtime_pending', 'translation_status': 'not_assessed_by_source_audit'}
+        if n == 15:
+            r['trigger_preconditions'] = ['At least one owned item with booster icon 0x62.']
+        elif n == 20:
+            r['trigger_preconditions'] = ['The chosen card has nine copies.',
+                                          'Money is at least the card price; insufficient money is checked first.']
         if n in TARGETS:
             _, x, y, context, digest = TARGETS[n]
             if digest != row['raw_sha256'] or hash_file(pictures[context]) != SCREEN_SHA[context]:

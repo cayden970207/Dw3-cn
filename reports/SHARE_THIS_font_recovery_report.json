@@ -704,9 +704,93 @@
         12
       ],
       "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "改",
+      "glyph_index": 621,
+      "canonical_code_hex": "f279",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "名",
+      "glyph_index": 378,
+      "canonical_code_hex": "f182",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        10,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "选",
+      "glyph_index": 523,
+      "canonical_code_hex": "f217",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "择",
+      "glyph_index": 756,
+      "canonical_code_hex": "f304",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
     }
   ],
-  "reviewed_chinese_mapping_count": 26,
+  "reviewed_chinese_mapping_count": 30,
   "dialogue_static_chain": {
     "stage_file_id": 471,
     "stage_overlay_sha256": "ae4a57a1f03024d856cde3f7b26b9a8d67922ff6ffadaf9cb374b8ca000cb1d9",
@@ -754,7 +838,7 @@
   "gameplay_verified": false,
   "test_copy_created": true,
   "blockers": [
-    "Only 26 glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
+    "Only 30 glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
     "The general variable-width measurement routine disagrees with Chinese drawing; the generic writer remains blocked.",
     "Other menus, dialogue paths, and whole-game regression remain unverified."
   ],
@@ -762,7 +846,7 @@
   "single_menu_gameplay_verified": true,
   "sample_image_sha256": "afdb58042d8060a9523305f18a3e35e6841089d903248ba8ebd2408302b7e433",
   "runtime_evidence": {
-    "report": "SHARE_THIS_runtime_recombined_26_v1.json",
+    "report": "SHARE_THIS_runtime_recombined_30_v1.json",
     "scope": "One card-album title and the recorded navigation path"
   },
   "batch_runtime_evidence": {
@@ -771,8 +855,8 @@
     "new_entries_verified": 5
   },
   "batch02_runtime_evidence": {
-    "report": "SHARE_THIS_p1_batch02_report.json",
-    "test_image_sha256": "6c6a124248667bb73ceb2a16bc9fba81b09efaa2f1360f4ff4cd5d19b7ddde86",
-    "new_entries_verified": 1
+    "report": "SHARE_THIS_p1_batch02_expanded_report.json",
+    "test_image_sha256": "98ba88ad5c27c1fa60c04ac9645ccd85f9d23ea7296de46b40471fdd47361353",
+    "new_entries_verified": 3
   }
 }

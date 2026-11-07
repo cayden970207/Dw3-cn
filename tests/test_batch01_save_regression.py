@@ -22,6 +22,9 @@ SEED = LOCAL / 'round2-album-regression-v4/first/memcard1.mcd'
 SECOND = LOCAL / 'p1-batch02-money-save-v1'
 SECOND_IMAGE = LOCAL / 'p1-batch02-money-v1/DW3-p1-batch02.bin'
 SECOND_SEED = LOCAL / 'batch01-postmenu-save-v1/first/memcard1.mcd'
+EXPANDED = LOCAL / 'p1-batch02-expanded-save-v1'
+EXPANDED_IMAGE = LOCAL / 'p1-batch02-expanded-v1/DW3-p1-batch02.bin'
+EXPANDED_REPORT = ROOT / 'reports/SHARE_THIS_p1_batch02_expanded_report.json'
 
 
 class BoundaryTests(unittest.TestCase):
@@ -83,6 +86,19 @@ class BoundaryTests(unittest.TestCase):
         self.assertEqual(report['status'], 'batch02_post_menu_save_cold_load_revisit_verified')
         self.assertTrue(report['phases']['cold']['captures']['insufficient_funds']['light_pixel_mask_matches_prior'])
         self.assertGreater(report['playtime_seconds']['cold_reloaded'], report['playtime_seconds']['initial_load'])
+
+    @unittest.skipUnless(all(p.is_file() for p in (EXPANDED / 'first/result.json', EXPANDED / 'cold/result.json',
+                                                   EXPANDED_IMAGE, SECOND_SEED, EXPANDED_REPORT)),
+                         'Owner-only expanded batch emulator evidence unavailable')
+    def test_expanded_batch_cold_load_revisits_each_new_menu(self):
+        prior = json.loads((ROOT / 'reports/SHARE_THIS_p1_batch01_report.json').read_text())
+        expanded = json.loads(EXPANDED_REPORT.read_text())
+        report = run(EXPANDED, EXPANDED_IMAGE, SECOND_SEED, prior, True, expanded,
+                     LOCAL / 'p1-batch02-expanded-buy-runtime-v1/PRIVATE_insufficient_funds.ppm',
+                     LOCAL / 'p1-batch02-expanded-deck-runtime-v1')
+        captures = report['phases']['cold']['captures']
+        for name in ('insufficient_funds', 'deck_selection', 'deck_menu'):
+            self.assertTrue(captures[name]['light_pixel_mask_matches_prior'])
 
 
 if __name__ == '__main__':

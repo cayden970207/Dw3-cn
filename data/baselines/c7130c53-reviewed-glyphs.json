@@ -6,7 +6,7 @@
   "review": {
     "reviewer": "user",
     "date": "2026-11-07",
-    "method": "User confirmed five isolated glyphs, four card-album glyphs, further menu glyphs, and IDs 931/291/7/577/712 in local previews. IDs 523 and 756 were reported blurry and remain unresolved; glyphs 164, 1489 and 1151 were also uncertain. The user previously confirmed all four edit-preview glyphs.",
+    "method": "User confirmed five isolated glyphs, four card-album glyphs, further menu glyphs, and IDs 931/291/7/577/712 in local previews. After a context comparison the user explicitly confirmed IDs 523/756 as 选/择 and separately confirmed IDs 621/378 as 改/名. Glyphs 164, 1489 and 1151 remain unresolved.",
     "scope": "Visual glyph identity only; no runtime rendering, full character map, or translation approval."
   },
   "glyphs": [
@@ -35,7 +35,11 @@
     {"unicode": "金", "glyph_index": 291, "canonical_code_hex": "f12b"},
     {"unicode": "不", "glyph_index": 7, "canonical_code_hex": "f00b"},
     {"unicode": "足", "glyph_index": 577, "canonical_code_hex": "f24d"},
-    {"unicode": "钱", "glyph_index": 712, "canonical_code_hex": "f2d4"}
+    {"unicode": "钱", "glyph_index": 712, "canonical_code_hex": "f2d4"},
+    {"unicode": "改", "glyph_index": 621, "canonical_code_hex": "f279"},
+    {"unicode": "名", "glyph_index": 378, "canonical_code_hex": "f182"},
+    {"unicode": "选", "glyph_index": 523, "canonical_code_hex": "f217"},
+    {"unicode": "择", "glyph_index": 756, "canonical_code_hex": "f304"}
   ],
   "mapping_complete": false,
   "runtime_verified": false,
