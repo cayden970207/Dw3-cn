@@ -2,38 +2,58 @@
 
 基于用户提供的欧版既有汉化继续补翻、校对和测试。本仓库保存原创工具、阶段记录和可复现验证，不分发游戏本体。
 
-> **当前为工程基线，不是新版汉化补丁。工具的单元测试通过 ≠ 游戏已经完整汉化。**
+> **当前为 P0/P1 工具与扫描流程，尚未交付新一版可玩汉化补丁。自动测试通过 ≠ 游戏文字和流程通过。**
 
-## 已归档
+## 已实现的工具
 
-- `tools/verify_base.py`：只读计算镜像 SHA-256，初筛 ISO9660 扇区布局与启动编号候选。
-- `tools/qa_text.py`：检查译文缺失、控制码顺序、缺字、字宽、每页行数、编码字节预算及重复编号。
-- `tests/`：纯合成数据的单元测试，不需要游戏文件。
-- `docs/STATUS.md`：已提交成果、历史记录与缺失证据。
-- `docs/ROADMAP.md`：阶段与验收标准。
-- `docs/FORMAT.md`：翻译目录和字形配置格式。
+| 工具 | 用途 |
+|---|---|
+| `tools/inspect_zip.py` | 不提取镜像，校验 ZIP、内部镜像指纹和扇区布局候选 |
+| `tools/verify_base.py` | 对解包后的镜像计算 SHA-256，初筛扇区格式 |
+| `tools/scan_text_tables.py` | **只读**扫描欧版 ISO 的目录、候选文件表、50 类英语槽位文本表；支持 ZIP |
+| `tools/triage_english.py` | 使用本地私有扫描结果建立**疑似英文残留**人工审核队列，不自动判定漏译 |
+| `tools/qa_text.py` | 检查经过人工录入的译文、控制码、字形、宽度、行数与字节容量 |
+| `tools/byte_patch.py` | 生成/应用哈希绑定的**等长二进制差异补丁**，不修改输入镜像；非 PS1 回写引擎 |
 
-## 使用
+## 工作流程
 
-Python 3.11 或更高版本，仅使用标准库。
+Python 3.11+，仅使用标准库。所有实际游戏文件保留在**本地**。
 
 ```sh
-python tools/verify_base.py "/path/to/local/game-image.bin"
-python tools/verify_base.py "/path/to/local/game-image.bin" --expect <精确的64位SHA256>
+# 第一步：对自己拥有的汉化 ZIP 建立结构报告（不输出原版文本）
+python tools/scan_text_tables.py "/path/to/数码宝贝世界3 欧版汉化.zip"
+
+# 第二步：在 Git 忽略的本地目录中创建供人工审查的原始文本索引
+python tools/scan_text_tables.py "/path/to/数码宝贝世界3 欧版汉化.zip" \
+  --private-dump local/scan-private.json
+
+# 第三步：把疑似英文的条目单独整理成待审清单
+python tools/triage_english.py local/scan-private.json \
+  --queue local/english-candidates.json
+
+# 静态检测工具示例（只使用人为合成的测试数据）
 python tools/qa_text.py data/catalog.example.json --profile data/profile.example.json
 python -m unittest discover -s tests -v
 ```
 
-示例数据全部是人工构造的测试夹具，**不是从游戏提取的文本、编码或字库**。检查器不会修改镜像，也不构建补丁。实际镜像配置尚未恢复，不能将示例配置用于游戏。
+扫描器在 ZIP 中只选择 ISO/BIN/IMG 镜像，暂存到临时目录进行结构分析，完成后清理，所需临时磁盘空间可能超过 ZIP 大小。详情见 [SCAN](docs/SCAN.md) 和 [TRIAGE](docs/TRIAGE.md)。
 
-`qa_text.py --strict` 会将尚未复核的译文、示例字形等 pending 项也视为失败。默认成功仅表示静态错误列表为空；报告始终标记 `gameplay_verified: false`。
+**不要将示例配置用于真实游戏写回。** 自定义中文编码、中文字库和动态窗口尺寸必须从原汉化版本验证。扫描器不能改变游戏镜像，英文候选报告也不能直接证明某条文本漏译。
 
-## 项目目标
+## 测试证据
 
-完整简体中文；发布时无已知乱码、缺字、越框、错误分页及汉化引发的流程异常。必须覆盖主线、支线、卡牌、战斗、菜单、存读档和通关后内容。不能承诺绝对零 Bug，也不能用开场测试代替全流程验证。
+2026-11-07 GitHub Actions 对提交 `a92d673` 的合成测试运行成功：
 
-## 不上传
+- Python 3.11：78 tests / OK
+- Python 3.12：78 tests / OK
+- [查看工作流](https://github.com/cayden970207/Dw3-cn/actions/runs/42353759168)
 
-游戏镜像、BIOS、完整解包素材、原版字库、个人存档、密钥。后续补丁必须绑定精确输入 SHA-256。原汉化作者和版本尚待核实，确认后保留署名及来源，不将既有成果冒称原创。
+全部属于**合成数据单元测试**，未包含用户原镜像、真实翻译或模拟器运行。详见 [STATUS](docs/STATUS.md)。
 
-完整状态与证据边界见 [STATUS](docs/STATUS.md)。
+## 项目目标与边界
+
+最终目标：全游戏简体中文；没有已知乱码、缺字、文字越框、错误分页或由汉化引发的流程问题。涵盖主线、支线、卡牌、战斗、菜单、存读档与通关后内容。不能在没有全流程验收时承诺绝对零 Bug。
+
+**不上传**游戏镜像、BIOS、完整解包素材、原版字库、个人存档、密钥及私有 `raw_hex` 文本。正式发布补丁必须绑定实际用户镜像的精确 SHA-256；原汉化来源及作者核实后保留署名，不把已有成果冒称原创。
+
+阶段与验收流程：[ROADMAP](docs/ROADMAP.md)。当前阻塞与证据边界：[STATUS](docs/STATUS.md)。
