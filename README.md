@@ -17,6 +17,17 @@
 | `tools/psx_sector.py` | 验证并重算 2352 字节 Mode 2 Form 1 的 EDC/ECC（本地镜像必需） |
 | `tools/apply_text_bytes.py` | 在精确 SHA-256 与私有字形字节映射验证后，安全写回等长/缩短条目，再校验全部文本 |
 | `tools/prepare_translation_patch.py` | 将**人工核对过的 Unicode 中文**用真实字形对照映射成私有补丁清单，逐字检查缺字、容量和原控制码 |
+| `tools/local_probe.py` | **需要用户协助的下一步**：本地对真实欧版汉化 ZIP 做完整只读扫描，生成安全的分享报告和留在本机的私有原始文本索引 |
+
+## 下一步：请在本地运行一次真实汉化镜像诊断
+
+详见 [LOCAL_TEST](docs/LOCAL_TEST.md)。使用你自己的游戏 ZIP，在电脑上的仓库根目录执行：
+
+```sh
+python3 tools/local_probe.py "/your/path/数码宝贝世界3 欧版汉化.zip"
+```
+
+程序将生成 **`SHARE_THIS_report.json`**（可上传给 ChatGPT，只有结构数据）和 **`PRIVATE_DO_NOT_UPLOAD.json`**（包含游戏原文原始字节，只留在个人电脑）。即使扫描失败，也请仅分享前者。**目前仍未拿到真实游戏镜像的扫描结果，新汉化补丁尚未生成。**
 
 ## 工作流程
 
@@ -45,11 +56,11 @@ python -m unittest discover -s tests -v
 
 ## 测试证据
 
-2026-11-07 GitHub Actions 对提交 `0e7be21` 的合成测试运行成功：
+2026-11-07 GitHub Actions 对提交 `746726a` 的合成测试运行成功：
 
-- Python 3.11：123 tests / OK
-- Python 3.12：78 tests / OK
-- [查看工作流](https://github.com/cayden970207/Dw3-cn/actions/runs/42357717766)
+- Python 3.11：129 tests / OK
+- Python 3.12：129 tests / OK
+- [查看工作流](https://github.com/cayden970207/Dw3-cn/actions/runs/42358678163)
 
 全部属于**合成数据单元/端到端工具测试**（含 50 文本资源的人工生成光盘、两种扇区模式及 ZIP→新镜像流程），未包含用户原镜像、真实译文或模拟器运行。详见 [STATUS](docs/STATUS.md)。
 
