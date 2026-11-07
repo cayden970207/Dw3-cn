@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "all_generated_cells_match_pinned_sources",
+  "glyph_count": 32950,
+  "banks": 129,
+  "native_4bpp_sha256": "720ea0189002cb3b3dc374cd699f8bc34fa4b71bfb90d84977322dd338d0790d",
+  "native_1bpp_sha256": "2c02ec753130121bc1974003c0788fd48ad280c40e577be811887d3a44b6cb37",
+  "checked_native_cells": 32950,
+  "checked_hd_cells": 32950,
+  "gb2312_characters_present": 7445,
+  "bmp_unified_ideographs_present": 20992,
+  "extension_a_present": 6592,
+  "native_source_counts": {
+    "ark": 22856,
+    "noto": 8190,
+    "unifont": 1153,
+    "fusion": 751
+  },
+  "hd_source_counts": {
+    "noto": 30744,
+    "unifont": 1153,
+    "ark": 1053
+  },
+  "full_game_integration_verified": false,
+  "limits": [
+    "Raster fidelity matches source fonts; the appearance of every character has not been reviewed by a person.",
+    "The game cannot yet load the full bank or HD atlases.",
+    "Only supplementary Han present in the pinned sources were included."
+  ]
+}

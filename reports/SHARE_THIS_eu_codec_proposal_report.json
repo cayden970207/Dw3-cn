@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "offline_codec_roundtrip_passed_game_integration_pending",
+  "source_image_sha256": "fb70dc9a995aed628cf515cabc87c7b14e5142559076ec394dfe793ec3e26a04",
+  "font_bank_sha256": "720ea0189002cb3b3dc374cd699f8bc34fa4b71bfb90d84977322dd338d0790d",
+  "proposal": {
+    "stored_non_sjis_text_only": true,
+    "marker_hex": "ea",
+    "glyph_token_bytes": 3,
+    "maximum_glyphs": 65025,
+    "generated_glyphs": 32950,
+    "runtime_decoder_modified": false,
+    "runtime_renderer_modified": false,
+    "general_writer_enabled": false
+  },
+  "real_eu_resources": {
+    "resources": 50,
+    "entries_roundtripped": 13084,
+    "control_tokens_preserved": 35567,
+    "proposed_marker_collisions_at_token_boundaries": 0
+  },
+  "font_bank_mapping_roundtrip_count": 32950,
+  "album_title_example": {
+    "file_id": 38,
+    "entry_index": 1,
+    "translation": "卡片图鉴",
+    "source_capacity_bytes": 12,
+    "proposed_bytes_including_terminator": 13,
+    "fits_existing_slot": false,
+    "written_to_game": false
+  },
+  "limits": [
+    "No game-side code recognizes this proposal yet.",
+    "The real-corpus check covers 50 indexed English resources, not dynamic or other-language text.",
+    "Three-byte glyphs can exceed fixed source slots; resource rebuild/relocation requires separate safety validation.",
+    "SJIS paths, width measurement, controls during gameplay, VRAM cache and save/load remain unverified."
+  ]
+}

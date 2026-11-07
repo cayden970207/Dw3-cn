@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "eu_font_prototype_post_album_save_cold_reload_verified",
+  "source_image_sha256": "fb70dc9a995aed628cf515cabc87c7b14e5142559076ec394dfe793ec3e26a04",
+  "test_image_sha256": "fe6af06114d3e2a055012700d7d80eea1a42d86fa0bcac498c3093dfc50ec7e1",
+  "emulator": {
+    "name": "PCSX-Redux",
+    "version": "a74a0587",
+    "build_id": 433,
+    "executable_sha256": "53451b6b313af0b5342d23ff50a60bea283a7268ef68df0f5482d8ade4e8cb3c",
+    "bios": "OpenBIOS",
+    "bios_sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801"
+  },
+  "independent_card": {
+    "fixture_sha256": "d8f4fefbe2186ae3c8fae382f3573cdaf3403cd676800535aab7f5f63dca4624",
+    "fixture_unchanged": true,
+    "save_changed_card": true,
+    "fresh_process_loaded_saved_copy": true,
+    "playtime_seconds": {
+      "first_load": 1230,
+      "after_save": 1543,
+      "cold_reload": 1515
+    }
+  },
+  "paging": {
+    "observed_page_min": 1,
+    "observed_page_max": 27,
+    "first_next_last_and_return_observed": true
+  },
+  "fresh_write_started_frame": 18319,
+  "fresh_write_completed_frame": 19762,
+  "first_album_before_save_frame": 6234,
+  "cold_loaded_frame": 3980,
+  "cold_album_reopened_frame": 6234,
+  "first_and_cold_title_pixels_match_reviewed": true,
+  "pad_warning_count": {
+    "first": 12,
+    "cold": 12
+  },
+  "limits": [
+    "Only this four-glyph prototype and the listed replay route were exercised.",
+    "This does not validate a full banked font, the proposed codec, or other languages."
+  ],
+  "replay_listener_diagnostics": {
+    "first": {
+      "known_stack_resets": 2,
+      "listener_error_messages": 2
+    },
+    "cold": {
+      "known_stack_resets": 0,
+      "listener_error_messages": 0
+    }
+  },
+  "saved_screen_visually_inspected": true
+}

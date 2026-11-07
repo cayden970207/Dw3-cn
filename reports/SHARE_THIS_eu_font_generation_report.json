@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "generated_not_integrated_or_gameplay_verified",
+  "sources": {
+    "ark": {
+      "sha256": "add3145c4372eca6c386b2adf90e98fea21e848809da56ceed90f917a9caeb4e",
+      "name": "Ark Pixel 12px Monospaced zh-Hans 2026.10.25",
+      "url": "https://github.com/TakWolf/ark-pixel-font",
+      "license": "OFL-1.1"
+    },
+    "fusion": {
+      "sha256": "2e63342fd51ba29831406c8ad8fc919868de0c9dc9277d3a11614a5bc7a26907",
+      "name": "Fusion Pixel 12px Monospaced zh-Hans 2026.10.25",
+      "url": "https://github.com/TakWolf/fusion-pixel-font",
+      "license": "OFL-1.1"
+    },
+    "noto": {
+      "sha256": "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b",
+      "name": "Noto Sans CJK SC Regular",
+      "url": "https://github.com/notofonts/noto-cjk",
+      "license": "OFL-1.1"
+    },
+    "unifont": {
+      "sha256": "88d0a14d4aa9a96419720b39ba5da921a59560d76d4ec7d523acc06ed85cd3c2",
+      "name": "GNU Unifont 18.0.01",
+      "url": "https://unifoundry.com/unifont/index.html",
+      "license": "OFL-1.1 (dual-licensed)"
+    }
+  },
+  "coverage": {
+    "glyph_slots_generated": 32950,
+    "source_missing": 0,
+    "unresolved_rasterizations": 0,
+    "gb2312_repertoire_count": 7445,
+    "gb2312_covered": 7445,
+    "cjk_unified_bmp_total": 20992,
+    "cjk_unified_bmp_covered": 20992,
+    "cjk_extension_a_total": 6592,
+    "cjk_extension_a_covered": 6592,
+    "supplementary_han_included_from_sources": 4545,
+    "all_supplementary_han_complete": false
+  },
+  "native12": {
+    "cell_px": [
+      12,
+      12
+    ],
+    "bank_size": 256,
+    "banks": 129,
+    "four_bpp_bank_bytes": 18432,
+    "one_bpp_bank_bytes_with_sector_padding": 6144,
+    "four_bpp_sha256": "720ea0189002cb3b3dc374cd699f8bc34fa4b71bfb90d84977322dd338d0790d",
+    "one_bpp_sha256": "2c02ec753130121bc1974003c0788fd48ad280c40e577be811887d3a44b6cb37",
+    "source_counts": {
+      "ark": 22856,
+      "noto": 8190,
+      "unifont": 1153,
+      "fusion": 751
+    },
+    "downsized_glyphs": 942,
+    "all_packing_roundtrips_verified": true
+  },
+  "hd48": {
+    "cell_px": [
+      48,
+      48
+    ],
+    "atlas_columns": 16,
+    "atlas_rows": 16,
+    "atlas_count": 129,
+    "source_counts": {
+      "noto": 30744,
+      "unifont": 1153,
+      "ark": 1053
+    },
+    "downsized_glyphs": 53,
+    "texture_replacement_pack_ready": false,
+    "atlas_hashes_omitted_from_public_report": true
+  },
+  "game_integration": {
+    "full_font_usable_in_game": false,
+    "full_font_runtime_verified": false,
+    "status": "runtime_pending",
+    "reason": "The original EU decoder and renderer do not yet load this banked font or its mapping."
+  },
+  "limits": [
+    "Generated bitmaps come from licensed third-party font sources and have not all been visually reviewed.",
+    "Some fallback glyphs use different source styles; downsampling can affect legibility.",
+    "Supplementary Unicode Han coverage contains only glyphs present in the pinned source fonts.",
+    "Generated native banks and HD atlases are local only; no game resources were used in their generation.",
+    "Character repertoire selection is not a claim about the original game encoding."
+  ]
+}

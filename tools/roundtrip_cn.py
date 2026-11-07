@@ -54,7 +54,7 @@ def table_bounds(data: bytes, container: bool) -> dict[int | None, tuple[int, in
     return bounds
 
 
-def inspect_resource(data: bytes, resource: dict) -> dict:
+def inspect_resource(data: bytes, resource: dict, *, variant: str = CN_C713) -> dict:
     if sha(data) != resource["file_sha256"] or len(data) != resource["file_size_bytes"]:
         raise ValueError("Resource hash or size differs from prior index")
     groups = defaultdict(list)
@@ -94,7 +94,7 @@ def inspect_resource(data: bytes, resource: dict) -> dict:
                     raise ValueError("Indexed entry hash or length differs")
                 if data[begin:begin + len(raw)] != raw:
                     raise ValueError("Indexed entry bytes differ from image")
-                parts = tokenize(raw, variant=CN_C713)
+                parts = tokenize(raw, variant=variant)
                 reencoded = b"".join(token.raw for token in parts)
                 if reencoded != raw:
                     raise ValueError("Token roundtrip mismatch")

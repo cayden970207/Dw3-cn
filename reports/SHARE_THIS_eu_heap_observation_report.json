@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "status": "sampled_heap_observations_not_a_full_game_memory_proof",
+  "source_image_sha256": "fb70dc9a995aed628cf515cabc87c7b14e5142559076ec394dfe793ec3e26a04",
+  "test_image_sha256": "fe6af06114d3e2a055012700d7d80eea1a42d86fa0bcac498c3093dfc50ec7e1",
+  "arena_bytes": 1390592,
+  "native_font_bytes": {
+    "banked_4bpp": 2377728,
+    "banked_1bpp_with_padding": 792576,
+    "unbanked_1bpp_without_padding": 593100
+  },
+  "sample_period_frames": 30,
+  "phases": {
+    "first": {
+      "samples": 639,
+      "stages": {
+        "0": {
+          "samples": 9,
+          "min_largest_free_bytes": 1091548,
+          "min_largest_at_frame": 900,
+          "min_total_free_bytes": 1091548,
+          "samples_below_padded_1bpp": 0,
+          "samples_below_tight_1bpp": 0
+        },
+        "2": {
+          "samples": 105,
+          "min_largest_free_bytes": 10228,
+          "min_largest_at_frame": 16950,
+          "min_total_free_bytes": 27312,
+          "samples_below_padded_1bpp": 104,
+          "samples_below_tight_1bpp": 100
+        },
+        "4": {
+          "samples": 3,
+          "min_largest_free_bytes": 72140,
+          "min_largest_at_frame": 15930,
+          "min_total_free_bytes": 186676,
+          "samples_below_padded_1bpp": 3,
+          "samples_below_tight_1bpp": 3
+        },
+        "12": {
+          "samples": 125,
+          "min_largest_free_bytes": 418924,
+          "min_largest_at_frame": 17970,
+          "min_total_free_bytes": 514368,
+          "samples_below_padded_1bpp": 69,
+          "samples_below_tight_1bpp": 69
+        },
+        "14": {
+          "samples": 34,
+          "min_largest_free_bytes": 792944,
+          "min_largest_at_frame": 1290,
+          "min_total_free_bytes": 792944,
+          "samples_below_padded_1bpp": 0,
+          "samples_below_tight_1bpp": 0
+        },
+        "16": {
+          "samples": 28,
+          "min_largest_free_bytes": 31180,
+          "min_largest_at_frame": 16020,
+          "min_total_free_bytes": 113252,
+          "samples_below_padded_1bpp": 28,
+          "samples_below_tight_1bpp": 27
+        },
+        "18": {
+          "samples": 329,
+          "min_largest_free_bytes": 72480,
+          "min_largest_at_frame": 5670,
+          "min_total_free_bytes": 280156,
+          "samples_below_padded_1bpp": 329,
+          "samples_below_tight_1bpp": 329
+        },
+        "22": {
+          "samples": 6,
+          "min_largest_free_bytes": 1260136,
+          "min_largest_at_frame": 1200,
+          "min_total_free_bytes": 1260136,
+          "samples_below_padded_1bpp": 0,
+          "samples_below_tight_1bpp": 0
+        }
+      }
+    },
+    "cold": {
+      "samples": 180,
+      "stages": {
+        "0": {
+          "samples": 9,
+          "min_largest_free_bytes": 1091548,
+          "min_largest_at_frame": 900,
+          "min_total_free_bytes": 1091548,
+          "samples_below_padded_1bpp": 0,
+          "samples_below_tight_1bpp": 0
+        },
+        "2": {
+          "samples": 49,
+          "min_largest_free_bytes": 12264,
+          "min_largest_at_frame": 4890,
+          "min_total_free_bytes": 27312,
+          "samples_below_padded_1bpp": 48,
+          "samples_below_tight_1bpp": 46
+        },
+        "12": {
+          "samples": 56,
+          "min_largest_free_bytes": 957032,
+          "min_largest_at_frame": 2340,
+          "min_total_free_bytes": 979624,
+          "samples_below_padded_1bpp": 0,
+          "samples_below_tight_1bpp": 0
+        },
+        "14": {
+          "samples": 34,
+          "min_largest_free_bytes": 792944,
+          "min_largest_at_frame": 1290,
+          "min_total_free_bytes": 792944,
+          "samples_below_padded_1bpp": 0,
+          "samples_below_tight_1bpp": 0
+        },
+        "16": {
+          "samples": 6,
+          "min_largest_free_bytes": 258556,
+          "min_largest_at_frame": 5490,
+          "min_total_free_bytes": 265164,
+          "samples_below_padded_1bpp": 6,
+          "samples_below_tight_1bpp": 5
+        },
+        "18": {
+          "samples": 20,
+          "min_largest_free_bytes": 72480,
+          "min_largest_at_frame": 5670,
+          "min_total_free_bytes": 280444,
+          "samples_below_padded_1bpp": 20,
+          "samples_below_tight_1bpp": 20
+        },
+        "22": {
+          "samples": 6,
+          "min_largest_free_bytes": 1260136,
+          "min_largest_at_frame": 1200,
+          "min_total_free_bytes": 1260136,
+          "samples_below_padded_1bpp": 0,
+          "samples_below_tight_1bpp": 0
+        }
+      }
+    }
+  },
+  "limits": [
+    "The read-only sample covers only the stated replay route and every 30th frame.",
+    "A currently small free block does not prove allocation would fail after the CD cache is evicted.",
+    "A large block does not prove that keeping it reserved would be safe in later scenes.",
+    "No font bank was allocated or loaded by this measurement."
+  ]
+}

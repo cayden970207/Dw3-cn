@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "status": "four_bank_glyphs_rendered_in_eu_game",
+  "source_image_sha256": "fb70dc9a995aed628cf515cabc87c7b14e5142559076ec394dfe793ec3e26a04",
+  "source_archive_sha256": "7e68a2caab41d3946a7ca4cf6697ae2c8e3ff990563da07c3e9e64be33d24837",
+  "test_image_sha256": "fe6af06114d3e2a055012700d7d80eea1a42d86fa0bcac498c3093dfc50ec7e1",
+  "full_bank_native_4bpp_sha256": "720ea0189002cb3b3dc374cd699f8bc34fa4b71bfb90d84977322dd338d0790d",
+  "title": {
+    "file_id": 38,
+    "entry_index": 1,
+    "translation": "卡片图鉴",
+    "native_glyphs": 4,
+    "advance_px": 44,
+    "runtime_ink_bbox_px": [
+      17,
+      25,
+      61,
+      36
+    ],
+    "expected_and_actual_white_pixels_identical": true,
+    "white_pixel_count": 181,
+    "visual_inspection_completed": true
+  },
+  "source_font": {
+    "name": "Ark Pixel 12px Monospaced Simplified Chinese",
+    "version": "2026.10.25",
+    "source_url": "https://github.com/TakWolf/ark-pixel-font",
+    "license": "OFL-1.1",
+    "source_font_sha256": "add3145c4372eca6c386b2adf90e98fea21e848809da56ceed90f917a9caeb4e",
+    "font_file_distributed": false,
+    "generated_4bpp_bank_sha256": "720ea0189002cb3b3dc374cd699f8bc34fa4b71bfb90d84977322dd338d0790d"
+  },
+  "disc_integrity": {
+    "original_image_unchanged": true,
+    "original_archive_unchanged": true,
+    "changed_sectors": [
+      2268,
+      2269,
+      2270,
+      2271,
+      2272,
+      2273,
+      2274,
+      2275,
+      2276,
+      2277,
+      2278,
+      2279,
+      2280,
+      2281,
+      2282,
+      2283,
+      2284,
+      2285,
+      2286,
+      2287,
+      2288,
+      2289,
+      2310
+    ],
+    "unchanged_sector_count": 294257,
+    "changed_raw_bytes": 47296,
+    "all_changes_within_font_title_or_sector_checksums": true,
+    "all_modified_sectors_edc_ecc_before_and_after_valid": true
+  },
+  "runtime": {
+    "emulator": "PCSX-Redux a74a0587 build 433",
+    "emulator_sha256": "53451b6b313af0b5342d23ff50a60bea283a7268ef68df0f5482d8ade4e8cb3c",
+    "bios": "OpenBIOS",
+    "bios_sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801",
+    "input_fixture": "artificial independent memory-card copy",
+    "baseline_replay": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 3980,
+          "stage": 2
+        },
+        "status_open": {
+          "frame": 5447,
+          "stage": 16
+        },
+        "cold_album_open": {
+          "frame": 5634,
+          "stage": 18
+        },
+        "cold_album_visible": {
+          "frame": 6234,
+          "stage": 18
+        },
+        "eu_album_closed": {
+          "frame": 6251,
+          "stage": 16
+        },
+        "eu_album_reopened": {
+          "frame": 6990,
+          "stage": 18
+        },
+        "eu_album_returned": {
+          "frame": 7007,
+          "stage": 16
+        }
+      },
+      "normal_input_only": true,
+      "memory_card_saved": false,
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 0
+    },
+    "prototype_replay": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 3980,
+          "stage": 2
+        },
+        "status_open": {
+          "frame": 5447,
+          "stage": 16
+        },
+        "cold_album_open": {
+          "frame": 5634,
+          "stage": 18
+        },
+        "cold_album_visible": {
+          "frame": 6234,
+          "stage": 18
+        },
+        "eu_album_closed": {
+          "frame": 6251,
+          "stage": 16
+        },
+        "eu_album_reopened": {
+          "frame": 6990,
+          "stage": 18
+        },
+        "eu_album_returned": {
+          "frame": 7007,
+          "stage": 16
+        }
+      },
+      "normal_input_only": true,
+      "memory_card_saved": false,
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 0
+    },
+    "baseline_screenshot_sha256": "c314695db3afef261b4c89b13f1eac666b00c494ecf95a8aeac68474f58bb90f",
+    "prototype_screenshot_sha256": "50c14e141d29044f43d8f6146ee5a321a35a504c124f706dc22e4049d8aecaf3",
+    "before_after_pixel_comparison": {
+      "changed_pixels": 321,
+      "changes_outside_expected_text_bands": 0,
+      "bbox_exclusive": [
+        17,
+        25,
+        77,
+        36
+      ]
+    }
+  },
+  "full_font_ingame_integration": "runtime_pending",
+  "limits": [
+    "The prototype temporarily repurposes four EU Japanese glyph slots, only in this new test copy.",
+    "Four glyphs in one window do not validate full bank loading or a general Chinese codec.",
+    "Only the stated album opening/closing paths were run; no save/cold-reload regression was performed.",
+    "The original European image, game screenshots, fonts and memory cards remain local."
+  ]
+}

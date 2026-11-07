@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "status": "prototype_copy_created_runtime_pending",
+  "source_image_sha256": "fb70dc9a995aed628cf515cabc87c7b14e5142559076ec394dfe793ec3e26a04",
+  "source_archive_sha256": "7e68a2caab41d3946a7ca4cf6697ae2c8e3ff990563da07c3e9e64be33d24837",
+  "test_image_sha256": "fe6af06114d3e2a055012700d7d80eea1a42d86fa0bcac498c3093dfc50ec7e1",
+  "source_executable_sha256": "15f37849a81b9f00e7f20d00de7a465b663a9e86b9d08b05d32dd386be95c546",
+  "test_title": {
+    "file_id": 38,
+    "entry_index": 1,
+    "source_sha256": "870746459242413a79eb73d41ba6f1e73b30c25dc6b073622f6c2f6a1d681fa3",
+    "translation": "卡片图鉴",
+    "original_capacity_bytes": 12,
+    "replacement_bytes_including_terminator": 5,
+    "font_1_advance_per_glyph_px": 11,
+    "runtime_verified": false
+  },
+  "experimental_mapping": [
+    {
+      "slot": 76,
+      "unicode": "卡"
+    },
+    {
+      "slot": 77,
+      "unicode": "片"
+    },
+    {
+      "slot": 83,
+      "unicode": "图"
+    },
+    {
+      "slot": 87,
+      "unicode": "鉴"
+    }
+  ],
+  "source_font": {
+    "name": "Ark Pixel 12px Monospaced Simplified Chinese",
+    "version": "2026.10.25",
+    "source_url": "https://github.com/TakWolf/ark-pixel-font",
+    "license": "OFL-1.1",
+    "source_font_sha256": "add3145c4372eca6c386b2adf90e98fea21e848809da56ceed90f917a9caeb4e",
+    "font_file_distributed": false,
+    "generated_4bpp_bank_sha256": "720ea0189002cb3b3dc374cd699f8bc34fa4b71bfb90d84977322dd338d0790d"
+  },
+  "font_resource": {
+    "old_first_page_rlen_bytes": 23436,
+    "new_first_page_rlen_bytes": 22266,
+    "original_second_page_unchanged": true,
+    "outside_four_atlas_slots_unchanged": true,
+    "resource_size_bytes": 43660
+  },
+  "integrity": {
+    "original_image_unchanged": true,
+    "original_archive_unchanged": true,
+    "changed_sectors": [
+      2268,
+      2269,
+      2270,
+      2271,
+      2272,
+      2273,
+      2274,
+      2275,
+      2276,
+      2277,
+      2278,
+      2279,
+      2280,
+      2281,
+      2282,
+      2283,
+      2284,
+      2285,
+      2286,
+      2287,
+      2288,
+      2289,
+      2310
+    ],
+    "unchanged_sector_count": 294257,
+    "changed_raw_bytes": 47296,
+    "all_changes_within_font_title_or_sector_checksums": true,
+    "all_modified_sectors_edc_ecc_before_and_after_valid": true
+  },
+  "limitations": [
+    "Four original Japanese glyph slots were repurposed in the experimental copy only.",
+    "Those slots do not occur in the 50 indexed English resources, but other languages and dynamic paths are not covered.",
+    "This does not implement a scalable Chinese codec or a complete font.",
+    "Runtime rendering, controller behavior and save compatibility require separate tests."
+  ]
+}

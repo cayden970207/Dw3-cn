@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "structure_passed_not_gameplay_verified",
+  "archive_sha256": "7e68a2caab41d3946a7ca4cf6697ae2c8e3ff990563da07c3e9e64be33d24837",
+  "image_sha256": "fb70dc9a995aed628cf515cabc87c7b14e5142559076ec394dfe793ec3e26a04",
+  "image_size_bytes": 692146560,
+  "serial_candidates": [
+    "SLES-03936"
+  ],
+  "sector_bytes": 2352,
+  "user_data_offset": 24,
+  "executable_sha256": "15f37849a81b9f00e7f20d00de7a465b663a9e86b9d08b05d32dd386be95c546",
+  "filetable_records": 2382,
+  "filetable_matches": 2382,
+  "identified_text_resources": 50,
+  "indexed_entries": 13084,
+  "issues": [],
+  "warnings": [],
+  "note": "Original EU source; no game text, images, fonts or disc data included."
+}

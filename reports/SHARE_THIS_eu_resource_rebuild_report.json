@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "offline_rebuilt_game_integration_pending",
+  "source_image_sha256": "fb70dc9a995aed628cf515cabc87c7b14e5142559076ec394dfe793ec3e26a04",
+  "source_resource_sha256": "31fae89a1956bd41b7d56b1eaf06dde58e2663a5b271ecb96797b8668e49b7e5",
+  "font_bank_sha256": "720ea0189002cb3b3dc374cd699f8bc34fa4b71bfb90d84977322dd338d0790d",
+  "resource_id": 38,
+  "entries": 9,
+  "source_size_bytes": 98,
+  "rebuilt_size_bytes": 102,
+  "rebuilt_resource_sha256": "6e85a08879269543fbf572a4bdd171d1b7472c526d7b04ab783a20b240c303c2",
+  "translation_example": "卡片图鉴",
+  "changes": [
+    {
+      "entry_index": 1,
+      "source_bytes_including_terminator": 12,
+      "replacement_bytes_including_terminator": 13,
+      "original_slot_bytes": 12,
+      "source_sha256": "870746459242413a79eb73d41ba6f1e73b30c25dc6b073622f6c2f6a1d681fa3"
+    }
+  ],
+  "source_entries_and_tails_preserved_except_selected_text": true,
+  "relative_pointers_rebuilt_and_aligned": true,
+  "game_image_modified": false,
+  "runtime_verified": false,
+  "limits": [
+    "The rebuilt resource is private and has not been written to a disc.",
+    "The original game does not recognize the proposed bank tokens.",
+    "Disc extent, ISO metadata, downstream pointer assumptions and game layout still need validation."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "two_spacing_variants_observed_in_one_game_window",
+  "source_image_sha256": "fb70dc9a995aed628cf515cabc87c7b14e5142559076ec394dfe793ec3e26a04",
+  "translation_for_glyph_preview": "记忆插槽",
+  "scope": "Artificial wording in the card-album title; the actual memory-card screen is unchanged.",
+  "variants": [
+    {
+      "advance_per_glyph_px": 11,
+      "advance_total_px": 44,
+      "ink_bbox_px": [
+        17,
+        25,
+        61,
+        36
+      ],
+      "white_pixel_count": 200,
+      "test_image_sha256": "f4c341d5077705006efc7716cfa23391363fe06f45d3e063ec243dce26f0836c",
+      "modified_sectors": 23,
+      "modified_sectors_edc_ecc_valid": true
+    },
+    {
+      "advance_per_glyph_px": 12,
+      "advance_total_px": 48,
+      "ink_bbox_px": [
+        17,
+        25,
+        64,
+        36
+      ],
+      "white_pixel_count": 200,
+      "test_image_sha256": "16c92ea22f003f09d67ae5cb2ee59277387c4a15a61781302261cb2a9cc65f29",
+      "modified_sectors": 24,
+      "modified_sectors_edc_ecc_valid": true
+    }
+  ],
+  "same_four_glyph_pixel_masks": true,
+  "one_empty_pixel_column_between_cells_at_12px": true,
+  "differences_outside_title_region": 0,
+  "limits": [
+    "The comparison uses a single font and window; no general spacing setting is proven safe.",
+    "12px spacing does not add missing strokes inside a 12x12 glyph.",
+    "Save/cold-reload for these separate visibility demos was not performed.",
+    "A full banked font and HD texture replacements remain unimplemented."
+  ]
+}
