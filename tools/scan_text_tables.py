@@ -360,6 +360,7 @@ def scan(path: Path, member: str | None = None, private: bool = False) -> dict:
                     entry = {
                         "table": subfile,
                         "index": index,
+                        "offset_bytes": start,
                         "raw_sha256": hashlib.sha256(raw).hexdigest(),
                         "encoded_bytes": len(raw),
                     }
@@ -368,6 +369,7 @@ def scan(path: Path, member: str | None = None, private: bool = False) -> dict:
                     records.append(entry)
             report["text_files"].append({
                 "file_id": fid,
+                "lba": lba,
                 "path": info["path"],
                 "file_sha256": hashlib.sha256(data).hexdigest(),
                 "file_size_bytes": len(data),
