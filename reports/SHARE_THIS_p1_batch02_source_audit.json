@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "status": "five_sources_checked_three_runtime_paths_verified",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "runtime_input_batch01_sha256": "03fa8316801fd610fec4dfdf895753d25121f8c955f3835f0ad4446d12886193",
+  "overlay_sha1": {
+    "STCRDDEK.PRO": "f813f89a1ab17597e6a429c42d0acd81dd41aa49",
+    "STCRDSHP.PRO": "d1e01bd598694a6aa8ddd0978f6d382fa970d314"
+  },
+  "entries": [
+    {
+      "file_id": 52,
+      "entry_index": 15,
+      "source_sha256": "4fc2ad8f756b55ddcbca5076b15076465222b2094a45e60557fc12e5763c0608",
+      "source_bytes_including_terminator": 22,
+      "control_count": 0,
+      "dynamic_insert_count": 0,
+      "source_draw_advance_px": 113,
+      "window_origin_px": [
+        20,
+        194
+      ],
+      "window_context": "booster_screen",
+      "trigger": "持有卡包时选择商店第二行",
+      "source_runtime_status": "runtime_pending",
+      "translation_status": "draft_not_written"
+    },
+    {
+      "file_id": 52,
+      "entry_index": 19,
+      "source_sha256": "2a81ed939dbcdf7f2b3de39f07239c28e50f282e499f30ec1fe84e3bfe25c793",
+      "source_bytes_including_terminator": 19,
+      "control_count": 0,
+      "dynamic_insert_count": 0,
+      "source_draw_advance_px": 93,
+      "window_origin_px": [
+        154,
+        57
+      ],
+      "window_context": "buy_message",
+      "trigger": "尝试购买价格高于余额的卡片",
+      "source_runtime_status": "actual_window_and_state_verified",
+      "translation_status": "draft_not_written",
+      "source_ink_bbox_px": [
+        155,
+        58,
+        245,
+        69
+      ],
+      "source_screenshot_sha256": "b1992a9c07564b3d523caaadb7f00b86cf7c9cf36f0b138dce5cd65ce9549340",
+      "screenshot_ink_rule": "neutral RGB, minimum channel >= 80 and spread < 8; scoped to these observed blue windows",
+      "game_measure_result_used_by_window": false,
+      "exact_window_clip_bounds": "unresolved"
+    },
+    {
+      "file_id": 52,
+      "entry_index": 20,
+      "source_sha256": "506519d000e80369e62d91eb609eb97e56fa8d0b9cb2a384de73eb5c03166a18",
+      "source_bytes_including_terminator": 17,
+      "control_count": 0,
+      "dynamic_insert_count": 0,
+      "source_draw_advance_px": 85,
+      "window_origin_px": [
+        154,
+        57
+      ],
+      "window_context": "buy_message",
+      "trigger": "尝试购买已持有九张的卡片",
+      "source_runtime_status": "runtime_pending",
+      "translation_status": "draft_not_written"
+    },
+    {
+      "file_id": 52,
+      "entry_index": 25,
+      "source_sha256": "796cf96018087f19cfdffd3da937f6a39e90a779e024f5871d8da56cf6fadc6c",
+      "source_bytes_including_terminator": 20,
+      "control_count": 0,
+      "dynamic_insert_count": 0,
+      "source_draw_advance_px": 95,
+      "window_origin_px": [
+        151,
+        34
+      ],
+      "window_context": "deck_help",
+      "trigger": "进入卡组页面的选择列表",
+      "source_runtime_status": "actual_window_and_state_verified",
+      "translation_status": "draft_not_written",
+      "source_ink_bbox_px": [
+        152,
+        35,
+        244,
+        45
+      ],
+      "source_screenshot_sha256": "40dcdeb334702a009aa18644a45e861805fe1c9e199392f1b55f4cd2c5bbfcb4",
+      "screenshot_ink_rule": "neutral RGB, minimum channel >= 80 and spread < 8; scoped to these observed blue windows",
+      "game_measure_result_used_by_window": false,
+      "exact_window_clip_bounds": "unresolved"
+    },
+    {
+      "file_id": 52,
+      "entry_index": 27,
+      "source_sha256": "f980d46324d23b3a0939f54269e794a498524ce25a0a7cb9c7fdef4873fab7b9",
+      "source_bytes_including_terminator": 13,
+      "control_count": 0,
+      "dynamic_insert_count": 0,
+      "source_draw_advance_px": 69,
+      "window_origin_px": [
+        167,
+        49
+      ],
+      "window_context": "deck_menu",
+      "trigger": "打开卡组页面并选择一组",
+      "source_runtime_status": "actual_window_and_state_verified",
+      "translation_status": "draft_not_written",
+      "source_ink_bbox_px": [
+        168,
+        50,
+        236,
+        61
+      ],
+      "source_screenshot_sha256": "2aa56962940c016722c5311e0f73b315e7dfa27c1bc3f82043958bc1853cd13b",
+      "screenshot_ink_rule": "neutral RGB, minimum channel >= 80 and spread < 8; scoped to these observed blue windows",
+      "game_measure_result_used_by_window": false,
+      "exact_window_clip_bounds": "unresolved"
+    }
+  ],
+  "runtime": {
+    "deck": {
+      "checkpoints": {
+        "batch02_deck_selection": {
+          "frame": 6429,
+          "stage": 4
+        },
+        "batch02_deck_menu": {
+          "frame": 6722,
+          "stage": 4
+        },
+        "batch02_menu_cancelled": {
+          "frame": 6945,
+          "stage": 4
+        },
+        "batch02_menu_reopened": {
+          "frame": 7238,
+          "stage": 4
+        },
+        "batch02_name_entry": {
+          "frame": 7924,
+          "stage": 4
+        },
+        "batch02_name_return": {
+          "frame": 8703,
+          "stage": 4
+        },
+        "batch02_deck_return_to_party": {
+          "frame": 8722,
+          "stage": 16
+        }
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1,
+      "menu_cancelled_and_reopened": true,
+      "name_changed_in_memory_then_returned": true,
+      "save_not_performed": true
+    },
+    "buy": {
+      "checkpoints": {
+        "batch02_buy_open": {
+          "frame": 6994,
+          "stage": 19
+        },
+        "batch02_insufficient_funds": {
+          "frame": 7337,
+          "stage": 19
+        },
+        "batch02_buy_return_to_field": {
+          "frame": 7516,
+          "stage": 2
+        }
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 0
+    }
+  },
+  "limitations": [
+    "Source verification does not approve candidate glyphs or a translation.",
+    "Booster selection and nine-card-limit cases have not been triggered.",
+    "Exact window clipping bounds and other fonts remain unresolved.",
+    "Pad warnings and the upstream periodic listener-reset warning remain in the local logs; only observed state changes are reported.",
+    "Original text, fonts, private screenshots and memory cards remain local."
+  ]
+}

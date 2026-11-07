@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "status": "batch01_post_menu_save_cold_load_revisit_verified",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "batch_image_sha256": "03fa8316801fd610fec4dfdf895753d25121f8c955f3835f0ad4446d12886193",
+  "input_cue": "local/font-recovery/p1-batch01/DW3-p1-batch01.cue",
+  "emulator": {
+    "name": "PCSX-Redux",
+    "version": "a74a0587",
+    "build_id": 433,
+    "executable_sha256": "53451b6b313af0b5342d23ff50a60bea283a7268ef68df0f5482d8ade4e8cb3c",
+    "bios": "OpenBIOS",
+    "bios_sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801",
+    "mode": "headless, unthrottled, two separate processes with independent private card copies"
+  },
+  "initial_seed": "private copy of the independently generated post-album save",
+  "cold_process_loaded_post_menu_save": true,
+  "cold_card_case_item": 1,
+  "playtime_seconds": {
+    "initial_load": 876,
+    "cold_reloaded": 1031,
+    "first_process_after_write": 1059
+  },
+  "phases": {
+    "first": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "cold_album_visible": {
+          "frame": 6379,
+          "stage": 18
+        },
+        "batch_deck_submenu": {
+          "frame": 7538,
+          "stage": 4
+        },
+        "batch_shop_main": {
+          "frame": 9611,
+          "stage": 19
+        },
+        "batch_shop_empty": {
+          "frame": 9997,
+          "stage": 19
+        },
+        "batch_shop_return": {
+          "frame": 10128,
+          "stage": 2
+        }
+      },
+      "captures": {
+        "album": {
+          "sha256": "3248134b4ae3868b27ed8e4438da4e94d777992d2aceda84ec98bab6328b7615",
+          "light_pixel_mask_matches_prior": true
+        },
+        "shop": {
+          "sha256": "1493246046b640fb1fdcc258683b2dfe57badc5cc1c34f6dd576db27262d402b",
+          "light_pixel_mask_matches_prior": true
+        },
+        "empty": {
+          "sha256": "8c8f8fddad15b35eb08725fc205532af46d80a63bed74deaff3f9add6bff089f",
+          "light_pixel_mask_matches_prior": true
+        },
+        "deck": {
+          "sha256": "a4a152b6cfea5837fd322803f716087881c0f5f370002845dd9c8ff8a209d873",
+          "light_pixel_mask_matches_prior": true
+        }
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1,
+      "save": {
+        "started_frame": 12163,
+        "finished_frame": 13606,
+        "returned_to_field_frame": 13842,
+        "screen_sha256": "0c029cf5075d61d36b16b6b4396a05ec4cac230a9cd927640507bbdbbfc28da3",
+        "screen_visually_reviewed": true,
+        "independent_card_changed_after_visits": true
+      }
+    },
+    "cold": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "cold_album_visible": {
+          "frame": 6379,
+          "stage": 18
+        },
+        "batch_deck_submenu": {
+          "frame": 7538,
+          "stage": 4
+        },
+        "batch_shop_main": {
+          "frame": 9611,
+          "stage": 19
+        },
+        "batch_shop_empty": {
+          "frame": 9997,
+          "stage": 19
+        },
+        "batch_shop_return": {
+          "frame": 10128,
+          "stage": 2
+        }
+      },
+      "captures": {
+        "album": {
+          "sha256": "3248134b4ae3868b27ed8e4438da4e94d777992d2aceda84ec98bab6328b7615",
+          "light_pixel_mask_matches_prior": true
+        },
+        "shop": {
+          "sha256": "1493246046b640fb1fdcc258683b2dfe57badc5cc1c34f6dd576db27262d402b",
+          "light_pixel_mask_matches_prior": true
+        },
+        "empty": {
+          "sha256": "8c8f8fddad15b35eb08725fc205532af46d80a63bed74deaff3f9add6bff089f",
+          "light_pixel_mask_matches_prior": true
+        },
+        "deck": {
+          "sha256": "a4a152b6cfea5837fd322803f716087881c0f5f370002845dd9c8ff8a209d873",
+          "light_pixel_mask_matches_prior": true
+        }
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1
+    }
+  },
+  "limitations": [
+    "Only the recorded PCSX-Redux/OpenBIOS setup and listed menu paths were exercised.",
+    "Pad 43 warnings and the upstream periodic Lua-listener stack-reset message remain in local logs; observed state changes and captures support only the reported actions.",
+    "Private memory cards and screenshots are not included in this report."
+  ]
+}

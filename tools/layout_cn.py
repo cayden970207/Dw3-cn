@@ -180,6 +180,26 @@ def white_bbox(path: Path, rect: tuple[int, int, int, int]):
             max(x for x, _ in pixels) + 1, max(y for _, y in pixels) + 1]
 
 
+def neutral_ink_bbox(path: Path, rect: tuple[int, int, int, int]):
+    """Include the observed grey antialiasing in the three batch-02 windows.
+
+    This threshold is tied to those inspected blue backgrounds, not a general
+    segmentation rule for arbitrary game windows or palettes.
+    """
+    data = ppm(path)
+    x0, y0, x1, y1 = rect
+    pixels = []
+    for y in range(y0, y1):
+        for x in range(x0, x1):
+            rgb = data[(y * 320 + x) * 3:(y * 320 + x) * 3 + 3]
+            if min(rgb) >= 80 and max(rgb) - min(rgb) < 8:
+                pixels.append((x, y))
+    if not pixels:
+        raise LayoutError('No neutral text ink in the inspected screenshot region')
+    return [min(x for x, _ in pixels), min(y for _, y in pixels),
+            max(x for x, _ in pixels) + 1, max(y for _, y in pixels) + 1]
+
+
 def non_background_bbox(path: Path, rect: tuple[int, int, int, int], background: bytes):
     if len(background) != 3:
         raise LayoutError("Background colour must be RGB")

@@ -34,4 +34,6 @@
 
 中英混排、数字、标点、空格、动态插入及显式换行已有真实条目的离线测量。研究所进化表另以实际插入的数码兽名称完成了一次运行画面核对，推进 72 像素、墨迹 `[20,25,91,36)`；旧测宽静态模拟 44 像素，而该窗口实际 measured_width 为 0。除报告中明确列出的画面外，其窗口裁切、动态上限和运行显示仍待验证。五个扩展 token 和一个 fallback 的资源、条目、场景及条件对白调用链已定位，原字节仍在本机，含义和实际触发均 unresolved，不能当作损坏。见 `reports/SHARE_THIS_layout_validation_report.json` 和 `reports/SHARE_THIS_unknown_tokens_report.json`。
 
-批次副本在单一模拟器/OpenBIOS 配置下完成列出的菜单路径；没有完成批次访问后的存读档、零件条件覆盖或整部游戏回归。原汉化作者和版本仍待核实；本轮不声称全游戏汉化完成。方法见 `docs/LAYOUT_AND_BATCH01.md`，人工步骤见 `docs/MANUAL_TEST_BATCH01.md`。
+批次副本现已在单一模拟器/OpenBIOS 配置下完成**访问图鉴、卡组、商店和无卡包提示之后**的游戏内写卡；在完全退出第一个进程后，第二个进程从本批 CUE 冷启动并游戏内读档，重新访问这些菜单并比对文字像素。独立卡及截图仍在本机。结果见 `reports/SHARE_THIS_p1_batch01_save_regression_report.json`；其他条件、配置及整部游戏回归仍未覆盖。原汉化作者和版本待核实，本轮不声称全游戏汉化完成。方法见 `docs/LAYOUT_AND_BATCH01.md`，人工步骤见 `docs/MANUAL_TEST_BATCH01.md`。
+
+第二批五条候选的原始资源、字节容量及控制码已重新核对；其中余额不足、卡组选择和更名三个来源窗口已在第一批镜像中实际触发，并记录了取消、更名输入及返回。相关字形核对仍待用户答复，**第二批没有生成新副本或新增游戏内补翻**。来源验证和未触发条件见 `reports/SHARE_THIS_p1_batch02_source_audit.json` 与 `docs/BATCH02.md`。

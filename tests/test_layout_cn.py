@@ -3,7 +3,7 @@ import json
 import unittest
 from pathlib import Path
 
-from tools.layout_cn import Font1, LayoutError, measure, white_bbox
+from tools.layout_cn import Font1, LayoutError, measure, white_bbox, neutral_ink_bbox
 from tools.text_codec import cn_canonical_code, load_reviewed_glyphs
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +14,7 @@ FONT = LOCAL / 'PRIVATE_647_userdata.bin'
 SCREEN_BEFORE = LOCAL / 'runtime-album-before-long/run/PRIVATE_album_wait_360.ppm'
 SCREEN_AFTER = LOCAL / 'runtime-album-after/run/PRIVATE_card_album_after.ppm'
 LAB = ROOT / 'local/font-recovery/round2-lab-dynamic-runtime-v2'
+SELECTION = ROOT / 'local/font-recovery/batch02-deck-before-v1/PRIVATE_deck_selection.ppm'
 
 
 class MappingSafetyTests(unittest.TestCase):
@@ -75,6 +76,15 @@ class LocalRealImageLayoutTests(unittest.TestCase):
         box = measured['ink_bbox_relative_exclusive']
         self.assertEqual([box[0] + 20, box[1] + 25, box[2] + 20, box[3] + 25],
                          white_bbox(LAB / 'PRIVATE_lab_chart.ppm', (20, 25, 160, 38)))
+
+    @unittest.skipUnless(SELECTION.is_file(), 'Owner-only batch-02 source screenshot is unavailable')
+    def test_selection_source_includes_the_real_grey_edge_pixel(self):
+        measured = measure(self.font, self.source(52, 25))
+        b = measured['ink_bbox_relative_exclusive']
+        predicted = [b[0]+151, b[1]+34, b[2]+151, b[3]+34]
+        rect = (150, 34, 294, 47)
+        self.assertEqual(white_bbox(SELECTION, rect), [152, 35, 243, 45])
+        self.assertEqual(neutral_ink_bbox(SELECTION, rect), predicted)
 
 
 if __name__ == '__main__':

@@ -32,6 +32,8 @@
 
 `tools/replay_card_shop.py` 使用冷读后的独立卡片盒存档副本，分别重放商店及卡组子菜单；另一次进入图鉴确认旧标题。`tools/collect_card_batch.py` 检查实际游戏状态、屏幕区域前后差异和每条目标的预测/截图墨迹边界，需人工目视后才可使用 `--visual-checked`。该参数只记录已完成的人眼审阅，不能用来伪造结果。实际五条新译文已各自出现在画面，比较中对应区域外的同帧截图像素一致。
 
+后续以 `tools/batch01_save_regression.py` 和独立记忆卡运行批次回归：先访问图鉴、卡组、商店及无卡包提示，观察写卡开始、结束和保存画面；完全退出后用第二个进程冷启动、从游戏内读档，验证卡片盒并重访这些菜单。`tools/collect_batch01_save_regression.py` 核查实际对象状态、检查点顺序，以及文字区域与前次已审核截图的像素掩码；结果见 `reports/SHARE_THIS_p1_batch01_save_regression_report.json`。
+
 批次截图与镜像位于本机 `local/font-recovery/p1-batch01*/`，单标题对照继续保留在 `local/font-recovery/run-20261107/card_album_test/`。`reports/SHARE_THIS_p1_batch01_report.json` 包含十条候选的资源 ID、条目、原文哈希、调用窗口及触发条件，其中 5 条已写入并运行验证、5 条仍未修改。截图及存档不提交 GitHub。
 
 ## 未知 token 的调用上下文

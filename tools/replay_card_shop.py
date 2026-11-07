@@ -46,6 +46,33 @@ def trace(reference: Path, scenario: str = 'shop'):
     _, cold = make_traces(reference)
     if scenario == 'album':
         return cold
+    if scenario == 'deck02':
+        status = index_one(cold['steps'], lambda s: s.get('name') == 'status_open')
+        album = index_one(original, lambda s: s.get('name') == 'album_open')
+        deck = index_one(original, lambda s: s.get('type') == 'press' and s.get('until', {}).get('stage') == 4, album)
+        steps = cold['steps'][:status + 1] + [original[deck],
+            {'type': 'wait_frames', 'frames': 650}, checkpoint('batch02_deck_selection'),
+            {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+            {'type': 'wait_frames', 'frames': 200}, checkpoint('batch02_deck_menu'),
+            {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 3, 'release': 120},
+            {'type': 'wait_frames', 'frames': 100}, checkpoint('batch02_menu_cancelled'),
+            {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+            {'type': 'wait_frames', 'frames': 200}, checkpoint('batch02_menu_reopened'),
+            {'type': 'press', 'buttons': ['DOWN'], 'frames': 3, 'release': 90},
+            {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+            {'type': 'wait_frames', 'frames': 500}, checkpoint('batch02_name_entry'),
+            # Choose one character through the game's own name-entry grid.
+            # This changes only this replay's in-memory deck name; no save step follows.
+            {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+            {'type': 'press', 'buttons': ['START'], 'frames': 3, 'release': 90},
+            {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+            {'type': 'wait_frames', 'frames': 500}, checkpoint('batch02_name_return'),
+            {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 2, 'release': 10,
+             'until': {'type': 'wait_stage', 'stage': 16}, 'timeout': 1500},
+            checkpoint('batch02_deck_return_to_party')]
+        if any(s.get('type') in ('write_mem', 'reset') for s in steps):
+            raise ValueError('Deck-02 replay must use only natural inputs')
+        return {'name': 'cn_batch02_deck_check', 'max_frames': 20000, 'default_timeout': 3000, 'steps': steps}
     if scenario == 'deck':
         status = index_one(cold['steps'], lambda s: s.get('name') == 'status_open')
         album = index_one(original, lambda s: s.get('name') == 'album_open')
@@ -64,6 +91,19 @@ def trace(reference: Path, scenario: str = 'shop'):
     previous_arena = max(i for i in range(opened) if original[i].get('type') == 'press' and
                          original[i].get('until', {}).get('map') == '0x211')
     steps = cold['steps'][:arena + 1] + original[previous_arena + 1:opened + 1]
+    if scenario == 'buy02':
+        steps += [{'type': 'wait_frames', 'frames': 650}, checkpoint('batch02_shop_main'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 650}, checkpoint('batch02_buy_open'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 250}, checkpoint('batch02_insufficient_funds'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 2, 'release': 10,
+                   'until': {'type': 'wait_stage', 'stage': 2}, 'timeout': 2000},
+                  checkpoint('batch02_buy_return_to_field')]
+        if any(s.get('type') in ('write_mem', 'reset') for s in steps):
+            raise ValueError('Buy-02 replay must use only natural inputs')
+        return {'name': 'cn_batch02_buy_check', 'max_frames': 20000, 'default_timeout': 3000, 'steps': steps}
     steps += [{'type': 'wait_frames', 'frames': 650}, checkpoint('shop_main_stable'),
               {'type': 'press', 'buttons': ['DOWN'], 'frames': 3, 'release': 90},
               {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
@@ -87,7 +127,7 @@ def main():
     p.add_argument('--emulator', type=Path, required=True)
     p.add_argument('--bios', type=Path, required=True)
     p.add_argument('--version-json', type=Path, required=True)
-    p.add_argument('--scenario', choices=('shop', 'deck', 'album', 'lab'), default='shop')
+    p.add_argument('--scenario', choices=('shop', 'deck', 'album', 'lab', 'deck02', 'buy02'), default='shop')
     a = p.parse_args()
     root = Path(__file__).resolve().parents[1]
     local, out, seed, ref = (root / 'local').resolve(), a.output.resolve(), a.seed_card.resolve(), a.reference.resolve()
@@ -130,6 +170,7 @@ def main():
     env = emulator.replay_env(trace_lua, out, speed=0)
     capture = {'deck': 'tools/card_deck_capture.lua', 'shop': 'tools/card_shop_capture.lua',
                'lab': 'tools/lab_dynamic_capture.lua',
+               'deck02': 'tools/batch02_runtime_capture.lua', 'buy02': 'tools/batch02_runtime_capture.lua',
                'album': 'tools/card_album_capture.lua'}[a.scenario]
     cmd = [str(cfg.redux), '-no-ui', '-stdout', '-testmode', '-run', '-iso', str(cue), '-bios', str(cfg.openbios),
            '-memcard1', str(card), '-memcard2', str(out / 'memcard2.mcd'), '-dofile', str(root / capture)]
