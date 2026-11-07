@@ -91,6 +91,41 @@ def trace(reference: Path, scenario: str = 'shop'):
     previous_arena = max(i for i in range(opened) if original[i].get('type') == 'press' and
                          original[i].get('until', {}).get('map') == '0x211')
     steps = cold['steps'][:arena + 1] + original[previous_arena + 1:opened + 1]
+    if scenario == 'booster03':
+        steps += [{'type': 'wait_frames', 'frames': 650}, checkpoint('batch03_shop_main'),
+                  {'type': 'press', 'buttons': ['DOWN'], 'frames': 3, 'release': 90},
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 650}, checkpoint('batch03_booster_selection'),
+                  {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 3, 'release': 120},
+                  {'type': 'wait_frames', 'frames': 200}, checkpoint('batch03_booster_cancelled'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 650}, checkpoint('batch03_booster_reopened'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 850}, checkpoint('batch03_booster_opened'),
+                  {'type': 'press', 'buttons': ['RIGHT'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 150}, checkpoint('batch03_booster_next_card'),
+                  {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 3, 'release': 120},
+                  {'type': 'wait_frames', 'frames': 650}, checkpoint('batch03_booster_returned'),
+                  {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 2, 'release': 10,
+                   'until': {'type': 'wait_stage', 'stage': 2}, 'timeout': 2000},
+                  checkpoint('batch03_booster_return_to_field')]
+        if any(s.get('type') in ('write_mem', 'reset') for s in steps):
+            raise ValueError('Booster replay must use only natural inputs')
+        return {'name': 'cn_batch03_booster_check', 'max_frames': 20000, 'default_timeout': 3000, 'steps': steps}
+    if scenario == 'limit03':
+        steps += [{'type': 'wait_frames', 'frames': 650}, checkpoint('batch03_shop_main'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 650}, checkpoint('batch03_buy_open'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 250}, checkpoint('batch03_nine_card_limit'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 200}, checkpoint('batch03_limit_dismissed'),
+                  {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 2, 'release': 10,
+                   'until': {'type': 'wait_stage', 'stage': 2}, 'timeout': 2000},
+                  checkpoint('batch03_limit_return_to_field')]
+        if any(s.get('type') in ('write_mem', 'reset') for s in steps):
+            raise ValueError('Limit replay must use only natural inputs')
+        return {'name': 'cn_batch03_limit_check', 'max_frames': 20000, 'default_timeout': 3000, 'steps': steps}
     if scenario == 'buy02':
         steps += [{'type': 'wait_frames', 'frames': 650}, checkpoint('batch02_shop_main'),
                   {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
@@ -127,7 +162,8 @@ def main():
     p.add_argument('--emulator', type=Path, required=True)
     p.add_argument('--bios', type=Path, required=True)
     p.add_argument('--version-json', type=Path, required=True)
-    p.add_argument('--scenario', choices=('shop', 'deck', 'album', 'lab', 'deck02', 'buy02'), default='shop')
+    p.add_argument('--scenario', choices=('shop', 'deck', 'album', 'lab', 'deck02', 'buy02',
+                                          'booster03', 'limit03'), default='shop')
     a = p.parse_args()
     root = Path(__file__).resolve().parents[1]
     local, out, seed, ref = (root / 'local').resolve(), a.output.resolve(), a.seed_card.resolve(), a.reference.resolve()
@@ -172,6 +208,7 @@ def main():
     capture = {'deck': 'tools/card_deck_capture.lua', 'shop': 'tools/card_shop_capture.lua',
                'lab': 'tools/lab_dynamic_capture.lua',
                'deck02': 'tools/batch02_runtime_capture.lua', 'buy02': 'tools/batch02_runtime_capture.lua',
+               'booster03': 'tools/batch03_runtime_capture.lua', 'limit03': 'tools/batch03_runtime_capture.lua',
                'album': 'tools/card_album_capture.lua'}[a.scenario]
     cmd = [str(cfg.redux), '-no-ui', '-stdout', '-testmode', '-run', '-iso', str(cue), '-bios', str(cfg.openbios),
            '-memcard1', str(card), '-memcard2', str(out / 'memcard2.mcd'), '-dofile', str(root / capture)]

@@ -109,7 +109,9 @@ def run(image: Path, index_path: Path, audit_path: Path, draft_path: Path, batch
         elif n == 20:
             r['trigger_preconditions'] = ['The chosen card has nine copies.',
                                           'Money is at least the card price; insufficient money is checked first.']
-        if n in TARGETS:
+        # This earlier audit has source screenshots only for these three paths.
+        # Later target additions must be assessed by their own runtime audit.
+        if n in (19, 25, 27):
             _, x, y, context, digest = TARGETS[n]
             if digest != row['raw_sha256'] or hash_file(pictures[context]) != SCREEN_SHA[context]:
                 raise ValueError('Source screenshot or expected entry hash differs')

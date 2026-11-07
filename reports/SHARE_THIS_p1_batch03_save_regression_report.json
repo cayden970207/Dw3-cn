@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "status": "two_menu_visit_post_save_cold_load_revisit_verified",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "test_image_sha256": "389de62b2455a30431ea3acb340843060550f9f1cd58fbf645af9f824ac31c6f",
+  "input_cue": "local/font-recovery/p1-batch03-v2/DW3-p1-batch02.cue",
+  "private_evidence_directory": "local/font-recovery/p1-batch03-save-v1",
+  "fixture_kind": "artificial_condition_fixture_not_normal_play",
+  "emulator": {
+    "name": "PCSX-Redux",
+    "version": "a74a0587",
+    "build_id": 433,
+    "executable_sha256": "53451b6b313af0b5342d23ff50a60bea283a7268ef68df0f5482d8ade4e8cb3c",
+    "bios": "OpenBIOS",
+    "bios_sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801",
+    "mode": "two headless -no-ui -testmode processes, unthrottled; arm64 dynarec; dummy audio",
+    "capture_size_px": [
+      320,
+      240
+    ],
+    "gpu_backend": "not identified in the captured log"
+  },
+  "separate_processes": true,
+  "cold_process_loaded_post_menu_save": true,
+  "playtime_seconds": {
+    "initial_load": 1230,
+    "cold_reloaded": 1369,
+    "post_write": 1397
+  },
+  "phases": {
+    "first": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch03_buy_open": {
+          "frame": 6994,
+          "stage": 19
+        },
+        "batch03_nine_card_limit": {
+          "frame": 7337,
+          "stage": 19
+        },
+        "batch03_limit_dismissed": {
+          "frame": 7630,
+          "stage": 19
+        },
+        "batch03_back_to_shop": {
+          "frame": 8003,
+          "stage": 19
+        },
+        "batch03_save_booster_selection": {
+          "frame": 8839,
+          "stage": 19
+        },
+        "batch03_save_booster_cancelled": {
+          "frame": 9162,
+          "stage": 19
+        },
+        "batch03_both_menus_left": {
+          "frame": 9200,
+          "stage": 2
+        },
+        "batch03_post_menu_saved": {
+          "frame": 12628,
+          "stage": 12
+        },
+        "batch03_post_menu_save_returned": {
+          "frame": 12864,
+          "stage": 2
+        }
+      },
+      "captures": {
+        "15": {
+          "sha256": "4a81dc986c3162de75f03257de708815a0dbe049bdf0d5b4c7ce4a3163d391eb",
+          "text_mask_matches_runtime": true
+        },
+        "20": {
+          "sha256": "e8d365172306ce6c6245f3140fa041785ea78b495412c6cc1a72ed2b1793987a",
+          "text_mask_matches_runtime": true
+        }
+      },
+      "game_state": {
+        "frame": 7337,
+        "money": 10000,
+        "booster_item_91": 1,
+        "card_65": 9
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1,
+      "save": {
+        "started_frame": 11185,
+        "finished_frame": 12628,
+        "screen_sha256": "a6b8fd6989e0f1314de77632679e78fcb5b187b273cc9030db5dea9c8d2b4c0c",
+        "screen_visually_reviewed": true
+      }
+    },
+    "cold": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch03_buy_open": {
+          "frame": 6994,
+          "stage": 19
+        },
+        "batch03_nine_card_limit": {
+          "frame": 7337,
+          "stage": 19
+        },
+        "batch03_limit_dismissed": {
+          "frame": 7630,
+          "stage": 19
+        },
+        "batch03_back_to_shop": {
+          "frame": 8003,
+          "stage": 19
+        },
+        "batch03_save_booster_selection": {
+          "frame": 8839,
+          "stage": 19
+        },
+        "batch03_save_booster_cancelled": {
+          "frame": 9162,
+          "stage": 19
+        },
+        "batch03_both_menus_left": {
+          "frame": 9200,
+          "stage": 2
+        }
+      },
+      "captures": {
+        "15": {
+          "sha256": "4a81dc986c3162de75f03257de708815a0dbe049bdf0d5b4c7ce4a3163d391eb",
+          "text_mask_matches_runtime": true
+        },
+        "20": {
+          "sha256": "e8d365172306ce6c6245f3140fa041785ea78b495412c6cc1a72ed2b1793987a",
+          "text_mask_matches_runtime": true
+        }
+      },
+      "game_state": {
+        "frame": 7337,
+        "money": 10000,
+        "booster_item_91": 1,
+        "card_65": 9
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1
+    }
+  },
+  "limitations": [
+    "The initial memory card was a deliberately edited local fixture, not natural progress.",
+    "These two PCSX-Redux/OpenBIOS menu paths were exercised; other emulators and paths are not implied.",
+    "Pad 43 warnings and a periodic listener stack-reset message remain in the logs; state and pixels support only the recorded actions.",
+    "Private cards, local screenshots and game resources are excluded."
+  ]
+}

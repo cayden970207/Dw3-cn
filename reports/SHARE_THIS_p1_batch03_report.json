@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "status": "recorded_actual_shop_paths_with_artificial_fixture",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "previous_test_image_sha256": "98ba88ad5c27c1fa60c04ac9645ccd85f9d23ea7296de46b40471fdd47361353",
+  "test_image_sha256": "389de62b2455a30431ea3acb340843060550f9f1cd58fbf645af9f824ac31c6f",
+  "new_translated_entries": [
+    15,
+    20
+  ],
+  "input_cue": "local/font-recovery/p1-batch03-v2/DW3-p1-batch02.cue",
+  "private_evidence_directories": {
+    "source_booster": "local/font-recovery/p1-batch03-source-booster-v1",
+    "source_limit": "local/font-recovery/p1-batch03-source-limit-v1",
+    "test_booster": "local/font-recovery/p1-batch03-test-booster-v2",
+    "test_limit": "local/font-recovery/p1-batch03-test-limit-v2"
+  },
+  "fixture": {
+    "kind": "artificial_condition_fixture_not_normal_play",
+    "sha256": "d8f4fefbe2186ae3c8fae382f3573cdaf3403cd676800535aab7f5f63dca4624",
+    "seed_unchanged": true,
+    "money": 10000,
+    "booster_item_id": 91,
+    "booster_count": 1,
+    "shop_card_id": 65,
+    "shop_card_count": 9
+  },
+  "emulator": {
+    "name": "PCSX-Redux",
+    "version": "a74a0587",
+    "build_id": 433,
+    "executable_sha256": "53451b6b313af0b5342d23ff50a60bea283a7268ef68df0f5482d8ade4e8cb3c",
+    "bios": "OpenBIOS",
+    "bios_sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801",
+    "mode": "headless -no-ui -testmode, unthrottled; arm64 dynarec; dummy audio",
+    "capture_size_px": [
+      320,
+      240
+    ],
+    "gpu_backend": "not identified in the captured log"
+  },
+  "integrity": {
+    "all_other_raw_bytes_unchanged_from_previous": true,
+    "incremental_changed_bytes": 207,
+    "changed_sectors": [
+      2313
+    ],
+    "changed_sector_edc_ecc_valid": true,
+    "font_id_647_unchanged": true,
+    "generic_writer_unblocked": false
+  },
+  "entries": [
+    {
+      "file_id": 52,
+      "entry_index": 15,
+      "source_sha256": "4fc2ad8f756b55ddcbca5076b15076465222b2094a45e60557fc12e5763c0608",
+      "source_bytes_including_terminator": 22,
+      "source_control_count": 0,
+      "source_advance_px": 113,
+      "source_ink_bbox_px": [
+        21,
+        195,
+        133,
+        206
+      ],
+      "source_screenshot_sha256": "ea5afe23bcb3fd475c718f922844b60503ad512d2d436a10930112f6dff1bd92",
+      "source_runtime_status": "verified_with_artificial_fixture",
+      "translation_status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture",
+      "game_measure_result_used_for_this_window": false,
+      "translation": "选择卡包",
+      "replacement_bytes_including_terminator": 9,
+      "replacement_control_count": 0,
+      "replacement_advance_px": 48,
+      "game_legacy_measure_px": 30,
+      "runtime_ink_bbox_px": [
+        20,
+        194,
+        67,
+        205
+      ],
+      "runtime_screenshot_sha256": "985dc5e2da00139cfdf13c13e2d16403b51988bc0395f79c082281cd015ce3cf",
+      "pixel_comparison": {
+        "changed_pixels": 419,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          20,
+          194,
+          133,
+          206
+        ]
+      }
+    },
+    {
+      "file_id": 52,
+      "entry_index": 20,
+      "source_sha256": "506519d000e80369e62d91eb609eb97e56fa8d0b9cb2a384de73eb5c03166a18",
+      "source_bytes_including_terminator": 17,
+      "source_control_count": 0,
+      "source_advance_px": 85,
+      "source_ink_bbox_px": [
+        155,
+        58,
+        239,
+        69
+      ],
+      "source_screenshot_sha256": "3adab047562e54bcbc0d82c36f030775b612a2194af0e1aeca7066b8cdde6b39",
+      "source_runtime_status": "verified_with_artificial_fixture",
+      "translation_status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture",
+      "game_measure_result_used_for_this_window": false,
+      "translation": "已持有九张",
+      "replacement_bytes_including_terminator": 11,
+      "replacement_control_count": 0,
+      "replacement_advance_px": 60,
+      "game_legacy_measure_px": 19,
+      "runtime_ink_bbox_px": [
+        155,
+        57,
+        213,
+        68
+      ],
+      "runtime_screenshot_sha256": "e8d365172306ce6c6245f3140fa041785ea78b495412c6cc1a72ed2b1793987a",
+      "pixel_comparison": {
+        "changed_pixels": 351,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          155,
+          57,
+          239,
+          69
+        ]
+      }
+    }
+  ],
+  "runtime": {
+    "source_booster": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch03_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch03_booster_selection": {
+          "frame": 7087,
+          "stage": 19
+        },
+        "batch03_booster_cancelled": {
+          "frame": 7410,
+          "stage": 19
+        },
+        "batch03_booster_reopened": {
+          "frame": 8153,
+          "stage": 19
+        },
+        "batch03_booster_opened": {
+          "frame": 9096,
+          "stage": 19
+        },
+        "batch03_booster_next_card": {
+          "frame": 9339,
+          "stage": 19
+        },
+        "batch03_booster_returned": {
+          "frame": 10112,
+          "stage": 19
+        },
+        "batch03_booster_return_to_field": {
+          "frame": 10150,
+          "stage": 2
+        }
+      },
+      "state_evidence": {
+        "selection": {
+          "frame": 7087,
+          "money": 10000,
+          "booster_item_91": 1,
+          "card_65": 9
+        },
+        "reopened": {
+          "frame": 8153,
+          "money": 10000,
+          "booster_item_91": 1,
+          "card_65": 9
+        },
+        "opened": {
+          "frame": 9096,
+          "money": 10000,
+          "booster_item_91": 0,
+          "card_65": 9
+        },
+        "next_card_change_observed": false
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1,
+      "normal_input_only": true,
+      "fixture_saved": false
+    },
+    "source_limit": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch03_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch03_buy_open": {
+          "frame": 6994,
+          "stage": 19
+        },
+        "batch03_nine_card_limit": {
+          "frame": 7337,
+          "stage": 19
+        },
+        "batch03_limit_dismissed": {
+          "frame": 7630,
+          "stage": 19
+        },
+        "batch03_limit_return_to_field": {
+          "frame": 7716,
+          "stage": 2
+        }
+      },
+      "state_evidence": {
+        "frame": 7337,
+        "money": 10000,
+        "booster_item_91": 1,
+        "card_65": 9
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 0,
+      "normal_input_only": true,
+      "fixture_saved": false
+    },
+    "test_booster": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch03_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch03_booster_selection": {
+          "frame": 7087,
+          "stage": 19
+        },
+        "batch03_booster_cancelled": {
+          "frame": 7410,
+          "stage": 19
+        },
+        "batch03_booster_reopened": {
+          "frame": 8153,
+          "stage": 19
+        },
+        "batch03_booster_opened": {
+          "frame": 9096,
+          "stage": 19
+        },
+        "batch03_booster_next_card": {
+          "frame": 9339,
+          "stage": 19
+        },
+        "batch03_booster_returned": {
+          "frame": 10112,
+          "stage": 19
+        },
+        "batch03_booster_return_to_field": {
+          "frame": 10150,
+          "stage": 2
+        }
+      },
+      "state_evidence": {
+        "selection": {
+          "frame": 7087,
+          "money": 10000,
+          "booster_item_91": 1,
+          "card_65": 9
+        },
+        "reopened": {
+          "frame": 8153,
+          "money": 10000,
+          "booster_item_91": 1,
+          "card_65": 9
+        },
+        "opened": {
+          "frame": 9096,
+          "money": 10000,
+          "booster_item_91": 0,
+          "card_65": 9
+        },
+        "next_card_change_observed": true
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1,
+      "normal_input_only": true,
+      "fixture_saved": false
+    },
+    "test_limit": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch03_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch03_buy_open": {
+          "frame": 6994,
+          "stage": 19
+        },
+        "batch03_nine_card_limit": {
+          "frame": 7337,
+          "stage": 19
+        },
+        "batch03_limit_dismissed": {
+          "frame": 7630,
+          "stage": 19
+        },
+        "batch03_limit_return_to_field": {
+          "frame": 7716,
+          "stage": 2
+        }
+      },
+      "state_evidence": {
+        "frame": 7337,
+        "money": 10000,
+        "booster_item_91": 1,
+        "card_65": 9
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 0,
+      "normal_input_only": true,
+      "fixture_saved": false
+    }
+  },
+  "limitations": [
+    "Fixture fields were deliberately edited on an isolated memory-card copy; no natural acquisition is claimed.",
+    "Only the recorded PCSX-Redux/OpenBIOS paths and these specific windows were exercised.",
+    "Pad 43 warnings and a periodic listener stack-reset message remain in the local logs; recorded state and pixels verify only the reported actions.",
+    "Exact clipping bounds remain unresolved; each translation fits within the observed source text band.",
+    "Unmodified entries remain runtime_pending as translations.",
+    "Private screenshots, memory cards, original bytes and game assets are not included."
+  ]
+}

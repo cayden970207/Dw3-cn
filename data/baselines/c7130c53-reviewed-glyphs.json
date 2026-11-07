@@ -6,7 +6,7 @@
   "review": {
     "reviewer": "user",
     "date": "2026-11-07",
-    "method": "User confirmed five isolated glyphs, four card-album glyphs, further menu glyphs, and IDs 931/291/7/577/712 in local previews. After a context comparison the user explicitly confirmed IDs 523/756 as 选/择 and separately confirmed IDs 621/378 as 改/名. Glyphs 164, 1489 and 1151 remain unresolved.",
+    "method": "User confirmed five isolated glyphs, four card-album glyphs, further menu glyphs, and IDs 931/291/7/577/712 in local previews. After a context comparison the user explicitly confirmed IDs 523/756 as 选/择 and separately confirmed IDs 621/378 as 改/名. In a corrected small preview the user confirmed IDs 347/877/1496 as 已/持/九. ID 837 was rejected as a 九 candidate after the user noted that it resembles 丸; IDs 164, 1489, 1151 and 837 remain unresolved.",
     "scope": "Visual glyph identity only; no runtime rendering, full character map, or translation approval."
   },
   "glyphs": [
@@ -39,7 +39,10 @@
     {"unicode": "改", "glyph_index": 621, "canonical_code_hex": "f279"},
     {"unicode": "名", "glyph_index": 378, "canonical_code_hex": "f182"},
     {"unicode": "选", "glyph_index": 523, "canonical_code_hex": "f217"},
-    {"unicode": "择", "glyph_index": 756, "canonical_code_hex": "f304"}
+    {"unicode": "择", "glyph_index": 756, "canonical_code_hex": "f304"},
+    {"unicode": "已", "glyph_index": 347, "canonical_code_hex": "f163"},
+    {"unicode": "持", "glyph_index": 877, "canonical_code_hex": "f37d"},
+    {"unicode": "九", "glyph_index": 1496, "canonical_code_hex": "f5f0"}
   ],
   "mapping_complete": false,
   "runtime_verified": false,

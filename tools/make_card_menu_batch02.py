@@ -40,11 +40,15 @@ except ModuleNotFoundError:
 P1_SHA = '03fa8316801fd610fec4dfdf895753d25121f8c955f3835f0ad4446d12886193'
 DISC_NAME = 'DW3-p1-batch02.bin'
 TARGETS = {
+    15: ('选择卡包', 20, 194, 'booster', '4fc2ad8f756b55ddcbca5076b15076465222b2094a45e60557fc12e5763c0608'),
     19: ('金钱不足', 154, 57, 'buy', '2a81ed939dbcdf7f2b3de39f07239c28e50f282e499f30ec1fe84e3bfe25c793'),
+    20: ('已持有九张', 154, 57, 'limit', '506519d000e80369e62d91eb609eb97e56fa8d0b9cb2a384de73eb5c03166a18'),
     25: ('选择卡组', 151, 34, 'selection', '796cf96018087f19cfdffd3da937f6a39e90a779e024f5871d8da56cf6fadc6c'),
     27: ('改名', 167, 49, 'rename', 'f980d46324d23b3a0939f54269e794a498524ce25a0a7cb9c7fdef4873fab7b9'),
 }
-SCREEN_SHA = {'buy': 'b1992a9c07564b3d523caaadb7f00b86cf7c9cf36f0b138dce5cd65ce9549340',
+SCREEN_SHA = {'booster': 'ea5afe23bcb3fd475c718f922844b60503ad512d2d436a10930112f6dff1bd92',
+              'limit': '3adab047562e54bcbc0d82c36f030775b612a2194af0e1aeca7066b8cdde6b39',
+              'buy': 'b1992a9c07564b3d523caaadb7f00b86cf7c9cf36f0b138dce5cd65ce9549340',
               'selection': '40dcdeb334702a009aa18644a45e861805fe1c9e199392f1b55f4cd2c5bbfcb4',
               'rename': '2aa56962940c016722c5311e0f73b315e7dfa27c1bc3f82043958bc1853cd13b'}
 
@@ -84,7 +88,7 @@ def run(image: Path, index_path: Path, audit_path: Path, glyph_path: Path, p1_re
             e.get('original_sha256') != digest or e.get('translation_reviewed') is not True or
             any(ch not in reviewed.values() for ch in target)):
             raise ValueError('Translation, preimage, or user-reviewed glyph identity is incomplete')
-        if hash_file(new_pictures[context]) != SCREEN_SHA[context]:
+        if not new_pictures.get(context) or hash_file(new_pictures[context]) != SCREEN_SHA[context]:
             raise ValueError('A source screenshot differs from its real replay')
     font = actual_assets(image, audit)
     profile = {'schema_version': 1, 'verified_for_image_sha256': CN_IMAGE_SHA256,
@@ -218,7 +222,7 @@ def main():
     for name in p1.PICTURES:
         p.add_argument('--p1-' + name, type=Path, required=True)
     for name in SCREEN_SHA:
-        p.add_argument('--' + name, type=Path, required=True)
+        p.add_argument('--' + name, type=Path, required=name not in ('booster', 'limit'))
     a = p.parse_args()
     try:
         result = run(a.image, a.private_index, a.prior_audit, a.glyph_review, a.p1_review, a.selected, a.output,

@@ -788,9 +788,72 @@
         12
       ],
       "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "已",
+      "glyph_index": 347,
+      "canonical_code_hex": "f163",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "持",
+      "glyph_index": 877,
+      "canonical_code_hex": "f37d",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "九",
+      "glyph_index": 1496,
+      "canonical_code_hex": "f5f0",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
     }
   ],
-  "reviewed_chinese_mapping_count": 30,
+  "reviewed_chinese_mapping_count": 33,
   "dialogue_static_chain": {
     "stage_file_id": 471,
     "stage_overlay_sha256": "ae4a57a1f03024d856cde3f7b26b9a8d67922ff6ffadaf9cb374b8ca000cb1d9",
@@ -838,7 +901,7 @@
   "gameplay_verified": false,
   "test_copy_created": true,
   "blockers": [
-    "Only 30 glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
+    "Only 33 glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
     "The general variable-width measurement routine disagrees with Chinese drawing; the generic writer remains blocked.",
     "Other menus, dialogue paths, and whole-game regression remain unverified."
   ],
@@ -858,5 +921,13 @@
     "report": "SHARE_THIS_p1_batch02_expanded_report.json",
     "test_image_sha256": "98ba88ad5c27c1fa60c04ac9645ccd85f9d23ea7296de46b40471fdd47361353",
     "new_entries_verified": 3
-  }
+  },
+  "ambiguous_unreviewed_candidates": [
+    {
+      "glyph_index": 837,
+      "rejected_candidate": "九",
+      "status": "unresolved",
+      "evidence": "The user noted this glyph resembles 丸; no identity was confirmed."
+    }
+  ]
 }
