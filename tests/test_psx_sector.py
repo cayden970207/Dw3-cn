@@ -82,7 +82,7 @@ class RawSectorTests(unittest.TestCase):
 
     def test_rejects_user_spill_and_wrong_length(self):
         with self.assertRaisesRegex(SectorError, "outside"):
-            patch_form1_user_bytes(fake_sector(), 2047, b"2", b"XY")
+            patch_form1_user_bytes(fake_sector(), 2047, b"12", b"XY")
         with self.assertRaisesRegex(SectorError, "same byte length"):
             patch_form1_user_bytes(fake_sector(), 0, b"a", b"XX")
         with self.assertRaisesRegex(SectorError, "outside"):
