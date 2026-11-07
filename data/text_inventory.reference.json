@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "verified_for_user_image": false,
+  "origin": "Reference list transcribed from gascarcella/dw2003recomp tools/text_tools.py; external reference only, NOT confirmed complete or compatible with the modified Chinese edition.",
+  "source_url": "https://github.com/gascarcella/dw2003recomp/blob/main/tools/text_tools.py",
+  "files": [
+    {
+      "name": "AMTMAP",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "ASKMAP",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "CARDGM",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "CARDNM",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "CARDST",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "CRDABM",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "CRDDEK",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "CRDSHP",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DGLABO",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DGNMET",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DIGINF",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DIGNAM",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG200",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG260",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG270",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG300",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG305",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG400",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG500",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG600",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG700",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG800",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "DMG900",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "FGTRPT",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "HTLNAM",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "ITMINF",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "ITMNAM",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "ITSHOP",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "MEMCRD",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "MFIGHT",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "NAMEDT",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "NAMEET",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "SHPNAM",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "SKLINF",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "SKLNAM",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "STAREA",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "STATUS",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    },
+    {
+      "name": "STNAME",
+      "group": "names",
+      "expected_entry_count": null
+    },
+    {
+      "name": "SYSTEM",
+      "group": "debug_only",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK00",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK01",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK02",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK03",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK04",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK05",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK06",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK07",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK08",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TALK09",
+      "group": "dialogue",
+      "expected_entry_count": null
+    },
+    {
+      "name": "TRAINI",
+      "group": "gameplay_system",
+      "expected_entry_count": null
+    }
+  ]
+}
