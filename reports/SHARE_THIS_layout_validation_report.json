@@ -1,0 +1,683 @@
+{
+  "schema_version": 1,
+  "status": "font1_listed_screen_pixel_bounds_verified_other_contexts_pending",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "font": 1,
+  "palette": 0,
+  "mode": "unscaled proportional stored non-SJIS text",
+  "title_screenshot_validation": [
+    {
+      "case": "original",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          61
+        ],
+        "draw_max_advance_px": 61,
+        "game_measure_by_line_px": [
+          61
+        ],
+        "game_measure_max_px": 61,
+        "ink_bbox_relative_exclusive": [
+          1,
+          1,
+          61,
+          11
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 9,
+          "extended_glyph": 1
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "origin_px": [
+        16,
+        25
+      ],
+      "predicted_ink_bbox_exclusive": [
+        17,
+        26,
+        77,
+        36
+      ],
+      "observed_light_ink_bbox_exclusive": [
+        17,
+        26,
+        77,
+        36
+      ],
+      "predicted_matches_observed": true
+    },
+    {
+      "case": "sample",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          48
+        ],
+        "draw_max_advance_px": 48,
+        "game_measure_by_line_px": [
+          22
+        ],
+        "game_measure_max_px": 22,
+        "ink_bbox_relative_exclusive": [
+          0,
+          0,
+          47,
+          11
+        ],
+        "line_count": 1,
+        "operations": {
+          "cn_glyph": 4
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "origin_px": [
+        16,
+        25
+      ],
+      "predicted_ink_bbox_exclusive": [
+        16,
+        25,
+        63,
+        36
+      ],
+      "observed_light_ink_bbox_exclusive": [
+        16,
+        25,
+        63,
+        36
+      ],
+      "predicted_matches_observed": true
+    }
+  ],
+  "shop_menu_screenshot_validation": [
+    {
+      "resource_id": 52,
+      "entry_index": 5,
+      "origin_px": [
+        167,
+        53
+      ],
+      "draw_advance_px": 75,
+      "predicted_ink_bbox_exclusive": [
+        168,
+        54,
+        242,
+        65
+      ],
+      "observed_light_ink_bbox_exclusive": [
+        168,
+        54,
+        242,
+        65
+      ],
+      "predicted_matches_observed": true,
+      "game_measure_result_used_by_window": false,
+      "max_visible_screen_width_px": 153,
+      "note": "The visible 320-pixel screen is a hard limit, not a proven arbitrary window or line-wrapping bound."
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 6,
+      "origin_px": [
+        167,
+        67
+      ],
+      "draw_advance_px": 72,
+      "predicted_ink_bbox_exclusive": [
+        168,
+        68,
+        239,
+        79
+      ],
+      "observed_light_ink_bbox_exclusive": [
+        168,
+        68,
+        239,
+        79
+      ],
+      "predicted_matches_observed": true,
+      "game_measure_result_used_by_window": false,
+      "max_visible_screen_width_px": 153,
+      "note": "The visible 320-pixel screen is a hard limit, not a proven arbitrary window or line-wrapping bound."
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 7,
+      "origin_px": [
+        167,
+        81
+      ],
+      "draw_advance_px": 61,
+      "predicted_ink_bbox_exclusive": [
+        168,
+        82,
+        228,
+        92
+      ],
+      "observed_light_ink_bbox_exclusive": [
+        168,
+        82,
+        228,
+        92
+      ],
+      "predicted_matches_observed": true,
+      "game_measure_result_used_by_window": false,
+      "max_visible_screen_width_px": 153,
+      "note": "The visible 320-pixel screen is a hard limit, not a proven arbitrary window or line-wrapping bound."
+    }
+  ],
+  "other_screen_validation": [
+    {
+      "context": "empty_booster",
+      "resource_id": 52,
+      "entry_index": 21,
+      "origin_px": [
+        154,
+        113
+      ],
+      "draw_advance_px": 65,
+      "predicted_ink_bbox_exclusive": [
+        155,
+        114,
+        219,
+        124
+      ],
+      "observed_ink_bbox_exclusive": [
+        155,
+        114,
+        219,
+        124
+      ],
+      "predicted_matches_observed": true,
+      "game_measure_result_used_by_window": false,
+      "max_visible_screen_width_px": 166,
+      "exact_window_clip_bounds": "unresolved"
+    },
+    {
+      "context": "deck_submenu",
+      "resource_id": 52,
+      "entry_index": 26,
+      "origin_px": [
+        167,
+        35
+      ],
+      "draw_advance_px": 61,
+      "predicted_ink_bbox_exclusive": [
+        168,
+        36,
+        228,
+        46
+      ],
+      "observed_ink_bbox_exclusive": [
+        168,
+        36,
+        228,
+        46
+      ],
+      "predicted_matches_observed": true,
+      "game_measure_result_used_by_window": false,
+      "max_visible_screen_width_px": 153,
+      "exact_window_clip_bounds": "unresolved"
+    }
+  ],
+  "dynamic_insert_screen_validation": {
+    "resource_id": 59,
+    "entry_index": 39,
+    "source_sha256": "c3c20343fa4772c459bfe0dc3caeb7af064508974d89224751e21cfd2b37767b",
+    "overlay_sha1": "c2b82222d418fbf0a101f7062499ee5719fea7b5",
+    "context": "lab Digimon chart title; line 1 inserted by control 5",
+    "capture_frame": 6938,
+    "font_pointer": "0x8004DD8C",
+    "origin_px": [
+      20,
+      25
+    ],
+    "captured_window_measured_width_px": 0,
+    "game_measure_result_used_by_window": false,
+    "measurement": {
+      "draw_advance_by_line_px": [
+        72
+      ],
+      "draw_max_advance_px": 72,
+      "game_measure_by_line_px": [
+        44
+      ],
+      "game_measure_max_px": 44,
+      "ink_bbox_relative_exclusive": [
+        0,
+        0,
+        71,
+        11
+      ],
+      "line_count": 1,
+      "operations": {
+        "base_glyph": 1,
+        "cn_glyph": 5,
+        "dynamic_line_insert": 1,
+        "extended_glyph": 1
+      },
+      "window_fit": "unresolved_without_verified_context"
+    },
+    "predicted_ink_bbox_exclusive": [
+      20,
+      25,
+      91,
+      36
+    ],
+    "observed_light_ink_bbox_exclusive": [
+      20,
+      25,
+      91,
+      36
+    ],
+    "predicted_matches_observed": true,
+    "max_visible_screen_width_px": 300,
+    "exact_window_clip_bounds": "unresolved",
+    "screenshot_sha256": "7ac991a63a66d4ed825c02cc80ab79e78a615279038e4228aa5eb623b58d62f3",
+    "runtime": {
+      "emulator": "PCSX-Redux a74a0587 build 433",
+      "cpu": "dynarec arm64",
+      "bios": "OpenBIOS",
+      "configuration": "headless, unthrottled, copied private memory card",
+      "input_cue": "local/font-recovery/run-20261107/card_album_test/DW3-card-album-test.cue",
+      "input_disc_sha256": "afdb58042d8060a9523305f18a3e35e6841089d903248ba8ebd2408302b7e433"
+    },
+    "scope": "One captured name and this window only; inserted bytes and save remain private."
+  },
+  "game_measure_evidence": "Static emulation of the inspected original game measurement instructions; not a live function call.",
+  "real_source_samples": [
+    {
+      "file_id": 3,
+      "entry_index": 1,
+      "category": "pure_chinese",
+      "source_sha256": "5fed6ee79c6c22893ea4c489526c96cdd00900daa508536e75804e953881847c",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          60
+        ],
+        "draw_max_advance_px": 60,
+        "game_measure_by_line_px": [
+          22
+        ],
+        "game_measure_max_px": 22,
+        "ink_bbox_relative_exclusive": [
+          0,
+          0,
+          59,
+          11
+        ],
+        "line_count": 1,
+        "operations": {
+          "cn_glyph": 5
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    },
+    {
+      "file_id": 73,
+      "entry_index": 13,
+      "category": "mixed_chinese_latin",
+      "source_sha256": "2c9a01817da63e75769bd78f500d91db44fa8814a433f09c3576d2c3b01442a8",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          153
+        ],
+        "draw_max_advance_px": 153,
+        "game_measure_by_line_px": [
+          82
+        ],
+        "game_measure_max_px": 82,
+        "ink_bbox_relative_exclusive": [
+          0,
+          0,
+          152,
+          11
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 3,
+          "cn_glyph": 10,
+          "extended_glyph": 2
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    },
+    {
+      "file_id": 59,
+      "entry_index": 9,
+      "category": "chinese_digits",
+      "source_sha256": "f2076427db0d1d7f9326a2fa1f929a50f259f1eaf1b75078090945c97bbc6d03",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          91
+        ],
+        "draw_max_advance_px": 91,
+        "game_measure_by_line_px": [
+          76
+        ],
+        "game_measure_max_px": 76,
+        "ink_bbox_relative_exclusive": [
+          0,
+          0,
+          90,
+          11
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 1,
+          "cn_glyph": 6,
+          "extended_glyph": 2
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    },
+    {
+      "file_id": 59,
+      "entry_index": 5,
+      "category": "chinese_punctuation_space",
+      "source_sha256": "dabc37fd705c0433c6c8a56c46930a237b9b71041e52b49d318cb3037f447288",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          79
+        ],
+        "draw_max_advance_px": 79,
+        "game_measure_by_line_px": [
+          48
+        ],
+        "game_measure_max_px": 48,
+        "ink_bbox_relative_exclusive": [
+          1,
+          0,
+          77,
+          12
+        ],
+        "line_count": 1,
+        "operations": {
+          "cn_glyph": 4,
+          "extended_glyph": 4
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    },
+    {
+      "file_id": 3,
+      "entry_index": 14,
+      "category": "explicit_newline",
+      "source_sha256": "8f162b3e1e2899631200719c5dd3d686fece3e5eaaacec59220bd051960d6ef4",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          48,
+          48
+        ],
+        "draw_max_advance_px": 48,
+        "game_measure_by_line_px": [
+          11,
+          6
+        ],
+        "game_measure_max_px": 11,
+        "ink_bbox_relative_exclusive": [
+          0,
+          0,
+          47,
+          25
+        ],
+        "line_count": 2,
+        "operations": {
+          "cn_glyph": 8,
+          "newline": 1
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    },
+    {
+      "file_id": 52,
+      "entry_index": 12,
+      "category": "dynamic_price_insert",
+      "source_sha256": "9f1afad69bdea860c3d8b9a9437338bef5bbf69b4e3e7cb34bedddfdc55cd879",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          59
+        ],
+        "draw_max_advance_px": 59,
+        "game_measure_by_line_px": [
+          59
+        ],
+        "game_measure_max_px": 59,
+        "ink_bbox_relative_exclusive": [
+          2,
+          1,
+          58,
+          11
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 8,
+          "dynamic_line_insert": 1,
+          "extended_glyph": 1
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": "10000, controlled scenario; not a bound on every possible price"
+    },
+    {
+      "file_id": 38,
+      "entry_index": 2,
+      "category": "album_right_edge_label",
+      "source_sha256": "0494eb4c84d92d8c52fb9e318820fa400532c41cbd45d5fe31dcbb4c21d33448",
+      "status": "font1_palette0_screen_ink_verified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          92
+        ],
+        "draw_max_advance_px": 92,
+        "game_measure_by_line_px": [
+          92
+        ],
+        "game_measure_max_px": 92,
+        "ink_bbox_relative_exclusive": [
+          1,
+          0,
+          92,
+          12
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 10,
+          "extended_glyph": 4
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null,
+      "screen_validation": {
+        "origin_px": [
+          208,
+          25
+        ],
+        "screen_width_from_origin_px": 112,
+        "predicted_ink_bbox_exclusive": [
+          209,
+          25,
+          300,
+          37
+        ],
+        "observed_ink_bbox_exclusive": [
+          209,
+          25,
+          300,
+          37
+        ],
+        "screen_right_margin_px": 20,
+        "exact_window_clip_bounds": "unresolved"
+      }
+    },
+    {
+      "file_id": 52,
+      "entry_index": 5,
+      "category": "shop_menu_1",
+      "source_sha256": "6de058f8982c178103c7c76a85701e6d417787fdd437ca7e7ed82d1b9d23c54c",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          75
+        ],
+        "draw_max_advance_px": 75,
+        "game_measure_by_line_px": [
+          75
+        ],
+        "game_measure_max_px": 75,
+        "ink_bbox_relative_exclusive": [
+          1,
+          1,
+          75,
+          12
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 10,
+          "extended_glyph": 2
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    },
+    {
+      "file_id": 52,
+      "entry_index": 6,
+      "category": "shop_menu_2",
+      "source_sha256": "e8e1c84e4672a8dfb4344a5c8f3899019f6bcfbd457ad90a5c4a98cefadfb8be",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          72
+        ],
+        "draw_max_advance_px": 72,
+        "game_measure_by_line_px": [
+          72
+        ],
+        "game_measure_max_px": 72,
+        "ink_bbox_relative_exclusive": [
+          1,
+          1,
+          72,
+          12
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 11,
+          "extended_glyph": 1
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    },
+    {
+      "file_id": 52,
+      "entry_index": 7,
+      "category": "shop_menu_3",
+      "source_sha256": "5ea4777425e44ddba05b1c8e3bb675f5fe49fe786ee265171c264e7723a0759f",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          61
+        ],
+        "draw_max_advance_px": 61,
+        "game_measure_by_line_px": [
+          61
+        ],
+        "game_measure_max_px": 61,
+        "ink_bbox_relative_exclusive": [
+          1,
+          1,
+          61,
+          11
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 10,
+          "extended_glyph": 1
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    },
+    {
+      "file_id": 52,
+      "entry_index": 21,
+      "category": "empty_booster_prompt",
+      "source_sha256": "61ae1663eb27e39dff07b7258fa4381e925699b941ad58f7da5236cf19914bee",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          65
+        ],
+        "draw_max_advance_px": 65,
+        "game_measure_by_line_px": [
+          65
+        ],
+        "game_measure_max_px": 65,
+        "ink_bbox_relative_exclusive": [
+          1,
+          1,
+          65,
+          11
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 10,
+          "extended_glyph": 1
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    },
+    {
+      "file_id": 52,
+      "entry_index": 26,
+      "category": "deck_submenu",
+      "source_sha256": "5ea4777425e44ddba05b1c8e3bb675f5fe49fe786ee265171c264e7723a0759f",
+      "status": "measured_context_or_runtime_unverified",
+      "measurement": {
+        "draw_advance_by_line_px": [
+          61
+        ],
+        "draw_max_advance_px": 61,
+        "game_measure_by_line_px": [
+          61
+        ],
+        "game_measure_max_px": 61,
+        "ink_bbox_relative_exclusive": [
+          1,
+          1,
+          61,
+          11
+        ],
+        "line_count": 1,
+        "operations": {
+          "base_glyph": 10,
+          "extended_glyph": 1
+        },
+        "window_fit": "unresolved_without_verified_context"
+      },
+      "dynamic_input": null
+    }
+  ],
+  "limits": [
+    "Observed screenshot checks cover only the listed album, shop, deck and captured lab labels.",
+    "Other samples have measured advances and ink, but their actual font, palette, clip bounds, and runtime appearance are not established by this tool.",
+    "The concrete dynamic value is not an upper bound for dynamic insertion.",
+    "Other controls, wrapping, scaling, font 2/3, and centered windows fail closed or remain unresolved."
+  ],
+  "general_writer_unblocked": false
+}

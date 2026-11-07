@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "translation_review": "Analyst checked the proposed Chinese against the actual menu context; each required glyph was separately confirmed by the user.",
+  "entries": [
+    {"file_id": 38, "table": null, "index": 1, "original_sha256": "870746459242413a79eb73d41ba6f1e73b30c25dc6b073622f6c2f6a1d681fa3", "target": "卡片图鉴", "role": "previously_runtime_verified_title"},
+    {"file_id": 52, "table": null, "index": 5, "original_sha256": "6de058f8982c178103c7c76a85701e6d417787fdd437ca7e7ed82d1b9d23c54c", "target": "买一张卡片", "role": "new_shop_menu"},
+    {"file_id": 52, "table": null, "index": 6, "original_sha256": "e8e1c84e4672a8dfb4344a5c8f3899019f6bcfbd457ad90a5c4a98cefadfb8be", "target": "打开卡包", "role": "new_shop_menu"},
+    {"file_id": 52, "table": null, "index": 7, "original_sha256": "5ea4777425e44ddba05b1c8e3bb675f5fe49fe786ee265171c264e7723a0759f", "target": "编辑卡组", "role": "new_shop_menu"},
+    {"file_id": 52, "table": null, "index": 21, "original_sha256": "61ae1663eb27e39dff07b7258fa4381e925699b941ad58f7da5236cf19914bee", "target": "没有卡包", "role": "new_empty_booster_prompt"},
+    {"file_id": 52, "table": null, "index": 26, "original_sha256": "5ea4777425e44ddba05b1c8e3bb675f5fe49fe786ee265171c264e7723a0759f", "target": "编辑卡组", "role": "new_deck_submenu"}
+  ],
+  "runtime_verified": true,
+  "runtime_scope": "Five new menu entries plus the previously verified album title; the complete game remains unverified.",
+  "runtime_evidence_report": "reports/SHARE_THIS_p1_batch01_report.json",
+  "contains_original_text_or_bitmap": false
+}

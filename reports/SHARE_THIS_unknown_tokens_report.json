@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "status": "six_tokens_located_context_static_runtime_pending",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "unknown_token_count": 6,
+  "cases": [
+    {
+      "file_id": 199,
+      "entry_index": 77,
+      "entry_sha256": "adc3b7c5edce3428ebe053326eca8c73736138f75f1eceadd0af1c5ec0099a8f",
+      "token_offset": 18,
+      "token_kind": "unknown_extended_glyph",
+      "token_length": 2,
+      "stage_overlay": "WSTAG200.PRO",
+      "stage_file_id": 466,
+      "stage_overlay_sha1": "764dea164d1305c81d8fdcd83a6e1eb8b9c1510c",
+      "talk_pointer": "0x800a6ca0",
+      "actor_pointer": "0x800a737c",
+      "actor_id": 178,
+      "actor_position": [
+        305,
+        616
+      ],
+      "source_path_scope": "Conditional field-actor dialogue; stage loading and actor pointer verified statically.",
+      "runtime_trigger_verified": false,
+      "meaning": "unresolved",
+      "preserved_unchanged": true
+    },
+    {
+      "file_id": 199,
+      "entry_index": 78,
+      "entry_sha256": "b5d694e978810c8c651f06d8e49776cc239574ecb0db6e553747c888744ccbf1",
+      "token_offset": 18,
+      "token_kind": "unknown_extended_glyph",
+      "token_length": 2,
+      "stage_overlay": "WSTAG200.PRO",
+      "stage_file_id": 466,
+      "stage_overlay_sha1": "764dea164d1305c81d8fdcd83a6e1eb8b9c1510c",
+      "talk_pointer": "0x800a6ca0",
+      "actor_pointer": "0x800a737c",
+      "actor_id": 178,
+      "actor_position": [
+        305,
+        616
+      ],
+      "source_path_scope": "Conditional field-actor dialogue; stage loading and actor pointer verified statically.",
+      "runtime_trigger_verified": false,
+      "meaning": "unresolved",
+      "preserved_unchanged": true
+    },
+    {
+      "file_id": 206,
+      "entry_index": 368,
+      "entry_sha256": "161190ce6177c20824262a0aa737621b6014e772235b0ca5fca2c7a0720e8220",
+      "token_offset": 18,
+      "token_kind": "unknown_extended_glyph",
+      "token_length": 2,
+      "stage_overlay": "WSTAG520.PRO",
+      "stage_file_id": 547,
+      "stage_overlay_sha1": "3c5bb2f6a23dc31f155d1a3167f6946f8a0f2feb",
+      "talk_pointer": "0x800a686c",
+      "actor_pointer": "0x800a6cd0",
+      "actor_id": 103,
+      "actor_position": [
+        400,
+        303
+      ],
+      "source_path_scope": "Conditional field-actor dialogue; stage loading and actor pointer verified statically.",
+      "runtime_trigger_verified": false,
+      "meaning": "unresolved",
+      "preserved_unchanged": true
+    },
+    {
+      "file_id": 213,
+      "entry_index": 765,
+      "entry_sha256": "1ab2b951bb3f036bc5a9f99a22110066d4f657e5bdc94f2d6ae6a4560d6a8a7f",
+      "token_offset": 81,
+      "token_kind": "unknown_extended_glyph",
+      "token_length": 2,
+      "stage_overlay": "WSTAG620.PRO",
+      "stage_file_id": 1165,
+      "stage_overlay_sha1": "9441465e50419f23fd6370252d58edaf09333558",
+      "talk_pointer": "0x800a7aa8",
+      "actor_pointer": "0x800a7c3c",
+      "actor_id": 101,
+      "actor_position": [
+        432,
+        260
+      ],
+      "source_path_scope": "Conditional field-actor dialogue; stage loading and actor pointer verified statically.",
+      "runtime_trigger_verified": false,
+      "meaning": "unresolved",
+      "preserved_unchanged": true
+    },
+    {
+      "file_id": 220,
+      "entry_index": 513,
+      "entry_sha256": "2281492ac38b438e4d55041527956cd36b05e72523af5f25c63e600aa3883788",
+      "token_offset": 33,
+      "token_kind": "unknown_fallback",
+      "token_length": 1,
+      "stage_overlay": "WSTAG226.PRO",
+      "stage_file_id": 592,
+      "stage_overlay_sha1": "5cf176ef9bf48fb8dccaf5b762443513eb3cc98d",
+      "talk_pointer": "0x800a6a48",
+      "actor_pointer": "0x800a6bd4",
+      "actor_id": 104,
+      "actor_position": [
+        255,
+        352
+      ],
+      "source_path_scope": "Conditional field-actor dialogue; stage loading and actor pointer verified statically.",
+      "runtime_trigger_verified": false,
+      "meaning": "unresolved",
+      "preserved_unchanged": true
+    },
+    {
+      "file_id": 220,
+      "entry_index": 520,
+      "entry_sha256": "1d568df8ce38558f281e7fec5a6fd765fd209a228e0bcd6ad32b473446c169af",
+      "token_offset": 14,
+      "token_kind": "unknown_extended_glyph",
+      "token_length": 2,
+      "stage_overlay": "WSTAG226.PRO",
+      "stage_file_id": 592,
+      "stage_overlay_sha1": "5cf176ef9bf48fb8dccaf5b762443513eb3cc98d",
+      "talk_pointer": "0x800a6a9c",
+      "actor_pointer": "0x800a6c10",
+      "actor_id": 178,
+      "actor_position": [
+        277,
+        363
+      ],
+      "source_path_scope": "Conditional field-actor dialogue; stage loading and actor pointer verified statically.",
+      "runtime_trigger_verified": false,
+      "meaning": "unresolved",
+      "preserved_unchanged": true
+    }
+  ],
+  "limitations": [
+    "Conditional flags and actual dialogue rendering were not exercised.",
+    "An extended token outside the inspected font-1 bound is not automatically corrupt.",
+    "Raw text and original token bytes remain in the private index, not this report."
+  ]
+}

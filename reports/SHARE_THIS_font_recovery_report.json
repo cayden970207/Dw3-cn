@@ -3,7 +3,7 @@
   "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
   "source_archive_sha256": "aaf88ce1aa7492e22ec83722f8cf2b8985c08fac9cc193881dabbbafc4bec94f",
   "executable_sha256": "c902e59f9dc8f35a6fe2792604c485adf09a71d59c4f0769fb9654803bc9713e",
-  "status": "partial_user_review_one_menu_runtime_verified",
+  "status": "partial_user_review_and_five_menu_entries_runtime_verified",
   "language_selection": {
     "menu_label": "中文",
     "label_evidence": "Local menu artwork and emulator screenshot visually inspected; state 2 observed after confirmation.",
@@ -347,9 +347,261 @@
         12
       ],
       "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "打",
+      "glyph_index": 52,
+      "canonical_code_hex": "f038",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        10,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "开",
+      "glyph_index": 135,
+      "canonical_code_hex": "f08b",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        11,
+        11
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "回",
+      "glyph_index": 1121,
+      "canonical_code_hex": "f475",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        10,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "有",
+      "glyph_index": 13,
+      "canonical_code_hex": "f011",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "包",
+      "glyph_index": 345,
+      "canonical_code_hex": "f161",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "买",
+      "glyph_index": 883,
+      "canonical_code_hex": "f383",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "一",
+      "glyph_index": 17,
+      "canonical_code_hex": "f015",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        3,
+        11,
+        5
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "张",
+      "glyph_index": 318,
+      "canonical_code_hex": "f146",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "编",
+      "glyph_index": 1343,
+      "canonical_code_hex": "f557",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "辑",
+      "glyph_index": 1192,
+      "canonical_code_hex": "f4bc",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "组",
+      "glyph_index": 262,
+      "canonical_code_hex": "f10e",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "没",
+      "glyph_index": 34,
+      "canonical_code_hex": "f026",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
     }
   ],
-  "reviewed_chinese_mapping_count": 9,
+  "reviewed_chinese_mapping_count": 21,
   "dialogue_static_chain": {
     "stage_file_id": 471,
     "stage_overlay_sha256": "ae4a57a1f03024d856cde3f7b26b9a8d67922ff6ffadaf9cb374b8ca000cb1d9",
@@ -397,7 +649,7 @@
   "gameplay_verified": false,
   "test_copy_created": true,
   "blockers": [
-    "Only nine glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
+    "Only 21 glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
     "The general variable-width measurement routine disagrees with Chinese drawing; the generic writer remains blocked.",
     "Other menus, dialogue paths, and whole-game regression remain unverified."
   ],
@@ -407,5 +659,10 @@
   "runtime_evidence": {
     "report": "SHARE_THIS_runtime_evidence_report.json",
     "scope": "One card-album title and the recorded navigation path"
+  },
+  "batch_runtime_evidence": {
+    "report": "SHARE_THIS_p1_batch01_report.json",
+    "test_image_sha256": "03fa8316801fd610fec4dfdf895753d25121f8c955f3835f0ad4446d12886193",
+    "new_entries_verified": 5
   }
 }

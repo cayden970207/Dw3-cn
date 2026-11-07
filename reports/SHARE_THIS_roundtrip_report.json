@@ -19,14 +19,15 @@
   },
   "distinct_chinese_glyph_indices_observed": 1997,
   "unicode_mapping": {
-    "reviewed_chinese_characters": 9,
-    "reviewed_chinese_glyph_tokens": 5176,
-    "unresolved_chinese_glyph_tokens": 107445,
+    "reviewed_chinese_characters": 21,
+    "reviewed_chinese_glyph_tokens": 8230,
+    "unresolved_chinese_glyph_tokens": 104391,
     "out_of_range_chinese_glyph_tokens": 0,
     "out_of_range_extended_glyph_tokens": 5,
     "fallback_tokens": 1,
     "status": "partial_user_review_other_glyphs_unresolved",
-    "note": "Glyph indices and lossless bytes are not Unicode recognition. The extended-token bound uses the inspected font-1 table; the rendering context of every indexed entry is not established."
+    "note": "Glyph indices and lossless bytes are not Unicode recognition. The extended-token bound uses the inspected font-1 table; the rendering context of every indexed entry is not established.",
+    "coverage_provenance": "Recounted the hash-checked prior private index using the expanded user-reviewed subset; no new image discovery scan."
   },
   "file_reconstruction": {
     "matching_resources": 50,

@@ -73,6 +73,7 @@ def main() -> int:
     parser.add_argument("runtime_output", type=Path)
     parser.add_argument("font_output", type=Path)
     parser.add_argument("--sample-output", type=Path, help="Optional sanitized creation report with runtime scope")
+    parser.add_argument("--batch-report", type=Path, help="Optional separately verified menu-batch report")
     parser.add_argument("--visual-title-checked", action="store_true",
                         help="Only after personally inspecting the two private screenshots")
     args = parser.parse_args()
@@ -120,9 +121,18 @@ def main() -> int:
     static["single_menu_gameplay_verified"] = True
     static["sample_image_sha256"] = sample["test_image_sha256"]
     static["runtime_evidence"] = {"report": args.runtime_output.name, "scope": "One card-album title and the recorded navigation path"}
-    static["blockers"] = ["Only nine glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
+    static["blockers"] = [f"Only {static['reviewed_chinese_mapping_count']} glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
                           "The general variable-width measurement routine disagrees with Chinese drawing; the generic writer remains blocked.",
                           "Other menus, dialogue paths, and whole-game regression remain unverified."]
+    if args.batch_report:
+        batch = json.loads(args.batch_report.read_text())
+        if (batch.get("source_image_sha256") != CN_IMAGE_SHA256 or
+                batch.get("status") != "five_new_entries_runtime_verified" or batch.get("new_entries_verified") != 5):
+            raise ValueError("Menu-batch report is not the verified c713 batch")
+        static["status"] = "partial_user_review_and_five_menu_entries_runtime_verified"
+        static["batch_runtime_evidence"] = {"report": args.batch_report.name,
+                                            "test_image_sha256": batch["test_image_sha256"],
+                                            "new_entries_verified": batch["new_entries_verified"]}
     write_exclusive(args.runtime_output, runtime)
     write_exclusive(args.font_output, static)
     if args.sample_output:

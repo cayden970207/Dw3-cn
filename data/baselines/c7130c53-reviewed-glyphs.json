@@ -6,7 +6,7 @@
   "review": {
     "reviewer": "user",
     "date": "2026-11-07",
-    "method": "User confirmed five isolated glyphs in one local preview and four card-album glyphs in a second preview, in their presented order.",
+    "method": "User confirmed five isolated glyphs, four card-album glyphs, and further menu glyphs in local previews. Glyphs 164, 1489 and 1151 were expressly uncertain and remain unresolved. The user subsequently confirmed all four edit-preview glyphs.",
     "scope": "Visual glyph identity only; no runtime rendering, full character map, or translation approval."
   },
   "glyphs": [
@@ -18,7 +18,19 @@
     {"unicode": "卡", "glyph_index": 48, "canonical_code_hex": "f034"},
     {"unicode": "片", "glyph_index": 71, "canonical_code_hex": "f04b"},
     {"unicode": "图", "glyph_index": 1082, "canonical_code_hex": "f44e"},
-    {"unicode": "鉴", "glyph_index": 1913, "canonical_code_hex": "f799"}
+    {"unicode": "鉴", "glyph_index": 1913, "canonical_code_hex": "f799"},
+    {"unicode": "打", "glyph_index": 52, "canonical_code_hex": "f038"},
+    {"unicode": "开", "glyph_index": 135, "canonical_code_hex": "f08b"},
+    {"unicode": "回", "glyph_index": 1121, "canonical_code_hex": "f475"},
+    {"unicode": "有", "glyph_index": 13, "canonical_code_hex": "f011"},
+    {"unicode": "包", "glyph_index": 345, "canonical_code_hex": "f161"},
+    {"unicode": "买", "glyph_index": 883, "canonical_code_hex": "f383"},
+    {"unicode": "一", "glyph_index": 17, "canonical_code_hex": "f015"},
+    {"unicode": "张", "glyph_index": 318, "canonical_code_hex": "f146"},
+    {"unicode": "编", "glyph_index": 1343, "canonical_code_hex": "f557"},
+    {"unicode": "辑", "glyph_index": 1192, "canonical_code_hex": "f4bc"},
+    {"unicode": "组", "glyph_index": 262, "canonical_code_hex": "f10e"},
+    {"unicode": "没", "glyph_index": 34, "canonical_code_hex": "f026"}
   ],
   "mapping_complete": false,
   "runtime_verified": false,

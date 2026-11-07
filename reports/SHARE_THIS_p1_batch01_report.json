@@ -1,0 +1,540 @@
+{
+  "schema_version": 1,
+  "status": "five_new_entries_runtime_verified",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "test_image_sha256": "03fa8316801fd610fec4dfdf895753d25121f8c955f3835f0ad4446d12886193",
+  "new_entries_verified": 5,
+  "previous_title_reverified": true,
+  "entries": [
+    {
+      "file_id": 38,
+      "entry_index": 1,
+      "original_sha256": "870746459242413a79eb73d41ba6f1e73b30c25dc6b073622f6c2f6a1d681fa3",
+      "translation": "卡片图鉴",
+      "role": "previously_runtime_verified_title",
+      "slot_bytes": 12,
+      "replacement_bytes_including_terminator": 9,
+      "original_control_count": 0,
+      "replacement_control_count": 0,
+      "window_origin_px": [
+        16,
+        25
+      ],
+      "source_advance_px": 61,
+      "replacement_advance_px": 48,
+      "source_ink_bbox_px": [
+        17,
+        26,
+        77,
+        36
+      ],
+      "replacement_ink_bbox_px": [
+        16,
+        25,
+        63,
+        36
+      ],
+      "actual_source_screenshot_bbox_matched": true,
+      "context": "album",
+      "status": "runtime_visual_and_pixel_bounds_verified",
+      "runtime_ink_bbox_px": [
+        16,
+        25,
+        63,
+        36
+      ],
+      "validated_source_text_band_px": [
+        16,
+        25,
+        77,
+        37
+      ],
+      "visible_screen_width_from_origin_px": 304,
+      "exact_window_clipping_bounds": "unresolved; target fits the observed source text band and visible screen",
+      "legacy_game_measure_static_px": 22,
+      "game_measure_result_used_by_window": false
+    },
+    {
+      "file_id": 52,
+      "entry_index": 5,
+      "original_sha256": "6de058f8982c178103c7c76a85701e6d417787fdd437ca7e7ed82d1b9d23c54c",
+      "translation": "买一张卡片",
+      "role": "new_shop_menu",
+      "slot_bytes": 15,
+      "replacement_bytes_including_terminator": 11,
+      "original_control_count": 0,
+      "replacement_control_count": 0,
+      "window_origin_px": [
+        167,
+        53
+      ],
+      "source_advance_px": 75,
+      "replacement_advance_px": 60,
+      "source_ink_bbox_px": [
+        168,
+        54,
+        242,
+        65
+      ],
+      "replacement_ink_bbox_px": [
+        167,
+        53,
+        224,
+        64
+      ],
+      "actual_source_screenshot_bbox_matched": true,
+      "context": "shop",
+      "status": "runtime_visual_and_pixel_bounds_verified",
+      "runtime_ink_bbox_px": [
+        167,
+        53,
+        224,
+        64
+      ],
+      "validated_source_text_band_px": [
+        167,
+        53,
+        242,
+        65
+      ],
+      "visible_screen_width_from_origin_px": 153,
+      "exact_window_clipping_bounds": "unresolved; target fits the observed source text band and visible screen",
+      "legacy_game_measure_static_px": 28,
+      "game_measure_result_used_by_window": false
+    },
+    {
+      "file_id": 52,
+      "entry_index": 6,
+      "original_sha256": "e8e1c84e4672a8dfb4344a5c8f3899019f6bcfbd457ad90a5c4a98cefadfb8be",
+      "translation": "打开卡包",
+      "role": "new_shop_menu",
+      "slot_bytes": 14,
+      "replacement_bytes_including_terminator": 9,
+      "original_control_count": 0,
+      "replacement_control_count": 0,
+      "window_origin_px": [
+        167,
+        67
+      ],
+      "source_advance_px": 72,
+      "replacement_advance_px": 48,
+      "source_ink_bbox_px": [
+        168,
+        68,
+        239,
+        79
+      ],
+      "replacement_ink_bbox_px": [
+        167,
+        67,
+        214,
+        78
+      ],
+      "actual_source_screenshot_bbox_matched": true,
+      "context": "shop",
+      "status": "runtime_visual_and_pixel_bounds_verified",
+      "runtime_ink_bbox_px": [
+        167,
+        67,
+        214,
+        78
+      ],
+      "validated_source_text_band_px": [
+        167,
+        67,
+        239,
+        79
+      ],
+      "visible_screen_width_from_origin_px": 153,
+      "exact_window_clipping_bounds": "unresolved; target fits the observed source text band and visible screen",
+      "legacy_game_measure_static_px": 26,
+      "game_measure_result_used_by_window": false
+    },
+    {
+      "file_id": 52,
+      "entry_index": 7,
+      "original_sha256": "5ea4777425e44ddba05b1c8e3bb675f5fe49fe786ee265171c264e7723a0759f",
+      "translation": "编辑卡组",
+      "role": "new_shop_menu",
+      "slot_bytes": 13,
+      "replacement_bytes_including_terminator": 9,
+      "original_control_count": 0,
+      "replacement_control_count": 0,
+      "window_origin_px": [
+        167,
+        81
+      ],
+      "source_advance_px": 61,
+      "replacement_advance_px": 48,
+      "source_ink_bbox_px": [
+        168,
+        82,
+        228,
+        92
+      ],
+      "replacement_ink_bbox_px": [
+        167,
+        81,
+        214,
+        92
+      ],
+      "actual_source_screenshot_bbox_matched": true,
+      "context": "shop",
+      "status": "runtime_visual_and_pixel_bounds_verified",
+      "runtime_ink_bbox_px": [
+        167,
+        81,
+        214,
+        92
+      ],
+      "validated_source_text_band_px": [
+        167,
+        81,
+        228,
+        93
+      ],
+      "visible_screen_width_from_origin_px": 153,
+      "exact_window_clipping_bounds": "unresolved; target fits the observed source text band and visible screen",
+      "legacy_game_measure_static_px": 25,
+      "game_measure_result_used_by_window": false
+    },
+    {
+      "file_id": 52,
+      "entry_index": 21,
+      "original_sha256": "61ae1663eb27e39dff07b7258fa4381e925699b941ad58f7da5236cf19914bee",
+      "translation": "没有卡包",
+      "role": "new_empty_booster_prompt",
+      "slot_bytes": 13,
+      "replacement_bytes_including_terminator": 9,
+      "original_control_count": 0,
+      "replacement_control_count": 0,
+      "window_origin_px": [
+        154,
+        113
+      ],
+      "source_advance_px": 65,
+      "replacement_advance_px": 48,
+      "source_ink_bbox_px": [
+        155,
+        114,
+        219,
+        124
+      ],
+      "replacement_ink_bbox_px": [
+        154,
+        113,
+        201,
+        124
+      ],
+      "actual_source_screenshot_bbox_matched": true,
+      "context": "empty",
+      "status": "runtime_visual_and_pixel_bounds_verified",
+      "runtime_ink_bbox_px": [
+        154,
+        113,
+        201,
+        124
+      ],
+      "validated_source_text_band_px": [
+        154,
+        113,
+        219,
+        125
+      ],
+      "visible_screen_width_from_origin_px": 166,
+      "exact_window_clipping_bounds": "unresolved; target fits the observed source text band and visible screen",
+      "legacy_game_measure_static_px": 38,
+      "game_measure_result_used_by_window": false
+    },
+    {
+      "file_id": 52,
+      "entry_index": 26,
+      "original_sha256": "5ea4777425e44ddba05b1c8e3bb675f5fe49fe786ee265171c264e7723a0759f",
+      "translation": "编辑卡组",
+      "role": "new_deck_submenu",
+      "slot_bytes": 13,
+      "replacement_bytes_including_terminator": 9,
+      "original_control_count": 0,
+      "replacement_control_count": 0,
+      "window_origin_px": [
+        167,
+        35
+      ],
+      "source_advance_px": 61,
+      "replacement_advance_px": 48,
+      "source_ink_bbox_px": [
+        168,
+        36,
+        228,
+        46
+      ],
+      "replacement_ink_bbox_px": [
+        167,
+        35,
+        214,
+        46
+      ],
+      "actual_source_screenshot_bbox_matched": true,
+      "context": "deck",
+      "status": "runtime_visual_and_pixel_bounds_verified",
+      "runtime_ink_bbox_px": [
+        167,
+        35,
+        214,
+        46
+      ],
+      "validated_source_text_band_px": [
+        167,
+        35,
+        228,
+        47
+      ],
+      "visible_screen_width_from_origin_px": 153,
+      "exact_window_clipping_bounds": "unresolved; target fits the observed source text band and visible screen",
+      "legacy_game_measure_static_px": 25,
+      "game_measure_result_used_by_window": false
+    }
+  ],
+  "candidate_shortlist": [
+    {
+      "resource_id": 52,
+      "entry_index": 5,
+      "source_sha256": "6de058f8982c178103c7c76a85701e6d417787fdd437ca7e7ed82d1b9d23c54c",
+      "meaning_zh": "购买卡片菜单",
+      "window_context": "shop_main",
+      "font": 1,
+      "window_origin_px": [
+        167,
+        53
+      ],
+      "trigger": "开放卡片商店，第一行",
+      "status": "runtime_verified"
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 6,
+      "source_sha256": "e8e1c84e4672a8dfb4344a5c8f3899019f6bcfbd457ad90a5c4a98cefadfb8be",
+      "meaning_zh": "打开卡包菜单",
+      "window_context": "shop_main",
+      "font": 1,
+      "window_origin_px": [
+        167,
+        67
+      ],
+      "trigger": "开放卡片商店，第二行",
+      "status": "runtime_verified"
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 7,
+      "source_sha256": "5ea4777425e44ddba05b1c8e3bb675f5fe49fe786ee265171c264e7723a0759f",
+      "meaning_zh": "编辑卡组菜单",
+      "window_context": "shop_main",
+      "font": 1,
+      "window_origin_px": [
+        167,
+        81
+      ],
+      "trigger": "开放卡片商店，第三行",
+      "status": "runtime_verified"
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 21,
+      "source_sha256": "61ae1663eb27e39dff07b7258fa4381e925699b941ad58f7da5236cf19914bee",
+      "meaning_zh": "没有卡包提示",
+      "window_context": "shop_empty",
+      "font": 1,
+      "window_origin_px": [
+        154,
+        113
+      ],
+      "trigger": "无卡包时选择商店第二行",
+      "status": "runtime_verified"
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 26,
+      "source_sha256": "5ea4777425e44ddba05b1c8e3bb675f5fe49fe786ee265171c264e7723a0759f",
+      "meaning_zh": "编辑卡组子菜单",
+      "window_context": "deck_menu",
+      "font": 1,
+      "window_origin_px": [
+        167,
+        35
+      ],
+      "trigger": "打开卡组页面并选择一组",
+      "status": "runtime_verified"
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 15,
+      "source_sha256": "4fc2ad8f756b55ddcbca5076b15076465222b2094a45e60557fc12e5763c0608",
+      "meaning_zh": "选择卡包提示",
+      "window_context": "booster_screen",
+      "font": 1,
+      "window_origin_px": [
+        20,
+        194
+      ],
+      "trigger": "持有卡包时选择商店第二行",
+      "status": "unresolved_not_modified"
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 19,
+      "source_sha256": "2a81ed939dbcdf7f2b3de39f07239c28e50f282e499f30ec1fe84e3bfe25c793",
+      "meaning_zh": "余额不足提示",
+      "window_context": "buy_message",
+      "font": 1,
+      "window_origin_px": [
+        154,
+        57
+      ],
+      "trigger": "尝试购买价格高于余额的卡片",
+      "status": "unresolved_not_modified"
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 20,
+      "source_sha256": "506519d000e80369e62d91eb609eb97e56fa8d0b9cb2a384de73eb5c03166a18",
+      "meaning_zh": "卡片数量上限提示",
+      "window_context": "buy_message",
+      "font": 1,
+      "window_origin_px": [
+        154,
+        57
+      ],
+      "trigger": "尝试购买已持有九张的卡片",
+      "status": "unresolved_not_modified"
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 25,
+      "source_sha256": "796cf96018087f19cfdffd3da937f6a39e90a779e024f5871d8da56cf6fadc6c",
+      "meaning_zh": "选择卡组提示",
+      "window_context": "deck_help",
+      "font": 1,
+      "window_origin_px": [
+        151,
+        34
+      ],
+      "trigger": "进入卡组页面的选择列表",
+      "status": "unresolved_not_modified"
+    },
+    {
+      "resource_id": 52,
+      "entry_index": 27,
+      "source_sha256": "f980d46324d23b3a0939f54269e794a498524ce25a0a7cb9c7fdef4873fab7b9",
+      "meaning_zh": "更改名称菜单",
+      "window_context": "deck_menu",
+      "font": 1,
+      "window_origin_px": [
+        167,
+        49
+      ],
+      "trigger": "打开卡组页面并选择一组",
+      "status": "unresolved_not_modified"
+    }
+  ],
+  "disc_integrity": {
+    "expected_changed_sectors": [
+      2310,
+      2313
+    ],
+    "changed_raw_bytes": 368,
+    "changed_raw_sectors": 2,
+    "unchanged_raw_sectors": 294369,
+    "all_differences_within_reviewed_text_or_modified_sector_checksums": true,
+    "modified_sector_edc_ecc_before_and_after_valid": true,
+    "font_id_647_raw_sha256_before_and_after": "4a3462be607f559ac7cac81de03f2036f0df51c0ab999ddfaaaef387348db15a"
+  },
+  "runtime": {
+    "emulator": "PCSX-Redux a74a0587 build 433",
+    "emulator_sha256": "53451b6b313af0b5342d23ff50a60bea283a7268ef68df0f5482d8ade4e8cb3c",
+    "bios": "OpenBIOS",
+    "bios_sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801",
+    "configuration": "Headless, unthrottled, separate process per path, independent memory-card copies.",
+    "input_cue": "local/font-recovery/p1-batch01/DW3-p1-batch01.cue",
+    "shop_checkpoints": {
+      "shop_main_stable": {
+        "frame": 6251,
+        "stage": 19
+      },
+      "shop_after_open_booster": {
+        "frame": 6637,
+        "stage": 19
+      },
+      "shop_return_to_field": {
+        "frame": 6768,
+        "stage": 2
+      }
+    },
+    "deck_checkpoints": {
+      "deck_submenu": {
+        "frame": 6722,
+        "stage": 4
+      },
+      "deck_return_to_party": {
+        "frame": 6864,
+        "stage": 16
+      }
+    },
+    "album_checkpoints": {
+      "cold_loaded": {
+        "frame": 4082,
+        "stage": 2
+      },
+      "cold_album_visible": {
+        "frame": 6379,
+        "stage": 18
+      }
+    },
+    "before_after_pixel_comparisons": {
+      "shop_main": {
+        "changed_pixels": 877,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          167,
+          53,
+          242,
+          92
+        ]
+      },
+      "shop_empty": {
+        "changed_pixels": 1140,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          154,
+          53,
+          242,
+          124
+        ]
+      },
+      "deck_menu": {
+        "changed_pixels": 265,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          167,
+          35,
+          228,
+          46
+        ]
+      }
+    },
+    "screenshots_sha256": {
+      "shop": "1493246046b640fb1fdcc258683b2dfe57badc5cc1c34f6dd576db27262d402b",
+      "empty": "e1ac8a2b7dcb9f7efb85dd3d5cea3e1ebd69e0ddd6ca1ec3549c45153f55d77e",
+      "deck": "2aa56962940c016722c5311e0f73b315e7dfa27c1bc3f82043958bc1853cd13b",
+      "album": "3248134b4ae3868b27ed8e4438da4e94d777992d2aceda84ec98bab6328b7615"
+    },
+    "visual_review": "Analyst inspected each local screenshot and confirmed the displayed translations and no visible overlap.",
+    "actual_ocr_used": false
+  },
+  "limits": [
+    "Only the listed windows and recorded paths were verified; general Chinese writing remains blocked.",
+    "The unchanged candidate entries require glyph review, context bounds and runtime checks.",
+    "The batch was not tested across the complete game or on retail BIOS/hardware.",
+    "Game measurement values are static simulations of inspected instructions, not live function calls."
+  ]
+}

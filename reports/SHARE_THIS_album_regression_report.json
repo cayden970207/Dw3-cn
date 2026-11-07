@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "status": "album_pages_and_post_visit_cold_load_verified",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "sample_image_sha256": "afdb58042d8060a9523305f18a3e35e6841089d903248ba8ebd2408302b7e433",
+  "emulator": {
+    "name": "PCSX-Redux",
+    "version": "a74a0587",
+    "build_id": 433,
+    "executable_sha256": "53451b6b313af0b5342d23ff50a60bea283a7268ef68df0f5482d8ade4e8cb3c",
+    "bios": "OpenBIOS",
+    "bios_sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801",
+    "mode": "headless, unthrottled, two separate processes, private memory-card copies"
+  },
+  "input_cue": "local/font-recovery/run-20261107/card_album_test/DW3-card-album-test.cue",
+  "page_checks": {
+    "page_first_before": {
+      "frame": 13656,
+      "observed_page": 1
+    },
+    "page_first_clamp": {
+      "frame": 13779,
+      "observed_page": 1
+    },
+    "page_forward": {
+      "frame": 13902,
+      "observed_page": 2
+    },
+    "page_backward": {
+      "frame": 14025,
+      "observed_page": 1
+    },
+    "page_last_clamp": {
+      "frame": 17865,
+      "observed_page": 27
+    },
+    "page_first_return": {
+      "frame": 21705,
+      "observed_page": 1
+    }
+  },
+  "observed_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "navigation_checkpoints": {
+    "album_return_first": {
+      "frame": 21722,
+      "stage": 16
+    },
+    "album_reopened": {
+      "frame": 22641,
+      "stage": 18
+    },
+    "album_return_second": {
+      "frame": 22658,
+      "stage": 16
+    },
+    "deck_edit_open": {
+      "frame": 22725,
+      "stage": 4
+    },
+    "field_return": {
+      "frame": 23256,
+      "stage": 2
+    },
+    "post_album_saved": {
+      "frame": 26764,
+      "stage": 12
+    },
+    "post_album_save_returned": {
+      "frame": 27000,
+      "stage": 2
+    }
+  },
+  "post_album_save": {
+    "write_started_frame": 25321,
+    "write_completed_frame": 26764,
+    "saved_screen_locally_captured": true,
+    "fresh_card_copy_changed_after_visit": true
+  },
+  "cold_restart": {
+    "separate_process": true,
+    "read_saved_card_case_item": 1,
+    "checkpoints": {
+      "cold_loaded": {
+        "frame": 4082,
+        "stage": 2
+      },
+      "cold_album_open": {
+        "frame": 5779,
+        "stage": 18
+      },
+      "cold_album_visible": {
+        "frame": 6379,
+        "stage": 18
+      }
+    }
+  },
+  "local_screenshot_sha256": {
+    "first/PRIVATE_page_first.ppm": "46d368dba2cac2a16dfd7faf927d1752c0ea754dc716b43237baf7a810309cb0",
+    "first/PRIVATE_page_second.ppm": "42a95dc7211aab93c132476ae730d2a7453bca4caf88d619b69465dcf7ce0bc7",
+    "first/PRIVATE_page_last.ppm": "3e846663290b15ef5c941cd2788a0abaf56150ac766128f4e341a935aa90dad1",
+    "first/PRIVATE_page_first_return.ppm": "057993608c07c60e4e64e765f279d1bd892c24d3c78b32056814c7570521bab0",
+    "first/PRIVATE_post_album_save.ppm": "7fb965e0332c1316471d543538379b54d87028805824b9b5b1246e8788b35d47",
+    "cold/PRIVATE_page_first.ppm": "eacd6ce106ff2e452364c07ad6794543293cea3fe8d942b71ef9e4fdac7d6522"
+  },
+  "pad_warnings": {
+    "first_process_unknown_command_43": 12,
+    "cold_process_unknown_command_43": 12,
+    "assessment": "Page values, menu transitions and cold-load state changed as requested despite these warnings; untested controller behavior is not covered."
+  },
+  "limitations": [
+    "Only the recorded single-title sample and one emulator/OpenBIOS configuration were tested.",
+    "Screenshots and independent memory cards remain private and are not included."
+  ]
+}
