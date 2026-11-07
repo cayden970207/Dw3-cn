@@ -168,6 +168,7 @@ def main():
     trace_lua.write_text('return ' + emulator.lua_literal(emulator.parse_ints(spec)) + '\n')
     (out / 'PRIVATE_trace.json').write_text(json.dumps(spec, indent=2) + '\n')
     env = emulator.replay_env(trace_lua, out, speed=0)
+    env['DW3_CAPTURE_COMBINED'] = '0'
     capture = {'deck': 'tools/card_deck_capture.lua', 'shop': 'tools/card_shop_capture.lua',
                'lab': 'tools/lab_dynamic_capture.lua',
                'deck02': 'tools/batch02_runtime_capture.lua', 'buy02': 'tools/batch02_runtime_capture.lua',

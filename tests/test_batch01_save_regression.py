@@ -19,6 +19,9 @@ LOCAL = ROOT / 'local/font-recovery'
 DIRECTORY = LOCAL / 'batch01-postmenu-save-v1'
 IMAGE = LOCAL / 'p1-batch01/DW3-p1-batch01.bin'
 SEED = LOCAL / 'round2-album-regression-v4/first/memcard1.mcd'
+SECOND = LOCAL / 'p1-batch02-money-save-v1'
+SECOND_IMAGE = LOCAL / 'p1-batch02-money-v1/DW3-p1-batch02.bin'
+SECOND_SEED = LOCAL / 'batch01-postmenu-save-v1/first/memcard1.mcd'
 
 
 class BoundaryTests(unittest.TestCase):
@@ -70,6 +73,16 @@ class BoundaryTests(unittest.TestCase):
         self.assertTrue(report['cold_process_loaded_post_menu_save'])
         self.assertGreater(report['playtime_seconds']['cold_reloaded'], report['playtime_seconds']['initial_load'])
         self.assertTrue(all(x['light_pixel_mask_matches_prior'] for x in report['phases']['cold']['captures'].values()))
+
+    @unittest.skipUnless(all(p.is_file() for p in (SECOND / 'first/result.json', SECOND / 'cold/result.json', SECOND_IMAGE, SECOND_SEED)),
+                         'Owner-only batch-02 emulator evidence unavailable')
+    def test_real_second_batch_save_and_revisited_insufficient_funds(self):
+        prior = json.loads((ROOT / 'reports/SHARE_THIS_p1_batch01_report.json').read_text())
+        batch02 = json.loads((ROOT / 'reports/SHARE_THIS_p1_batch02_report.json').read_text())
+        report = run(SECOND, SECOND_IMAGE, SECOND_SEED, prior, True, batch02)
+        self.assertEqual(report['status'], 'batch02_post_menu_save_cold_load_revisit_verified')
+        self.assertTrue(report['phases']['cold']['captures']['insufficient_funds']['light_pixel_mask_matches_prior'])
+        self.assertGreater(report['playtime_seconds']['cold_reloaded'], report['playtime_seconds']['initial_load'])
 
 
 if __name__ == '__main__':

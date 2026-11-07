@@ -22,6 +22,7 @@ except ModuleNotFoundError:
     from text_codec import CN_IMAGE_SHA256
 
 SEED_SHA = '656340a4d62ef6e3a2779dc9f616f4c840c12e5659b923d80cbf78a7adfb91c4'
+BATCH02_SEED_SHA = '4c0497c96447801d4623e4412e5ae2b38fae85b33ba1c343ce53604327a44400'
 REGIONS = {'album': (15, 25, 159, 38), 'shop': (166, 53, 310, 94),
            'empty': (153, 113, 300, 126), 'deck': (166, 35, 310, 48)}
 
@@ -39,17 +40,34 @@ def light_mask(path: Path, rect):
     return pixels
 
 
-def run(directory: Path, image: Path, seed: Path, prior: dict, visual_checked: bool):
+def run(directory: Path, image: Path, seed: Path, prior: dict, visual_checked: bool, batch02: dict | None = None):
     if not visual_checked:
         raise ValueError('Inspect the saved screen and the reloaded menu captures first')
-    if hash_file(image) != BATCH_SHA or prior.get('test_image_sha256') != BATCH_SHA:
+    expected_image = BATCH_SHA
+    expected_seed = SEED_SHA
+    if batch02 is not None:
+        expected_image = batch02.get('test_image_sha256')
+        expected_seed = BATCH02_SEED_SHA
+        if (batch02.get('status') != 'batch02_new_entries_runtime_verified' or
+            batch02.get('source_image_sha256') != CN_IMAGE_SHA256 or
+            batch02.get('previous_batch_image_sha256') != BATCH_SHA or
+            not any(e.get('file_id') == 52 and e.get('entry_index') == 19 and
+                    e.get('status') == 'runtime_visual_and_pixel_bounds_verified' for e in batch02.get('new_entries', []))):
+            raise ValueError('Expected a runtime-verified batch-02 insufficient-funds entry')
+    if hash_file(image) != expected_image or prior.get('test_image_sha256') != BATCH_SHA:
         raise ValueError('Image or prior evidence is not the verified batch')
-    if hash_file(seed) != SEED_SHA:
+    root = Path(__file__).resolve().parents[1]
+    image = image.resolve()
+    if not image.is_relative_to((root / 'local').resolve()):
+        raise ValueError('Test image must remain under local/')
+    cue = image.with_suffix('.cue')
+    if cue.read_text() != f'FILE "{image.name}" BINARY\n  TRACK 01 MODE2/2352\n    INDEX 01 00:00:00\n':
+        raise ValueError('Test CUE does not bind the inspected image')
+    if hash_file(seed) != expected_seed:
         raise ValueError('Independent seed differs from the recorded previous save')
     first_card, cold_card = directory / 'first/memcard1.mcd', directory / 'cold/memcard1.mcd'
-    if hash_file(first_card) == SEED_SHA or hash_file(cold_card) != hash_file(first_card):
+    if hash_file(first_card) == expected_seed or hash_file(cold_card) != hash_file(first_card):
         raise ValueError('No changed post-menu save or cold card differs from it')
-    root = Path(__file__).resolve().parents[1]
     previous = {'album': root / 'local/font-recovery/p1-batch01-album-runtime/PRIVATE_card_album.ppm',
                 'deck': root / 'local/font-recovery/p1-batch01-deck-runtime/PRIVATE_deck_menu.ppm',
                 'shop': root / 'local/font-recovery/p1-batch01-shop-runtime/PRIVATE_shop_main.ppm',
@@ -71,6 +89,9 @@ def run(directory: Path, image: Path, seed: Path, prior: dict, visual_checked: b
         checkpoint_data[name] = cp
         required = {'cold_loaded': 2, 'cold_album_visible': 18, 'batch_deck_submenu': 4,
                     'batch_shop_main': 19, 'batch_shop_empty': 19, 'batch_shop_return': 2}
+        if batch02 is not None:
+            required.update({'batch02_buy_open': 19, 'batch02_insufficient_funds': 19,
+                             'batch02_buy_return_to_field': 2})
         if any(k not in cp or cp[k]['stage'] != v for k, v in required.items()):
             raise ValueError('Missing menu or load checkpoint')
         frames = [cp[k]['frame'] for k in required]
@@ -85,6 +106,16 @@ def run(directory: Path, image: Path, seed: Path, prior: dict, visual_checked: b
             if len(light_mask(screenshot, rect) ^ light_mask(previous[key], rect)):
                 raise ValueError(f'{name} {key} text pixels differ from the reviewed batch')
             captures[key] = {'sha256': hash_file(screenshot), 'light_pixel_mask_matches_prior': True}
+        if batch02 is not None:
+            if 'batch02_buy state=1 step=12 substep=19' not in log:
+                raise ValueError('The new insufficient-funds window was not actually reached')
+            screenshot = folder / 'PRIVATE_insufficient_funds.ppm'
+            verified_screen = root / 'local/font-recovery/p1-batch02-money-buy-runtime-v1/PRIVATE_insufficient_funds.ppm'
+            entry = next(e for e in batch02['new_entries'] if e['entry_index'] == 19)
+            if (hash_file(verified_screen) != entry['runtime_screenshot_sha256'] or
+                light_mask(screenshot, (153, 57, 297, 70)) != light_mask(verified_screen, (153, 57, 297, 70))):
+                raise ValueError('Post-visit insufficient-funds text differs from the reviewed screen')
+            captures['insufficient_funds'] = {'sha256': hash_file(screenshot), 'light_pixel_mask_matches_prior': True}
         phases[name] = {'checkpoints': {k: {'frame': cp[k]['frame'], 'stage': v} for k, v in required.items()},
                         'captures': captures, 'pad_warning_count': log.count('Unknown command for pad: 43'),
                         'listener_stack_reset_count': log.count('replay: Lua stack reset at frame 8192')}
@@ -93,7 +124,7 @@ def run(directory: Path, image: Path, seed: Path, prior: dict, visual_checked: b
             finish = re.search(r'batch01_save_write_finished_frame=(\d+)', log)
             if (not start or not finish or cp.get('post_album_saved', {}).get('stage') != 12 or
                 cp.get('post_album_save_returned', {}).get('stage') != 2 or
-                not (cp['batch_shop_return']['frame'] < int(start.group(1)) < int(finish.group(1)) ==
+                not (cp['batch02_buy_return_to_field' if batch02 is not None else 'batch_shop_return']['frame'] < int(start.group(1)) < int(finish.group(1)) ==
                      cp['post_album_saved']['frame'] < cp['post_album_save_returned']['frame'])):
                 raise ValueError('Fresh save write after menu visits is not proved')
             saved = folder / 'PRIVATE_saved.ppm'
@@ -117,9 +148,10 @@ def run(directory: Path, image: Path, seed: Path, prior: dict, visual_checked: b
     after_time = playtime_seconds('first', 'post_album_saved')
     if not old_time < loaded_time <= after_time:
         raise ValueError('Cold-loaded playtime does not reflect the later post-menu save')
-    return {'schema_version': 1, 'status': 'batch01_post_menu_save_cold_load_revisit_verified',
-            'source_image_sha256': CN_IMAGE_SHA256, 'batch_image_sha256': BATCH_SHA,
-            'input_cue': 'local/font-recovery/p1-batch01/DW3-p1-batch01.cue',
+    return {'schema_version': 1, 'status': ('batch02_post_menu_save_cold_load_revisit_verified' if batch02 is not None else
+                                          'batch01_post_menu_save_cold_load_revisit_verified'),
+            'source_image_sha256': CN_IMAGE_SHA256, 'batch_image_sha256': expected_image,
+            'input_cue': str(cue.relative_to(root)),
             'emulator': {'name': 'PCSX-Redux', 'version': 'a74a0587', 'build_id': 433,
                          'executable_sha256': EMULATOR_SHA256, 'bios': 'OpenBIOS', 'bios_sha1': BIOS_SHA1,
                          'mode': 'headless, unthrottled, two separate processes with independent private card copies'},
@@ -139,9 +171,11 @@ def main():
     for name in ('directory', 'image', 'seed', 'prior_report', 'report'):
         p.add_argument(name, type=Path)
     p.add_argument('--visual-checked', action='store_true')
+    p.add_argument('--batch02-report', type=Path)
     a = p.parse_args()
     try:
-        result = run(a.directory, a.image, a.seed, json.loads(a.prior_report.read_text()), a.visual_checked)
+        result = run(a.directory, a.image, a.seed, json.loads(a.prior_report.read_text()), a.visual_checked,
+                     json.loads(a.batch02_report.read_text()) if a.batch02_report else None)
     except (OSError, ValueError, KeyError) as exc:
         result = {'schema_version': 1, 'status': 'blocked', 'error_type': type(exc).__name__,
                   'error': str(exc)[:500], 'cold_process_loaded_post_menu_save': False}

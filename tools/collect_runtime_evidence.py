@@ -74,6 +74,7 @@ def main() -> int:
     parser.add_argument("font_output", type=Path)
     parser.add_argument("--sample-output", type=Path, help="Optional sanitized creation report with runtime scope")
     parser.add_argument("--batch-report", type=Path, help="Optional separately verified menu-batch report")
+    parser.add_argument("--batch02-report", type=Path, help="Optional separately verified second-batch report")
     parser.add_argument("--visual-title-checked", action="store_true",
                         help="Only after personally inspecting the two private screenshots")
     args = parser.parse_args()
@@ -133,6 +134,18 @@ def main() -> int:
         static["batch_runtime_evidence"] = {"report": args.batch_report.name,
                                             "test_image_sha256": batch["test_image_sha256"],
                                             "new_entries_verified": batch["new_entries_verified"]}
+    if args.batch02_report:
+        batch02 = json.loads(args.batch02_report.read_text())
+        entries = batch02.get("new_entries", [])
+        if (not args.batch_report or batch02.get("source_image_sha256") != CN_IMAGE_SHA256 or
+                batch02.get("status") != "batch02_new_entries_runtime_verified" or not entries or
+                batch02.get("new_entries_verified") != len(entries) or
+                any(e.get("status") != "runtime_visual_and_pixel_bounds_verified" for e in entries)):
+            raise ValueError("Second-batch report is not a verified c713 menu batch")
+        static["status"] = "partial_user_review_and_menu_batches_runtime_verified"
+        static["batch02_runtime_evidence"] = {"report": args.batch02_report.name,
+                                              "test_image_sha256": batch02["test_image_sha256"],
+                                              "new_entries_verified": batch02["new_entries_verified"]}
     write_exclusive(args.runtime_output, runtime)
     write_exclusive(args.font_output, static)
     if args.sample_output:

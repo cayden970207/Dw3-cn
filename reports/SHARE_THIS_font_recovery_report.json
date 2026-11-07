@@ -3,7 +3,7 @@
   "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
   "source_archive_sha256": "aaf88ce1aa7492e22ec83722f8cf2b8985c08fac9cc193881dabbbafc4bec94f",
   "executable_sha256": "c902e59f9dc8f35a6fe2792604c485adf09a71d59c4f0769fb9654803bc9713e",
-  "status": "partial_user_review_and_five_menu_entries_runtime_verified",
+  "status": "partial_user_review_and_menu_batches_runtime_verified",
   "language_selection": {
     "menu_label": "中文",
     "label_evidence": "Local menu artwork and emulator screenshot visually inspected; state 2 observed after confirmation.",
@@ -599,9 +599,114 @@
         12
       ],
       "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "称",
+      "glyph_index": 931,
+      "canonical_code_hex": "f3b3",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "金",
+      "glyph_index": 291,
+      "canonical_code_hex": "f12b",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "不",
+      "glyph_index": 7,
+      "canonical_code_hex": "f00b",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "足",
+      "glyph_index": 577,
+      "canonical_code_hex": "f24d",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        10,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "钱",
+      "glyph_index": 712,
+      "canonical_code_hex": "f2d4",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
     }
   ],
-  "reviewed_chinese_mapping_count": 21,
+  "reviewed_chinese_mapping_count": 26,
   "dialogue_static_chain": {
     "stage_file_id": 471,
     "stage_overlay_sha256": "ae4a57a1f03024d856cde3f7b26b9a8d67922ff6ffadaf9cb374b8ca000cb1d9",
@@ -649,7 +754,7 @@
   "gameplay_verified": false,
   "test_copy_created": true,
   "blockers": [
-    "Only 21 glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
+    "Only 26 glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
     "The general variable-width measurement routine disagrees with Chinese drawing; the generic writer remains blocked.",
     "Other menus, dialogue paths, and whole-game regression remain unverified."
   ],
@@ -657,12 +762,17 @@
   "single_menu_gameplay_verified": true,
   "sample_image_sha256": "afdb58042d8060a9523305f18a3e35e6841089d903248ba8ebd2408302b7e433",
   "runtime_evidence": {
-    "report": "SHARE_THIS_runtime_evidence_report.json",
+    "report": "SHARE_THIS_runtime_recombined_26_v1.json",
     "scope": "One card-album title and the recorded navigation path"
   },
   "batch_runtime_evidence": {
     "report": "SHARE_THIS_p1_batch01_report.json",
     "test_image_sha256": "03fa8316801fd610fec4dfdf895753d25121f8c955f3835f0ad4446d12886193",
     "new_entries_verified": 5
+  },
+  "batch02_runtime_evidence": {
+    "report": "SHARE_THIS_p1_batch02_report.json",
+    "test_image_sha256": "6c6a124248667bb73ceb2a16bc9fba81b09efaa2f1360f4ff4cd5d19b7ddde86",
+    "new_entries_verified": 1
   }
 }

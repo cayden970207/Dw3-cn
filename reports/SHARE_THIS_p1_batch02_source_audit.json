@@ -23,7 +23,7 @@
       "window_context": "booster_screen",
       "trigger": "持有卡包时选择商店第二行",
       "source_runtime_status": "runtime_pending",
-      "translation_status": "draft_not_written"
+      "translation_status": "not_assessed_by_source_audit"
     },
     {
       "file_id": 52,
@@ -40,7 +40,7 @@
       "window_context": "buy_message",
       "trigger": "尝试购买价格高于余额的卡片",
       "source_runtime_status": "actual_window_and_state_verified",
-      "translation_status": "draft_not_written",
+      "translation_status": "not_assessed_by_source_audit",
       "source_ink_bbox_px": [
         155,
         58,
@@ -67,7 +67,7 @@
       "window_context": "buy_message",
       "trigger": "尝试购买已持有九张的卡片",
       "source_runtime_status": "runtime_pending",
-      "translation_status": "draft_not_written"
+      "translation_status": "not_assessed_by_source_audit"
     },
     {
       "file_id": 52,
@@ -84,7 +84,7 @@
       "window_context": "deck_help",
       "trigger": "进入卡组页面的选择列表",
       "source_runtime_status": "actual_window_and_state_verified",
-      "translation_status": "draft_not_written",
+      "translation_status": "not_assessed_by_source_audit",
       "source_ink_bbox_px": [
         152,
         35,
@@ -111,7 +111,7 @@
       "window_context": "deck_menu",
       "trigger": "打开卡组页面并选择一组",
       "source_runtime_status": "actual_window_and_state_verified",
-      "translation_status": "draft_not_written",
+      "translation_status": "not_assessed_by_source_audit",
       "source_ink_bbox_px": [
         168,
         50,

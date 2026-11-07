@@ -15,6 +15,7 @@ SCREEN_BEFORE = LOCAL / 'runtime-album-before-long/run/PRIVATE_album_wait_360.pp
 SCREEN_AFTER = LOCAL / 'runtime-album-after/run/PRIVATE_card_album_after.ppm'
 LAB = ROOT / 'local/font-recovery/round2-lab-dynamic-runtime-v2'
 SELECTION = ROOT / 'local/font-recovery/batch02-deck-before-v1/PRIVATE_deck_selection.ppm'
+MONEY = ROOT / 'local/font-recovery/p1-batch02-money-buy-runtime-v1/PRIVATE_insufficient_funds.ppm'
 
 
 class MappingSafetyTests(unittest.TestCase):
@@ -85,6 +86,16 @@ class LocalRealImageLayoutTests(unittest.TestCase):
         rect = (150, 34, 294, 47)
         self.assertEqual(white_bbox(SELECTION, rect), [152, 35, 243, 45])
         self.assertEqual(neutral_ink_bbox(SELECTION, rect), predicted)
+
+    @unittest.skipUnless(MONEY.is_file(), 'Owner-only translated money screenshot is unavailable')
+    def test_reviewed_insufficient_funds_ink_matches_the_real_screen(self):
+        reviewed = load_reviewed_glyphs(ROOT / 'data/baselines/c7130c53-reviewed-glyphs.json')
+        codes = {v: cn_canonical_code(k) for k, v in reviewed.items()}
+        result = measure(self.font, b''.join(codes[ch] for ch in '金钱不足') + b'\0')
+        self.assertEqual((result['draw_max_advance_px'], result['game_measure_max_px']), (48, 20))
+        box = result['ink_bbox_relative_exclusive']
+        self.assertEqual([box[0]+154, box[1]+57, box[2]+154, box[3]+57],
+                         neutral_ink_bbox(MONEY, (153, 57, 297, 70)))
 
 
 if __name__ == '__main__':

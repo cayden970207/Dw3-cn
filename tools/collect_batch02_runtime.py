@@ -26,7 +26,7 @@ except ModuleNotFoundError:
 
 def run(image: Path, original: Path, audit: Path, glyphs: Path, creation_path: Path, seed: Path,
         before_deck: Path, before_buy: Path, after_deck: Path, after_buy: Path,
-        after_album: Path, visual_checked: bool):
+        after_album: Path, visual_checked: bool, save_regression_path: Path | None = None):
     if not visual_checked:
         raise ValueError('Inspect each translated screen before marking runtime visual review')
     creation = json.loads(creation_path.read_text())
@@ -100,11 +100,26 @@ def run(image: Path, original: Path, audit: Path, glyphs: Path, creation_path: P
         'unchanged_raw_sectors', 'all_differences_within_reviewed_text_or_modified_sector_checksums',
         'previous_batch_changes_preserved', 'modified_sector_edc_ecc_before_and_after_valid',
         'font_id_647_raw_sha256_before_and_after')}
+    save_evidence = None
+    if save_regression_path is not None:
+        saved = json.loads(save_regression_path.read_text())
+        if (saved.get('status') != 'batch02_post_menu_save_cold_load_revisit_verified' or
+            saved.get('source_image_sha256') != CN_IMAGE_SHA256 or
+            saved.get('batch_image_sha256') != creation['test_image_sha256'] or
+            saved.get('cold_process_loaded_post_menu_save') is not True):
+            raise ValueError('Post-visit save report does not match this batch')
+        save_evidence = {'report': save_regression_path.name, 'status': saved['status']}
+    limitations = ['Only selected labels and the recorded menu paths are verified.',
+        'The general writer remains blocked; exact arbitrary window clipping is unresolved.',
+        'Booster and nine-card-limit scenarios were not triggered.',
+        'Other emulators, hardware and whole-game regression remain pending.']
+    if save_evidence is None:
+        limitations.append('Batch-02 post-visit saving and cold loading remain pending.')
     return {'schema_version': 1, 'status': 'batch02_new_entries_runtime_verified',
         'source_image_sha256': CN_IMAGE_SHA256, 'previous_batch_image_sha256': P1_SHA,
         'test_image_sha256': creation['test_image_sha256'], 'new_entries_verified': len(new_entries),
         'new_entries': new_entries, 'previous_batch_entries_preserved': 6, 'prior_album_screen_reverified': True,
-        'disc_integrity': integrity,
+        'disc_integrity': integrity, 'postvisit_save_cold_load': save_evidence,
         'runtime': {'emulator': 'PCSX-Redux a74a0587 build 433', 'emulator_sha256': EMULATOR_SHA256,
             'bios': 'OpenBIOS', 'bios_sha1': BIOS_SHA1, 'mode': 'headless, independent private card copies',
             'deck_checkpoints': deck_cp, 'buy_checkpoints': buy_cp, 'album_checkpoints': album_cp,
@@ -115,10 +130,7 @@ def run(image: Path, original: Path, audit: Path, glyphs: Path, creation_path: P
                                    (('deck', deck_log), ('buy', buy_log), ('album', album_log))},
             'listener_stack_reset_counts': {k: log.count('replay: Lua stack reset at frame 8192') for k, log in
                                             (('deck', deck_log), ('buy', buy_log), ('album', album_log))}},
-        'limits': ['Only selected labels and the recorded menu paths are verified.',
-            'The general writer remains blocked; exact arbitrary window clipping is unresolved.',
-            'Booster and nine-card-limit scenarios were not triggered.',
-            'Batch-02 post-visit saving, other emulators, hardware and whole-game regression remain pending.']}
+        'limits': limitations}
 
 
 def main():
@@ -127,10 +139,12 @@ def main():
                  'before_deck', 'before_buy', 'after_deck', 'after_buy', 'after_album', 'report'):
         p.add_argument(name, type=Path)
     p.add_argument('--visual-checked', action='store_true')
+    p.add_argument('--save-regression-report', type=Path)
     a = p.parse_args()
     try:
         result = run(a.image, a.original_zip, a.prior_audit, a.glyph_review, a.creation_report, a.seed,
-                     a.before_deck, a.before_buy, a.after_deck, a.after_buy, a.after_album, a.visual_checked)
+                     a.before_deck, a.before_buy, a.after_deck, a.after_buy, a.after_album, a.visual_checked,
+                     a.save_regression_report)
     except (OSError, ValueError, KeyError, StopIteration) as exc:
         result = {'schema_version': 1, 'status': 'blocked', 'error_type': type(exc).__name__, 'error': str(exc)[:500]}
     a.report.parent.mkdir(parents=True, exist_ok=True)

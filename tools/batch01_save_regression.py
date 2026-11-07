@@ -65,15 +65,26 @@ def traces(reference: Path):
 
 
 def run(image: Path, creation_report: Path, seed: Path, output: Path, ref: Path,
-        emulator_path: Path, bios: Path, version_path: Path):
+        emulator_path: Path, bios: Path, version_path: Path, batch02_runtime_report: Path | None = None):
     root = Path(__file__).resolve().parents[1]
     local = (root / 'local').resolve()
     image, seed, output, ref = (p.resolve() for p in (image, seed, output, ref))
     if output == local or not output.is_relative_to(local) or not seed.is_relative_to(local) or seed.stat().st_size != 131072:
         raise ValueError('Use a new local output and a private 128 KiB seed card')
     report = json.loads(creation_report.read_text())
-    if report.get('source_image_sha256') != CN_IMAGE_SHA256 or report.get('test_image_sha256') != BATCH_SHA or hash_file(image) != BATCH_SHA:
-        raise ValueError('Batch-01 image or baseline differs')
+    expected_sha = BATCH_SHA
+    if batch02_runtime_report is not None:
+        verified = json.loads(batch02_runtime_report.read_text())
+        expected_sha = report.get('test_image_sha256')
+        if (verified.get('status') != 'batch02_new_entries_runtime_verified' or
+            verified.get('source_image_sha256') != CN_IMAGE_SHA256 or
+            verified.get('previous_batch_image_sha256') != BATCH_SHA or
+            verified.get('test_image_sha256') != expected_sha or
+            not any(e.get('file_id') == 52 and e.get('entry_index') == 19 and
+                    e.get('status') == 'runtime_visual_and_pixel_bounds_verified' for e in verified.get('new_entries', []))):
+            raise ValueError('Batch-02 must have verified the insufficient-funds window first')
+    if report.get('source_image_sha256') != CN_IMAGE_SHA256 or report.get('test_image_sha256') != expected_sha or hash_file(image) != expected_sha:
+        raise ValueError('Test image or baseline differs')
     cue = image.with_suffix('.cue')
     if cue.read_text() != f'FILE "{image.name}" BINARY\n  TRACK 01 MODE2/2352\n    INDEX 01 00:00:00\n':
         raise ValueError('Batch CUE does not match its image')
@@ -87,6 +98,24 @@ def run(image: Path, creation_report: Path, seed: Path, output: Path, ref: Path,
     if version.get('version') != 'a74a0587' or version.get('buildId') != 433:
         raise ValueError('Unexpected emulator version')
     first, cold = traces(ref)
+    if batch02_runtime_report is not None:
+        try:
+            from tools.replay_card_shop import trace as card_trace
+        except ModuleNotFoundError:
+            from replay_card_shop import trace as card_trace
+        original = json.loads((ref / 'tests/replay/scripts/first_battle_save.json').read_text())['steps']
+        shop_open = index_one(original, lambda s: s.get('name') == 'card_shop_open')
+        arena = max(i for i in range(shop_open) if original[i].get('type') == 'press' and
+                    original[i].get('until', {}).get('map') == '0x211')
+        buy = card_trace(ref, 'buy02')['steps']
+        buy_open = index_one(buy, lambda s: s.get('name') == 'card_shop_open')
+        add = original[arena + 1:shop_open + 1] + buy[buy_open + 1:]
+        for spec in (first, cold):
+            where = index_one(spec['steps'], lambda s: s.get('name') == 'batch_shop_return') + 1
+            spec['steps'][where:where] = add
+            spec['name'] = spec['name'].replace('batch01', 'batch02')
+            if any(s.get('type') in ('reset', 'write_mem') for s in spec['steps']):
+                raise ValueError('Batch-02 regression may not reset or inject state')
     seed_hash = hash_file(seed)
     output.mkdir(mode=0o700, parents=False, exist_ok=False)
     sys.path.insert(0, str(ref / 'psxstack/tools/replay'))
@@ -110,9 +139,16 @@ def run(image: Path, creation_report: Path, seed: Path, output: Path, ref: Path,
         script.write_text('return ' + emulator.lua_literal(emulator.parse_ints(trace)) + '\n')
         (dest / 'PRIVATE_trace.json').write_text(json.dumps(trace, indent=2) + '\n')
         env = emulator.replay_env(script, dest, speed=0)
+        env['DW3_CAPTURE_COMBINED'] = '0'
+        capture = root / 'tools/batch01_regression_capture.lua'
+        if batch02_runtime_report is not None:
+            env['DW3_CAPTURE_COMBINED'] = '1'
+            env['DW3_CAPTURE_BATCH01'] = str(capture)
+            env['DW3_CAPTURE_BATCH02'] = str(root / 'tools/batch02_runtime_capture.lua')
+            capture = root / 'tools/batch02_save_regression_capture.lua'
         cmd = [str(cfg.redux), '-no-ui', '-stdout', '-testmode', '-run', '-iso', str(cue), '-bios', str(cfg.openbios),
                '-memcard1', str(card), '-memcard2', str(dest / 'memcard2.mcd'), '-dofile',
-               str(root / 'tools/batch01_regression_capture.lua')]
+               str(capture)]
         with (dest / 'emulator.log').open('w') as log:
             process = subprocess.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=600)
         result_path = dest / 'result.json'
@@ -130,7 +166,7 @@ def run(image: Path, creation_report: Path, seed: Path, output: Path, ref: Path,
         raise ValueError('Original seed changed or save did not change copied card')
     print('first_process_finished frames=' + str(result['frames']), flush=True)
     copied_sha, _, result = phase('cold', cold, output / 'first/memcard1.mcd')
-    if copied_sha != saved_sha or hash_file(image) != BATCH_SHA:
+    if copied_sha != saved_sha or hash_file(image) != expected_sha:
         raise ValueError('Saved card or input disc changed')
     print(json.dumps({'cold_status': result['status'], 'cold_frames': result['frames']}), flush=True)
 
@@ -141,8 +177,11 @@ def main():
         p.add_argument(name, type=Path)
     for name in ('reference', 'emulator', 'bios', 'version-json'):
         p.add_argument('--' + name, type=Path, required=True)
+    p.add_argument('--batch02-runtime-report', type=Path,
+                   help='Require a verified batch-02 insufficient-funds replay and include it before and after saving')
     a = p.parse_args()
-    run(a.image, a.creation_report, a.seed, a.output, a.reference, a.emulator, a.bios, a.version_json)
+    run(a.image, a.creation_report, a.seed, a.output, a.reference, a.emulator, a.bios, a.version_json,
+        a.batch02_runtime_report)
 
 
 if __name__ == '__main__':

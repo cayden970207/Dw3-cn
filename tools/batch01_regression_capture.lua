@@ -71,4 +71,4 @@ batch01_listener = PCSX.Events.createEventListener('GPU::Vsync', function()
         if save_finished and frame == save_finished + 100 then screen('saved') end
     end
 end)
-dofile(os.getenv('DW3_REPLAY_RUN_LUA'))
+if os.getenv('DW3_CAPTURE_COMBINED') ~= '1' then dofile(os.getenv('DW3_REPLAY_RUN_LUA')) end

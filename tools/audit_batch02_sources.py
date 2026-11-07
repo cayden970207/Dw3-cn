@@ -103,7 +103,7 @@ def run(image: Path, index_path: Path, audit_path: Path, draft_path: Path, batch
              'dynamic_insert_count': sum(x.kind == 'control' and x.control_id == 5 for x in tokens),
              'source_draw_advance_px': metric['draw_max_advance_px'], 'window_origin_px': entry['window_origin_px'],
              'window_context': entry['window_context'], 'trigger': entry['trigger'],
-             'source_runtime_status': 'runtime_pending', 'translation_status': 'draft_not_written'}
+             'source_runtime_status': 'runtime_pending', 'translation_status': 'not_assessed_by_source_audit'}
         if n in TARGETS:
             _, x, y, context, digest = TARGETS[n]
             if digest != row['raw_sha256'] or hash_file(pictures[context]) != SCREEN_SHA[context]:

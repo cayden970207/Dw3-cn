@@ -100,6 +100,7 @@ def check(draft: dict, prior: dict, evidence: dict, reviewed: dict[int, str]) ->
         "entries": results, "source_image_read_this_run": False,
         "original_text_read_this_run": False, "new_playable_entries": 0,
         "safe_to_write": False, "gameplay_verified": False,
+        "scope_note": "This checks only the historical draft; separately verified playable entries are recorded in runtime reports.",
         "measurement_note": "Conditional counts assume canonical two-byte Chinese glyphs, 12px advance and no controls. No glyph bitmap, source slot capacity or exact clipping bounds were loaded; these are not layout approval.",
     }
 

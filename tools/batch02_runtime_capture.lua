@@ -51,4 +51,4 @@ batch02_listener = PCSX.Events.createEventListener('GPU::Vsync', function()
     if stage == 4 then observe('deck', deck); observe('name', name_entry)
     elseif stage == 19 then observe('buy', buy) end
 end)
-dofile(os.getenv('DW3_REPLAY_RUN_LUA'))
+if os.getenv('DW3_CAPTURE_COMBINED') ~= '1' then dofile(os.getenv('DW3_REPLAY_RUN_LUA')) end

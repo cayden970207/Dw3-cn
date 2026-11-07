@@ -6,7 +6,7 @@
   "review": {
     "reviewer": "user",
     "date": "2026-11-07",
-    "method": "User confirmed five isolated glyphs, four card-album glyphs, and further menu glyphs in local previews. Glyphs 164, 1489 and 1151 were expressly uncertain and remain unresolved. The user subsequently confirmed all four edit-preview glyphs.",
+    "method": "User confirmed five isolated glyphs, four card-album glyphs, further menu glyphs, and IDs 931/291/7/577/712 in local previews. IDs 523 and 756 were reported blurry and remain unresolved; glyphs 164, 1489 and 1151 were also uncertain. The user previously confirmed all four edit-preview glyphs.",
     "scope": "Visual glyph identity only; no runtime rendering, full character map, or translation approval."
   },
   "glyphs": [
@@ -30,7 +30,12 @@
     {"unicode": "编", "glyph_index": 1343, "canonical_code_hex": "f557"},
     {"unicode": "辑", "glyph_index": 1192, "canonical_code_hex": "f4bc"},
     {"unicode": "组", "glyph_index": 262, "canonical_code_hex": "f10e"},
-    {"unicode": "没", "glyph_index": 34, "canonical_code_hex": "f026"}
+    {"unicode": "没", "glyph_index": 34, "canonical_code_hex": "f026"},
+    {"unicode": "称", "glyph_index": 931, "canonical_code_hex": "f3b3"},
+    {"unicode": "金", "glyph_index": 291, "canonical_code_hex": "f12b"},
+    {"unicode": "不", "glyph_index": 7, "canonical_code_hex": "f00b"},
+    {"unicode": "足", "glyph_index": 577, "canonical_code_hex": "f24d"},
+    {"unicode": "钱", "glyph_index": 712, "canonical_code_hex": "f2d4"}
   ],
   "mapping_complete": false,
   "runtime_verified": false,
