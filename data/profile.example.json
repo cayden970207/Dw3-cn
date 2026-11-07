@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "measurement_verified": false,
+  "provenance": "Invented unit-test fixture. No game font, measured window, or verified game encoding is included.",
+  "terminator_hex": "00",
+  "glyphs": {
+    "你": {"hex": "81", "advance_px": 12},
+    "好": {"hex": "82", "advance_px": 12},
+    "！": {"hex": "83", "advance_px": 12}
+  },
+  "controls": {
+    "<1>": {"hex": "0201", "kind": "newline"},
+    "<3>": {"hex": "0203", "kind": "page"},
+    "<2,2>": {"hex": "020202", "kind": "wait"},
+    "<5,1>": {"hex": "020501", "kind": "insert", "max_width_px": 48}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "note": "Invented example only, not extracted game dialogue. No ROM offset or entry identity is claimed.",
+  "entries": [
+    {
+      "id": "SYNTHETIC:001",
+      "source": "Hello <5,1>!<2,2>",
+      "target": "你好<5,1>！<2,2>",
+      "state": "draft",
+      "limits": {"max_width_px": 84, "max_lines": 1, "max_bytes": 10}
+    }
+  ]
+}
