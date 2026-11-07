@@ -7,10 +7,12 @@
 - 从真实资源清单需要的 **LBA + 原文本相对偏移** 已加入 `tools/scan_text_tables.py` 输出。原游戏实际扫描仍未完成。
 - `tools/psx_sector.py`：为 2352 字节 CD-XA Mode 2 Form 1 单扇区实现独立的 EDC + ECC P/Q 计算与校验；已有合成数据测试，真实光盘扇区尚未验证。
 - `tools/apply_text_bytes.py`：哈希锁定、等长/缩短文本回写；保留原文本控制码与资源指针；分扇区重算 EDC/ECC；最后执行全部文本重新扫描对比。不会覆盖原镜像。
-- 对应合成测试：GitHub Actions [run 42356159689](https://github.com/cayden970207/Dw3-cn/actions/runs/42356159689)，**Python 3.11 与 Python 3.12 各 101 tests / OK**。
-- 使用指南：[SCAN](SCAN.md)、[TRIAGE](TRIAGE.md)、[WRITE](WRITE.md)。
+- 对应合成测试：GitHub Actions [run 42357717766](https://github.com/cayden970207/Dw3-cn/actions/runs/42356159689)，**Python 3.11 与 Python 3.12 各 123 tests / OK**。
+- `tools/prepare_translation_patch.py`：桥接人工核对的中文译文与实际字形编码，保留控制码，生成符合 `apply_text_bytes.py` 的哈希绑定替换清单。
+- `tests/test_full_pipeline.py`：人工合成包含 50 类文本表的光盘，并验证 2352 Form 1 / 2048 用户数据及 ZIP→新镜像的完整扫描、编码、回写、全局比对。**不包含任何真实游戏素材。**
+- 使用指南：[SCAN](SCAN.md)、[TRIAGE](TRIAGE.md)、[TRANSLATE](TRANSLATE.md)、[WRITE](WRITE.md)。
 
-这些成果使原镜像恢复后能安全尝试第一处短文本补翻，**但目前不包含任何实际新增的中文翻译或已验证的游戏补丁**。
+这些成果使原镜像恢复后具备完整的工程链路：结构扫描 → 人工复核字形映射 → 编码译文 → 原位回写 → 完整文本重扫。**目前仍不包含实际新增的游戏汉化译文、真实镜像测试或已验证的可玩补丁。**
 
 ## 关键阻塞（实际汉化仍未突破）
 
