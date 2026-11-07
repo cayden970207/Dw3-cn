@@ -73,6 +73,20 @@ def trace(reference: Path, scenario: str = 'shop'):
         if any(s.get('type') in ('write_mem', 'reset') for s in steps):
             raise ValueError('Deck-02 replay must use only natural inputs')
         return {'name': 'cn_batch02_deck_check', 'max_frames': 20000, 'default_timeout': 3000, 'steps': steps}
+    if scenario == 'deck04':
+        base = trace(reference, 'deck02')['steps']
+        selected = index_one(base, lambda s: s.get('name') == 'batch02_deck_menu')
+        steps = base[:selected + 1] + [
+            {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+            {'type': 'wait_frames', 'frames': 900}, checkpoint('batch04_editor_visible'),
+            {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 3, 'release': 120},
+            {'type': 'wait_frames', 'frames': 500}, checkpoint('batch04_editor_closed'),
+            {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 2, 'release': 10,
+             'until': {'type': 'wait_stage', 'stage': 16}, 'timeout': 2000},
+            checkpoint('batch04_editor_return_to_party')]
+        if any(s.get('type') in ('write_mem', 'reset') for s in steps):
+            raise ValueError('Deck-04 replay must use only natural inputs')
+        return {'name': 'cn_batch04_deck_editor_check', 'max_frames': 20000, 'default_timeout': 3000, 'steps': steps}
     if scenario == 'deck':
         status = index_one(cold['steps'], lambda s: s.get('name') == 'status_open')
         album = index_one(original, lambda s: s.get('name') == 'album_open')
@@ -91,6 +105,38 @@ def trace(reference: Path, scenario: str = 'shop'):
     previous_arena = max(i for i in range(opened) if original[i].get('type') == 'press' and
                          original[i].get('until', {}).get('map') == '0x211')
     steps = cold['steps'][:arena + 1] + original[previous_arena + 1:opened + 1]
+    if scenario == 'shop04':
+        steps += [{'type': 'wait_frames', 'frames': 650}, checkpoint('batch04_shop_main'),
+                  {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 2, 'release': 10,
+                   'until': {'type': 'wait_stage', 'stage': 2}, 'timeout': 2000},
+                  checkpoint('batch04_shop_return_to_field')]
+        if any(s.get('type') in ('write_mem', 'reset') for s in steps):
+            raise ValueError('Shop-04 replay must use only natural inputs')
+        return {'name': 'cn_batch04_shop_check', 'max_frames': 20000, 'default_timeout': 3000, 'steps': steps}
+    if scenario == 'buy04':
+        # On the pinned Asuka stock, the sixth card is ID 59 and costs 1000.
+        # The independent fixture has 10000 BIT and one copy of this card.
+        steps += [{'type': 'wait_frames', 'frames': 650}, checkpoint('batch04_shop_main'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 650}, checkpoint('batch04_buy_list'),
+                  {'type': 'press', 'buttons': ['RIGHT'], 'frames': 3, 'release': 90, 'repeat': 5},
+                  {'type': 'wait_frames', 'frames': 150}, checkpoint('batch04_affordable_card'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 350}, checkpoint('batch04_buy_prompt'),
+                  {'type': 'press', 'buttons': ['DOWN'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 150}, checkpoint('batch04_no_selected'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 250}, checkpoint('batch04_buy_cancelled'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 350}, checkpoint('batch04_buy_reopened'),
+                  {'type': 'press', 'buttons': ['CROSS'], 'frames': 3, 'release': 90},
+                  {'type': 'wait_frames', 'frames': 350}, checkpoint('batch04_buy_completed'),
+                  {'type': 'press', 'buttons': ['TRIANGLE'], 'frames': 2, 'release': 10,
+                   'until': {'type': 'wait_stage', 'stage': 2}, 'timeout': 2000},
+                  checkpoint('batch04_buy_return_to_field')]
+        if any(s.get('type') in ('write_mem', 'reset') for s in steps):
+            raise ValueError('Buy-04 replay must use only natural inputs')
+        return {'name': 'cn_batch04_buy_check', 'max_frames': 20000, 'default_timeout': 3000, 'steps': steps}
     if scenario == 'booster03':
         steps += [{'type': 'wait_frames', 'frames': 650}, checkpoint('batch03_shop_main'),
                   {'type': 'press', 'buttons': ['DOWN'], 'frames': 3, 'release': 90},
@@ -163,7 +209,7 @@ def main():
     p.add_argument('--bios', type=Path, required=True)
     p.add_argument('--version-json', type=Path, required=True)
     p.add_argument('--scenario', choices=('shop', 'deck', 'album', 'lab', 'deck02', 'buy02',
-                                          'booster03', 'limit03'), default='shop')
+                                          'booster03', 'limit03', 'buy04', 'shop04', 'deck04'), default='shop')
     a = p.parse_args()
     root = Path(__file__).resolve().parents[1]
     local, out, seed, ref = (root / 'local').resolve(), a.output.resolve(), a.seed_card.resolve(), a.reference.resolve()
@@ -209,6 +255,8 @@ def main():
                'lab': 'tools/lab_dynamic_capture.lua',
                'deck02': 'tools/batch02_runtime_capture.lua', 'buy02': 'tools/batch02_runtime_capture.lua',
                'booster03': 'tools/batch03_runtime_capture.lua', 'limit03': 'tools/batch03_runtime_capture.lua',
+               'buy04': 'tools/batch04_runtime_capture.lua',
+               'shop04': 'tools/batch04_runtime_capture.lua', 'deck04': 'tools/batch04_runtime_capture.lua',
                'album': 'tools/card_album_capture.lua'}[a.scenario]
     cmd = [str(cfg.redux), '-no-ui', '-stdout', '-testmode', '-run', '-iso', str(cue), '-bios', str(cfg.openbios),
            '-memcard1', str(card), '-memcard2', str(out / 'memcard2.mcd'), '-dofile', str(root / capture)]

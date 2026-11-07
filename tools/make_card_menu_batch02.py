@@ -40,13 +40,18 @@ except ModuleNotFoundError:
 P1_SHA = '03fa8316801fd610fec4dfdf895753d25121f8c955f3835f0ad4446d12886193'
 DISC_NAME = 'DW3-p1-batch02.bin'
 TARGETS = {
+    13: ('买', 197, 86, 'buy_prompt', '598128e4fde4363b2fa0f28af6b1ed39ec50316d33559ea0fd2b0692e1be0162'),
+    14: ('不', 197, 102, 'buy_prompt', '42ab71a2a7058da8ffa2eb77eac6092996d062f96a749f49454ff8e40d8fbe86'),
     15: ('选择卡包', 20, 194, 'booster', '4fc2ad8f756b55ddcbca5076b15076465222b2094a45e60557fc12e5763c0608'),
+    16: ('卡包已打开', 20, 194, 'booster_opened', '6fdede1328d511028b738d820b76703bcd4b79bd4d60074ad3fc46b6201f91a6'),
     19: ('金钱不足', 154, 57, 'buy', '2a81ed939dbcdf7f2b3de39f07239c28e50f282e499f30ec1fe84e3bfe25c793'),
     20: ('已持有九张', 154, 57, 'limit', '506519d000e80369e62d91eb609eb97e56fa8d0b9cb2a384de73eb5c03166a18'),
     25: ('选择卡组', 151, 34, 'selection', '796cf96018087f19cfdffd3da937f6a39e90a779e024f5871d8da56cf6fadc6c'),
     27: ('改名', 167, 49, 'rename', 'f980d46324d23b3a0939f54269e794a498524ce25a0a7cb9c7fdef4873fab7b9'),
 }
-SCREEN_SHA = {'booster': 'ea5afe23bcb3fd475c718f922844b60503ad512d2d436a10930112f6dff1bd92',
+SCREEN_SHA = {'buy_prompt': '2a6f8f76855d95675d6e5fb8d30c2ec8191e813f7b62ea77c63d2179b119ef04',
+              'booster_opened': '4a61fae7a72921af2a2893c757b3c9b65863f2f1328be6ceae8d40f8838d4898',
+              'booster': 'ea5afe23bcb3fd475c718f922844b60503ad512d2d436a10930112f6dff1bd92',
               'limit': '3adab047562e54bcbc0d82c36f030775b612a2194af0e1aeca7066b8cdde6b39',
               'buy': 'b1992a9c07564b3d523caaadb7f00b86cf7c9cf36f0b138dce5cd65ce9549340',
               'selection': '40dcdeb334702a009aa18644a45e861805fe1c9e199392f1b55f4cd2c5bbfcb4',
@@ -222,7 +227,8 @@ def main():
     for name in p1.PICTURES:
         p.add_argument('--p1-' + name, type=Path, required=True)
     for name in SCREEN_SHA:
-        p.add_argument('--' + name, type=Path, required=name not in ('booster', 'limit'))
+        p.add_argument('--' + name.replace('_', '-'), type=Path,
+                       required=name not in ('booster', 'limit', 'buy_prompt', 'booster_opened'))
     a = p.parse_args()
     try:
         result = run(a.image, a.private_index, a.prior_audit, a.glyph_review, a.p1_review, a.selected, a.output,

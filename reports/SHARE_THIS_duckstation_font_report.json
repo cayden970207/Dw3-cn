@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "same_save_selection_screen_compared_at_1x_and_4x",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "test_image_sha256": "389de62b2455a30431ea3acb340843060550f9f1cd58fbf645af9f824ac31c6f",
+  "scope": "One existing Chinese save-selection screen on the prior batch; not a runtime test of the new batch or a high-resolution font replacement.",
+  "emulator": {
+    "name": "DuckStation",
+    "version": "0.1-12640-gbb4e9ac5e dev",
+    "official_macos_archive_sha256": "6918746eaa8baffc55c9d7d48fd72d3b51a4165a1b039b5c70183f15f4576346",
+    "renderer": "Metal",
+    "texture_filter": "Nearest",
+    "sprite_texture_filter": "Nearest",
+    "display_scaling": "Bilinear",
+    "bios": "OpenBIOS",
+    "bios_sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801",
+    "configuration": "Portable application and settings under local/; independent fixture copy; no system-wide installation."
+  },
+  "screenshots": {
+    "native_1x": {
+      "observed_internal_game_resolution": [320, 240],
+      "exported_window_image_resolution": [1600, 1256],
+      "sha256": "c4b79a0cc8e9b93de23f8d9968b8e1a2d75305d755fe2f965a37e843d4b98f2b"
+    },
+    "upscaled_4x": {
+      "observed_internal_game_resolution": [1280, 960],
+      "exported_window_image_resolution": [1600, 1256],
+      "sha256": "ac4ae6bfc04d6865d5f5508774bd99904baedeb147697201cf30256722241969"
+    },
+    "private_comparison_crop_sha256": "6342b87f975e2c97ca50ca470a70c44a388288bf87ad80602d1718e6dce40768"
+  },
+  "observed_result": "At the same window output size, 4x is visibly sharper around Chinese characters; it still displays the source bitmap's pixelated or crowded strokes.",
+  "texture_replacement": "not_tested; compatibility with this game's dynamic glyph uploads is unknown",
+  "crash": {
+    "occurred": true,
+    "context": "The application exited abnormally once while opening/changing the graphics settings; the cause was not established.",
+    "restart": "The isolated application was restarted with the 4x configuration and successfully produced the comparison screenshot.",
+    "diagnostic_preserved_locally": true,
+    "resolved": false
+  },
+  "limits": [
+    "Only the named game screen, emulator build, BIOS and settings were compared.",
+    "Both captures are screen-sized exports and the animated scene may not be at the same frame.",
+    "No redesigned font, texture replacement, retail BIOS, other emulator or hardware was tested.",
+    "Screenshots, game assets and the independent memory card remain local."
+  ]
+}

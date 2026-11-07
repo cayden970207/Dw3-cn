@@ -679,5 +679,98 @@
     "The concrete dynamic value is not an upper bound for dynamic insertion.",
     "Other controls, wrapping, scaling, font 2/3, and centered windows fail closed or remain unresolved."
   ],
-  "general_writer_unblocked": false
+  "general_writer_unblocked": false,
+  "batch04_runtime_validation": {
+    "report": "SHARE_THIS_p1_batch04_report.json",
+    "test_image_sha256": "632d62e803a31fe9887c8733925663493205512dd9f1a332336c6ae1fd4849bb",
+    "observed_contexts": "purchase confirmation, booster selection/opened, shop main and deck editor",
+    "entries": [
+      {
+        "file_id": 52,
+        "entry_index": 13,
+        "source_advance_px": 21,
+        "replacement_advance_px": 12,
+        "legacy_game_measure_static_px": 0,
+        "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+      },
+      {
+        "file_id": 52,
+        "entry_index": 14,
+        "source_advance_px": 14,
+        "replacement_advance_px": 12,
+        "legacy_game_measure_static_px": 5,
+        "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+      },
+      {
+        "file_id": 52,
+        "entry_index": 16,
+        "source_advance_px": 90,
+        "replacement_advance_px": 60,
+        "legacy_game_measure_static_px": 32,
+        "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+      },
+      {
+        "file_id": 52,
+        "entry_index": 4,
+        "source_advance_px": 86,
+        "replacement_advance_px": 42,
+        "legacy_game_measure_static_px": 24,
+        "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+      }
+    ],
+    "same_screen_pixel_comparisons": {
+      "buy": {
+        "changed_pixels": 183,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          197,
+          86,
+          217,
+          113
+        ]
+      },
+      "shop": {
+        "changed_pixels": 251,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          229,
+          204,
+          297,
+          215
+        ]
+      },
+      "deck": {
+        "changed_pixels": 251,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          211,
+          23,
+          279,
+          34
+        ]
+      },
+      "booster_selection": {
+        "changed_pixels": 251,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          38,
+          208,
+          106,
+          219
+        ]
+      },
+      "booster_opened": {
+        "changed_pixels": 598,
+        "changes_outside_expected_text_bands": 0,
+        "bbox_exclusive": [
+          20,
+          194,
+          108,
+          219
+        ]
+      }
+    },
+    "exact_clipping_bounds": "unresolved; new text fits observed source text bands",
+    "general_writer_unblocked": false
+  }
 }

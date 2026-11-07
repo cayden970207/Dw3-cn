@@ -1,0 +1,645 @@
+{
+  "schema_version": 1,
+  "status": "four_new_entries_runtime_verified_with_artificial_fixture",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "previous_test_image_sha256": "389de62b2455a30431ea3acb340843060550f9f1cd58fbf645af9f824ac31c6f",
+  "test_image_sha256": "632d62e803a31fe9887c8733925663493205512dd9f1a332336c6ae1fd4849bb",
+  "input_cue": "local/font-recovery/p1-batch04-v2/DW3-p1-batch02.cue",
+  "new_translated_entries": [
+    4,
+    13,
+    14,
+    16
+  ],
+  "entries": [
+    {
+      "file_id": 52,
+      "entry_index": 13,
+      "source_sha256": "598128e4fde4363b2fa0f28af6b1ed39ec50316d33559ea0fd2b0692e1be0162",
+      "translation": "买",
+      "source_capacity_bytes": 4,
+      "replacement_bytes_including_terminator": 3,
+      "source_control_count": 0,
+      "replacement_control_count": 0,
+      "source_advance_px": 21,
+      "replacement_advance_px": 12,
+      "legacy_game_measure_static_px": 0,
+      "game_measure_result_used_by_this_inspected_window": false,
+      "source_ink_bbox_px": [
+        198,
+        87,
+        217,
+        97
+      ],
+      "runtime_ink_bbox_px": [
+        197,
+        86,
+        208,
+        97
+      ],
+      "source_screenshot_sha256": "2a6f8f76855d95675d6e5fb8d30c2ec8191e813f7b62ea77c63d2179b119ef04",
+      "runtime_screenshot_sha256": "48d5d6bc20fd33c00c0bfdf475c094058138357041c437f9ed778bd7f10b9ed2",
+      "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+    },
+    {
+      "file_id": 52,
+      "entry_index": 14,
+      "source_sha256": "42ab71a2a7058da8ffa2eb77eac6092996d062f96a749f49454ff8e40d8fbe86",
+      "translation": "不",
+      "source_capacity_bytes": 3,
+      "replacement_bytes_including_terminator": 3,
+      "source_control_count": 0,
+      "replacement_control_count": 0,
+      "source_advance_px": 14,
+      "replacement_advance_px": 12,
+      "legacy_game_measure_static_px": 5,
+      "game_measure_result_used_by_this_inspected_window": false,
+      "source_ink_bbox_px": [
+        198,
+        103,
+        211,
+        113
+      ],
+      "runtime_ink_bbox_px": [
+        197,
+        102,
+        208,
+        113
+      ],
+      "source_screenshot_sha256": "2a6f8f76855d95675d6e5fb8d30c2ec8191e813f7b62ea77c63d2179b119ef04",
+      "runtime_screenshot_sha256": "48d5d6bc20fd33c00c0bfdf475c094058138357041c437f9ed778bd7f10b9ed2",
+      "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+    },
+    {
+      "file_id": 52,
+      "entry_index": 16,
+      "source_sha256": "6fdede1328d511028b738d820b76703bcd4b79bd4d60074ad3fc46b6201f91a6",
+      "translation": "卡包已打开",
+      "source_capacity_bytes": 18,
+      "replacement_bytes_including_terminator": 11,
+      "source_control_count": 0,
+      "replacement_control_count": 0,
+      "source_advance_px": 90,
+      "replacement_advance_px": 60,
+      "legacy_game_measure_static_px": 32,
+      "game_measure_result_used_by_this_inspected_window": false,
+      "source_ink_bbox_px": [
+        21,
+        195,
+        108,
+        206
+      ],
+      "runtime_ink_bbox_px": [
+        20,
+        194,
+        79,
+        205
+      ],
+      "source_screenshot_sha256": "4a61fae7a72921af2a2893c757b3c9b65863f2f1328be6ceae8d40f8838d4898",
+      "runtime_screenshot_sha256": "b7e4048e00104245d394a61dffd868500a58632052545d55e4efa4afc3ba0dec",
+      "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+    },
+    {
+      "file_id": 52,
+      "entry_index": 4,
+      "source_sha256": "7752b3c97ca1a29729d02c898acfc9179c3181c58a8e119f3ac88157a33a5040",
+      "translation": "返回",
+      "source_capacity_bytes": 17,
+      "replacement_bytes_including_terminator": 9,
+      "source_control_count": 0,
+      "replacement_control_count": 0,
+      "source_advance_px": 86,
+      "replacement_advance_px": 42,
+      "legacy_game_measure_static_px": 24,
+      "game_measure_result_used_by_these_inspected_windows": false,
+      "original_icon_and_spacing_tokens_preserved": true,
+      "contexts": [
+        {
+          "context": "shop",
+          "origin_px": [
+            211,
+            204
+          ],
+          "runtime_text_ink_bbox_px": [
+            229,
+            204,
+            251,
+            215
+          ],
+          "original_button_icon_pixels_unchanged": true,
+          "source_screenshot_sha256": "fa73b3a435e8993a49c03578408b5e8b28b1964bfb793cd4634b7f215581f6bb",
+          "runtime_screenshot_sha256": "c690414f5e420d26a1dad4c093ce29647b8127e040e35818bfd6c79e3eec6371",
+          "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+        },
+        {
+          "context": "deck_editor",
+          "origin_px": [
+            193,
+            23
+          ],
+          "runtime_text_ink_bbox_px": [
+            211,
+            23,
+            233,
+            34
+          ],
+          "original_button_icon_pixels_unchanged": true,
+          "source_screenshot_sha256": "a6dd67fda34658783eb9ae4d7e102d0c7546f7da7dc4735e9d97b06595f83c95",
+          "runtime_screenshot_sha256": "6fee75618790aff4eccdb5e823db782c3fca1a7e9c8811e0c4503add5dfb29c0",
+          "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+        },
+        {
+          "context": "booster",
+          "origin_px": [
+            20,
+            208
+          ],
+          "runtime_text_ink_bbox_px": [
+            38,
+            208,
+            60,
+            219
+          ],
+          "original_button_icon_pixels_unchanged": true,
+          "source_screenshot_sha256": "4a61fae7a72921af2a2893c757b3c9b65863f2f1328be6ceae8d40f8838d4898",
+          "runtime_screenshot_sha256": "b7e4048e00104245d394a61dffd868500a58632052545d55e4efa4afc3ba0dec",
+          "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+        },
+        {
+          "context": "booster_selection",
+          "origin_px": [
+            20,
+            208
+          ],
+          "runtime_text_ink_bbox_px": [
+            38,
+            208,
+            60,
+            219
+          ],
+          "original_button_icon_pixels_unchanged": true,
+          "source_screenshot_sha256": "985dc5e2da00139cfdf13c13e2d16403b51988bc0395f79c082281cd015ce3cf",
+          "runtime_screenshot_sha256": "0924dd58ef2203981b74a9f0aa536a51fc00eac9f7d21ebb3705d711fb2ccb31",
+          "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+        }
+      ],
+      "status": "runtime_visual_and_pixel_bounds_verified_with_artificial_fixture"
+    }
+  ],
+  "fixture": {
+    "kind": "artificial_condition_fixture_not_normal_play",
+    "sha256": "d8f4fefbe2186ae3c8fae382f3573cdaf3403cd676800535aab7f5f63dca4624",
+    "original_fixture_and_independent_cards_unchanged": true,
+    "seed_money": 10000,
+    "seed_booster_item_91": 1,
+    "seed_card_59_count": 1
+  },
+  "emulator": {
+    "name": "PCSX-Redux",
+    "version": "a74a0587",
+    "build_id": 433,
+    "executable_sha256": "53451b6b313af0b5342d23ff50a60bea283a7268ef68df0f5482d8ade4e8cb3c",
+    "bios": "OpenBIOS",
+    "bios_sha1": "7bc681b350a3ac1e1e95ab27d56775384bcb4801",
+    "mode": "headless, unthrottled, separate process and copied card for each path",
+    "capture_size_px": [
+      320,
+      240
+    ]
+  },
+  "integrity": {
+    "all_other_raw_bytes_unchanged_from_previous": true,
+    "incremental_changed_bytes": 164,
+    "changed_sectors": [
+      2313
+    ],
+    "all_differences_from_original_within_approved_text_or_sector_checksums": true,
+    "original_and_final_modified_sectors_edc_ecc_valid": true,
+    "font_id_647_unchanged": true,
+    "source_archive_sha256": "aaf88ce1aa7492e22ec83722f8cf2b8985c08fac9cc193881dabbbafc4bec94f",
+    "generic_writer_unblocked": false
+  },
+  "runtime": {
+    "source_buy": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "card_shop_open": {
+          "frame": 5601,
+          "stage": 19
+        },
+        "batch04_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch04_buy_list": {
+          "frame": 6994,
+          "stage": 19
+        },
+        "batch04_affordable_card": {
+          "frame": 7609,
+          "stage": 19
+        },
+        "batch04_buy_prompt": {
+          "frame": 8052,
+          "stage": 19
+        },
+        "batch04_no_selected": {
+          "frame": 8295,
+          "stage": 19
+        },
+        "batch04_buy_cancelled": {
+          "frame": 8638,
+          "stage": 19
+        },
+        "batch04_buy_reopened": {
+          "frame": 9081,
+          "stage": 19
+        },
+        "batch04_buy_completed": {
+          "frame": 9524,
+          "stage": 19
+        },
+        "batch04_buy_return_to_field": {
+          "frame": 9610,
+          "stage": 2
+        }
+      },
+      "prompt": {
+        "frame": 8052,
+        "money": 10000,
+        "card_59_count": 1
+      },
+      "after_no": {
+        "frame": 8638,
+        "money": 10000,
+        "card_59_count": 1
+      },
+      "after_buy": {
+        "frame": 9524,
+        "money": 9000,
+        "card_59_count": 2
+      },
+      "normal_input_only": true,
+      "fixture_saved": false,
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1
+    },
+    "test_buy": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "card_shop_open": {
+          "frame": 5601,
+          "stage": 19
+        },
+        "batch04_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch04_buy_list": {
+          "frame": 6994,
+          "stage": 19
+        },
+        "batch04_affordable_card": {
+          "frame": 7609,
+          "stage": 19
+        },
+        "batch04_buy_prompt": {
+          "frame": 8052,
+          "stage": 19
+        },
+        "batch04_no_selected": {
+          "frame": 8295,
+          "stage": 19
+        },
+        "batch04_buy_cancelled": {
+          "frame": 8638,
+          "stage": 19
+        },
+        "batch04_buy_reopened": {
+          "frame": 9081,
+          "stage": 19
+        },
+        "batch04_buy_completed": {
+          "frame": 9524,
+          "stage": 19
+        },
+        "batch04_buy_return_to_field": {
+          "frame": 9610,
+          "stage": 2
+        }
+      },
+      "prompt": {
+        "frame": 8052,
+        "money": 10000,
+        "card_59_count": 1
+      },
+      "after_no": {
+        "frame": 8638,
+        "money": 10000,
+        "card_59_count": 1
+      },
+      "after_buy": {
+        "frame": 9524,
+        "money": 9000,
+        "card_59_count": 2
+      },
+      "normal_input_only": true,
+      "fixture_saved": false,
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1
+    },
+    "source_booster": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch03_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch03_booster_selection": {
+          "frame": 7087,
+          "stage": 19
+        },
+        "batch03_booster_cancelled": {
+          "frame": 7410,
+          "stage": 19
+        },
+        "batch03_booster_reopened": {
+          "frame": 8153,
+          "stage": 19
+        },
+        "batch03_booster_opened": {
+          "frame": 9096,
+          "stage": 19
+        },
+        "batch03_booster_next_card": {
+          "frame": 9339,
+          "stage": 19
+        },
+        "batch03_booster_returned": {
+          "frame": 10112,
+          "stage": 19
+        },
+        "batch03_booster_return_to_field": {
+          "frame": 10150,
+          "stage": 2
+        }
+      },
+      "state_evidence": {
+        "selection": {
+          "frame": 7087,
+          "money": 10000,
+          "booster_item_91": 1,
+          "card_65": 9
+        },
+        "reopened": {
+          "frame": 8153,
+          "money": 10000,
+          "booster_item_91": 1,
+          "card_65": 9
+        },
+        "opened": {
+          "frame": 9096,
+          "money": 10000,
+          "booster_item_91": 0,
+          "card_65": 9
+        },
+        "next_card_change_observed": true
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1,
+      "normal_input_only": true,
+      "fixture_saved": false
+    },
+    "test_booster": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch03_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch03_booster_selection": {
+          "frame": 7087,
+          "stage": 19
+        },
+        "batch03_booster_cancelled": {
+          "frame": 7410,
+          "stage": 19
+        },
+        "batch03_booster_reopened": {
+          "frame": 8153,
+          "stage": 19
+        },
+        "batch03_booster_opened": {
+          "frame": 9096,
+          "stage": 19
+        },
+        "batch03_booster_next_card": {
+          "frame": 9339,
+          "stage": 19
+        },
+        "batch03_booster_returned": {
+          "frame": 10112,
+          "stage": 19
+        },
+        "batch03_booster_return_to_field": {
+          "frame": 10150,
+          "stage": 2
+        }
+      },
+      "state_evidence": {
+        "selection": {
+          "frame": 7087,
+          "money": 10000,
+          "booster_item_91": 1,
+          "card_65": 9
+        },
+        "reopened": {
+          "frame": 8153,
+          "money": 10000,
+          "booster_item_91": 1,
+          "card_65": 9
+        },
+        "opened": {
+          "frame": 9096,
+          "money": 10000,
+          "booster_item_91": 0,
+          "card_65": 9
+        },
+        "next_card_change_observed": true
+      },
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1,
+      "normal_input_only": true,
+      "fixture_saved": false
+    },
+    "source_shop": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch04_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch04_shop_return_to_field": {
+          "frame": 6289,
+          "stage": 2
+        }
+      },
+      "normal_input_only": true,
+      "fixture_saved": false,
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 0
+    },
+    "test_shop": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch04_shop_main": {
+          "frame": 6251,
+          "stage": 19
+        },
+        "batch04_shop_return_to_field": {
+          "frame": 6289,
+          "stage": 2
+        }
+      },
+      "normal_input_only": true,
+      "fixture_saved": false,
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 0
+    },
+    "source_deck": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch04_editor_visible": {
+          "frame": 7715,
+          "stage": 4
+        },
+        "batch04_editor_closed": {
+          "frame": 8338,
+          "stage": 4
+        },
+        "batch04_editor_return_to_party": {
+          "frame": 8357,
+          "stage": 16
+        }
+      },
+      "normal_input_only": true,
+      "fixture_saved": false,
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1
+    },
+    "test_deck": {
+      "checkpoints": {
+        "cold_loaded": {
+          "frame": 4082,
+          "stage": 2
+        },
+        "batch04_editor_visible": {
+          "frame": 7715,
+          "stage": 4
+        },
+        "batch04_editor_closed": {
+          "frame": 8338,
+          "stage": 4
+        },
+        "batch04_editor_return_to_party": {
+          "frame": 8357,
+          "stage": 16
+        }
+      },
+      "normal_input_only": true,
+      "fixture_saved": false,
+      "pad_warning_count": 12,
+      "listener_stack_reset_count": 1
+    }
+  },
+  "before_after_pixel_comparisons": {
+    "buy": {
+      "changed_pixels": 183,
+      "changes_outside_expected_text_bands": 0,
+      "bbox_exclusive": [
+        197,
+        86,
+        217,
+        113
+      ]
+    },
+    "shop": {
+      "changed_pixels": 251,
+      "changes_outside_expected_text_bands": 0,
+      "bbox_exclusive": [
+        229,
+        204,
+        297,
+        215
+      ]
+    },
+    "deck": {
+      "changed_pixels": 251,
+      "changes_outside_expected_text_bands": 0,
+      "bbox_exclusive": [
+        211,
+        23,
+        279,
+        34
+      ]
+    },
+    "booster_selection": {
+      "changed_pixels": 251,
+      "changes_outside_expected_text_bands": 0,
+      "bbox_exclusive": [
+        38,
+        208,
+        106,
+        219
+      ]
+    },
+    "booster_opened": {
+      "changed_pixels": 598,
+      "changes_outside_expected_text_bands": 0,
+      "bbox_exclusive": [
+        20,
+        194,
+        108,
+        219
+      ]
+    }
+  },
+  "private_evidence_directories": {
+    "source_buy": "local/font-recovery/p1-batch04-source-buy-v1",
+    "source_shop": "local/font-recovery/p1-batch04-source-shop-v1",
+    "source_deck": "local/font-recovery/p1-batch04-source-deck-v1",
+    "source_booster": "local/font-recovery/p1-batch03-test-booster-v2",
+    "test_buy": "local/font-recovery/p1-batch04-final-buy-v1",
+    "test_shop": "local/font-recovery/p1-batch04-final-shop-v1",
+    "test_deck": "local/font-recovery/p1-batch04-final-deck-v1",
+    "test_booster": "local/font-recovery/p1-batch04-final-booster-v1"
+  },
+  "limits": [
+    "Only the named source and target windows were observed; other callers and fonts remain unresolved.",
+    "The exact clipping bounds remain unresolved; each translation fits the observed source band.",
+    "Game measurement values are static simulations; the generic writer remains blocked.",
+    "This batch did not perform an after-menu save/cold-load regression.",
+    "No retail BIOS, hardware, or whole-game regression was performed."
+  ]
+}

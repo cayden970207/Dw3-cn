@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "file_id": 52,
+  "table": null,
+  "entry_index": 4,
+  "original_sha256": "7752b3c97ca1a29729d02c898acfc9179c3181c58a8e119f3ac88157a33a5040",
+  "translation": "返回",
+  "translation_reviewed": true,
+  "preserve_original_button_icon_and_spacing": true,
+  "runtime_evidence_report": "reports/SHARE_THIS_p1_batch04_report.json"
+}

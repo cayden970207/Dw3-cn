@@ -6,7 +6,7 @@
   "review": {
     "reviewer": "user",
     "date": "2026-11-07",
-    "method": "User confirmed five isolated glyphs, four card-album glyphs, further menu glyphs, and IDs 931/291/7/577/712 in local previews. After a context comparison the user explicitly confirmed IDs 523/756 as 选/择 and separately confirmed IDs 621/378 as 改/名. In a corrected small preview the user confirmed IDs 347/877/1496 as 已/持/九. ID 837 was rejected as a 九 candidate after the user noted that it resembles 丸; IDs 164, 1489, 1151 and 837 remain unresolved.",
+    "method": "User confirmed five isolated glyphs, four card-album glyphs, further menu glyphs, and IDs 931/291/7/577/712 in local previews. After a context comparison the user confirmed IDs 523/756 as 选/择 and 621/378 as 改/名. The user confirmed IDs 347/877/1496 as 已/持/九. ID 837 was rejected as a 九 candidate after the user noted that it resembles 丸. The user corrected the previous ID 1121 attribution from 回 to 园, confirmed ID 985 as 返, then confirmed ID 96 as 回 on a corrected review page. IDs 164, 1489, 1151 and 837 remain unresolved.",
     "scope": "Visual glyph identity only; no runtime rendering, full character map, or translation approval."
   },
   "glyphs": [
@@ -21,7 +21,7 @@
     {"unicode": "鉴", "glyph_index": 1913, "canonical_code_hex": "f799"},
     {"unicode": "打", "glyph_index": 52, "canonical_code_hex": "f038"},
     {"unicode": "开", "glyph_index": 135, "canonical_code_hex": "f08b"},
-    {"unicode": "回", "glyph_index": 1121, "canonical_code_hex": "f475"},
+    {"unicode": "园", "glyph_index": 1121, "canonical_code_hex": "f475"},
     {"unicode": "有", "glyph_index": 13, "canonical_code_hex": "f011"},
     {"unicode": "包", "glyph_index": 345, "canonical_code_hex": "f161"},
     {"unicode": "买", "glyph_index": 883, "canonical_code_hex": "f383"},
@@ -42,7 +42,9 @@
     {"unicode": "择", "glyph_index": 756, "canonical_code_hex": "f304"},
     {"unicode": "已", "glyph_index": 347, "canonical_code_hex": "f163"},
     {"unicode": "持", "glyph_index": 877, "canonical_code_hex": "f37d"},
-    {"unicode": "九", "glyph_index": 1496, "canonical_code_hex": "f5f0"}
+    {"unicode": "九", "glyph_index": 1496, "canonical_code_hex": "f5f0"},
+    {"unicode": "返", "glyph_index": 985, "canonical_code_hex": "f3e9"},
+    {"unicode": "回", "glyph_index": 96, "canonical_code_hex": "f064"}
   ],
   "mapping_complete": false,
   "runtime_verified": false,

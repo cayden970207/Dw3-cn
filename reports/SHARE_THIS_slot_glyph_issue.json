@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "source_glyph_and_runtime_issue_identified_not_repaired",
+  "source_image_sha256": "c7130c532f42d7c01f393bf067b073a1e4b924607a71e2287b0c3792468777fc",
+  "inspected_test_image_sha256": "632d62e803a31fe9887c8733925663493205512dd9f1a332336c6ae1fd4849bb",
+  "report_reason": "The user reported that the final character of the memory-card slot prompt is unreadable.",
+  "overlay": {
+    "path": "AAA/PRO/STGMCARD.PRO",
+    "sha1": "925dcb2835f6ac18c3c460f2c99c72d87fcd7db2",
+    "reference_commit": "841521ab2071096038316b93b8f778255b85730a",
+    "source_call": "records_language + 0x78, entry 0x1D",
+    "language_state": 2
+  },
+  "text_resource_id": 122,
+  "entry_index": 29,
+  "source_entry_sha256": "97b025b8901599a06cf970ac2b14175ca84511631d10fc5501deaa562f1d4e45",
+  "final_glyph_index": 1213,
+  "contextual_identity_candidate": "槽",
+  "unicode_identity_status": "unresolved_not_added_to_reviewed_mapping",
+  "native_tile_size_px": [
+    12,
+    12
+  ],
+  "native_tile_sha256": "b999d3146d01e91567c58c370d9fc64937a0310062daff1ba1a5acee6f2983f3",
+  "palette_index_counts": {
+    "0": 49,
+    "2": 79,
+    "15": 16
+  },
+  "user_screenshot_sha256": "afcd0849e588d08cbb013b436095bb653220e6bffb6f855931cc9425e1d87cef",
+  "visual_observation": "The supplied screenshot and an enlarged rendering of the native tile were inspected locally; both show densely connected strokes.",
+  "conclusion": "Higher emulator resolution sharpens the sampled edges but cannot recover detail absent from this source bitmap.",
+  "modified_image_or_font": false,
+  "repair_status": "not_attempted_source_font_preserved",
+  "limits": [
+    "The candidate identity is inferred from the phrase and remains unreviewed.",
+    "No alternative glyph, modified font, or runtime font repair was validated.",
+    "The original screenshot, source tile and other game assets remain local."
+  ]
+}

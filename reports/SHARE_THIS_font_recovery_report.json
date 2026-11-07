@@ -391,7 +391,7 @@
       "status": "user_reviewed_visual_identity"
     },
     {
-      "unicode_candidate": "回",
+      "unicode_candidate": "园",
       "glyph_index": 1121,
       "canonical_code_hex": "f475",
       "cell": [
@@ -851,9 +851,51 @@
         12
       ],
       "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "返",
+      "glyph_index": 985,
+      "canonical_code_hex": "f3e9",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        0,
+        0,
+        11,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
+    },
+    {
+      "unicode_candidate": "回",
+      "glyph_index": 96,
+      "canonical_code_hex": "f064",
+      "cell": [
+        12,
+        12
+      ],
+      "advance_pixels": 12,
+      "offset_pixels": [
+        0,
+        0
+      ],
+      "ink_bbox_palette2_exclusive": [
+        1,
+        0,
+        10,
+        12
+      ],
+      "status": "user_reviewed_visual_identity"
     }
   ],
-  "reviewed_chinese_mapping_count": 33,
+  "reviewed_chinese_mapping_count": 35,
   "dialogue_static_chain": {
     "stage_file_id": 471,
     "stage_overlay_sha256": "ae4a57a1f03024d856cde3f7b26b9a8d67922ff6ffadaf9cb374b8ca000cb1d9",
@@ -901,7 +943,7 @@
   "gameplay_verified": false,
   "test_copy_created": true,
   "blockers": [
-    "Only 33 glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
+    "Only 35 glyphs have human-reviewed Unicode identities; other glyphs remain unresolved.",
     "The general variable-width measurement routine disagrees with Chinese drawing; the generic writer remains blocked.",
     "Other menus, dialogue paths, and whole-game regression remain unverified."
   ],
@@ -929,5 +971,20 @@
       "status": "unresolved",
       "evidence": "The user noted this glyph resembles 丸; no identity was confirmed."
     }
-  ]
+  ],
+  "mapping_correction": {
+    "glyph_index": 1121,
+    "previous_identity": "回",
+    "corrected_identity": "园",
+    "user_corrected": true,
+    "actual_return_glyph_index": 96,
+    "prior_translated_batch_entries_used_wrong_glyph": false,
+    "basis": "All earlier batch reviewed target strings were inspected and did not contain 回; original unmodified text was not changed."
+  },
+  "batch04_runtime_evidence": {
+    "report": "SHARE_THIS_p1_batch04_report.json",
+    "test_image_sha256": "632d62e803a31fe9887c8733925663493205512dd9f1a332336c6ae1fd4849bb",
+    "new_entries_verified": 4,
+    "glyphs_985_and_96_rendered_in_tracked_return_windows": true
+  }
 }
