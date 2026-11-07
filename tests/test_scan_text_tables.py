@@ -95,7 +95,7 @@ class TextTableTests(unittest.TestCase):
             table_entries(struct.pack("<III", 2, 8, 12) + b"\x00" * 5)
         with self.assertRaisesRegex(DiscError, "not terminated"):
             table_entries(struct.pack("<II", 1, 8) + b"\x0e")
-        with self.assertRaisesRegex(DiscError, "Invalid container"):
+        with self.assertRaisesRegex(DiscError, "Bad container header"):
             read_text_file(b"\x00" * 16, True)
 
     def test_duplicate_or_overlapping_string_offsets(self):
